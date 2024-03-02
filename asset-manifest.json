@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Charity_org_front/static/css/main.7acaea2f.css",
+    "main.js": "/Charity_org_front/static/js/main.07d3183d.js",
+    "index.html": "/Charity_org_front/index.html",
+    "main.7acaea2f.css.map": "/Charity_org_front/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/Charity_org_front/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
