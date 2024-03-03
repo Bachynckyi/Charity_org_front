@@ -1,0 +1,21 @@
+.container {
+    margin-top: 20px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.news_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 14px 0px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(202, 215, 249);
+    margin-bottom: 10px;
+};

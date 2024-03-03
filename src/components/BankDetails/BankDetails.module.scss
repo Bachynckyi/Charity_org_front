@@ -1,0 +1,19 @@
+.container {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.details_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 14px 0px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(202, 215, 249);
+};

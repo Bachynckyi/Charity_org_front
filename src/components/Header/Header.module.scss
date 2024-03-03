@@ -1,0 +1,31 @@
+.container {
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+};
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+};
+
+
+// .search_container_for_tablet {
+//     display: none;
+
+//     @media screen and (min-width: 640px) {
+//         display: flex;
+//     };
+
+//     @media screen and (min-width: 1024px) {
+//         display: none;
+//     };
+
+//     @media screen and (min-width: 1280px) {
+//         display: flex;
+//     };
+// };
