@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Charity_org_front/static/css/main.eb635c60.css",
+    "main.css": "/Charity_org_front/static/css/main.086a95d8.css",
     "main.js": "/Charity_org_front/static/js/main.b339d5ae.js",
     "static/css/927.ef33f448.chunk.css": "/Charity_org_front/static/css/927.ef33f448.chunk.css",
     "static/js/927.6ce2cb02.chunk.js": "/Charity_org_front/static/js/927.6ce2cb02.chunk.js",
     "static/media/banner.png": "/Charity_org_front/static/media/banner.aee3f57aa9d3ef654502.png",
     "static/media/logo.png": "/Charity_org_front/static/media/logo.a5b6ec65fd94f3bb6224.png",
     "index.html": "/Charity_org_front/index.html",
-    "main.eb635c60.css.map": "/Charity_org_front/static/css/main.eb635c60.css.map",
+    "main.086a95d8.css.map": "/Charity_org_front/static/css/main.086a95d8.css.map",
     "main.b339d5ae.js.map": "/Charity_org_front/static/js/main.b339d5ae.js.map",
     "927.ef33f448.chunk.css.map": "/Charity_org_front/static/css/927.ef33f448.chunk.css.map",
     "927.6ce2cb02.chunk.js.map": "/Charity_org_front/static/js/927.6ce2cb02.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb635c60.css",
+    "static/css/main.086a95d8.css",
     "static/js/main.b339d5ae.js"
   ]
 }
