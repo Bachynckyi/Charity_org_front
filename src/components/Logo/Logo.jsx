@@ -4,7 +4,7 @@ import image from '../../images/logo.png';
 
 const Logo = () => {
   return  (
-  <NavLink to="/" className={scss.nav_logo}>
+  <NavLink to="/">
     <img src={image} alt="Logo" className={scss.logo}></img>
   </NavLink>
   )
