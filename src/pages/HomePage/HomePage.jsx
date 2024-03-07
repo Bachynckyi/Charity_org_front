@@ -1,27 +1,22 @@
 import React from 'react';
 import scss from './HomePage.module.scss';
+import Navigation from 'components/Navigation/Navigation';
 import Banner from 'components/Banner/Banner';
+import Mission from 'components/Mission/Mission';
 import AboutUs from 'components/AboutUs/AboutUs';
-import ButtonSupport from 'components/ButtonSupport/ButtonSupport';
-import ButtonRequest from 'components/ButtonRequest/ButtonRequest';
-import Report from 'components/Report/Report';
-import BankDetails from 'components/BankDetails/BankDetails';
+import Achievements from 'components/Achievements/Achievements';
 import News from 'components/News/News';
 
 const HomePage = () => {
 
   return (
     <div className={scss.container}>
-        <Banner/>
-        <div className={scss.buttons}>
-          <ButtonSupport/>
-          <ButtonRequest/>
-        </div>
-        <AboutUs/>
-        <Report/>
-        <BankDetails/>
-        <News/>
-
+      <Navigation/>
+      <Banner/>
+      <Mission/>
+      <AboutUs/>
+      <Achievements/>
+      <News/>
     </div>
   );
 };

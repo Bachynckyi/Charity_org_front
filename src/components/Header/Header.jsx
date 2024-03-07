@@ -1,18 +1,22 @@
 import React from 'react';
 import scss from '../Header/Header.module.scss';
-import Logo from 'components/Logo/Logo';
-import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher';
-import ButtonMenu from 'components/ButtonMenu/ButtonMenu';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
   return (
     <div className={scss.container}>
-        <Logo/>
-        <div className={scss.buttons}>
-            <LanguageSwitcher/>
-            <ButtonMenu/>
-        </div>
+      <div className={scss.links_support}>
+        <NavLink to="/" className={scss.support_link}>
+          ЗАПРОСИТИ ДОПОМОГУ
+        </NavLink>
+        <span className={scss.text}>/</span>
+        <NavLink to="/" className={scss.request_link}>
+          НАДАТИ ДОПОМОГУ
+        </NavLink>
+      </div>
+      <div className={scss.links_social}>
+      </div>
     </div>
   );
 };

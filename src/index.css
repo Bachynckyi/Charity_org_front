@@ -1,13 +1,36 @@
 @import-normalize; /* bring in normalize.css styles */
+@font-face {
+  font-family: 'OpenSans_Condensed-Bold';
+  src: url(./fonts/OpenSans_Condensed-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenSans_Condensed-ExtraBold';
+  src: url(./fonts/OpenSans_Condensed-ExtraBold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenSans_Condensed-Regular';
+  src: url(./fonts/OpenSans_Condensed-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenSans_Condensed-SemiBold';
+  src: url(./fonts/OpenSans_Condensed-SemiBold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url(./fonts/OpenSans-Regular.woff2) format('woff2');
+}
+
 
 body {
+  width:100vw;
   margin: 0;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+
 }
 
 code {

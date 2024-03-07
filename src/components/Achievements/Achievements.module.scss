@@ -1,0 +1,77 @@
+.container {
+    position: relative;
+    max-width: 1600px;
+    width: 100vw;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #1679D3;
+};
+
+.title {
+    margin-left: 147px;
+    margin-top: 30px;
+    margin-bottom: 36px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+};
+
+.achievements_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+
+    :nth-child(n+2) {
+        margin-left: 73px;
+    };
+};
+
+.achievement_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    width: 128px;
+    height: 85px;
+};
+
+.achievement_box {
+    display: flex;
+    padding: 1px 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FC0;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.achievement_text {
+    color: #FFF;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 0px !important;
+};
+
+.union {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -65px;
+    left: 132px;
+};

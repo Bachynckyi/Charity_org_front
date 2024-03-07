@@ -6,7 +6,8 @@ const Banner = () => {
 
   return (
     <div className={scss.container}>
-        <img src={image} alt="Banner" className={scss.banner}></img>
+        <img src={image} alt="Banner" className={scss.banner}/>
+        <span className={scss.text}>ГОРИЗОНТ ЄДНОСТІ</span>
     </div>
   );
 };

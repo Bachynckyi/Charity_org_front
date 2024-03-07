@@ -1,0 +1,28 @@
+.container {
+    width: 1600px;
+    height: 100px;
+    flex-shrink: 0; 
+    background-color:#FFF;;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0px 251px 0px 141px;
+};
+
+.navigation {
+    :nth-child(n+2) {
+        margin-left: 25px;
+    };
+};
+
+.navigation_item {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+};
