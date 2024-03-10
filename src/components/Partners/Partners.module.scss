@@ -1,0 +1,121 @@
+.container {
+    max-width: 1600px;
+    width: 100vw;
+};
+
+.become_partner {
+    width: 1600px;
+    height: 383px; 
+    background-color:#1679D3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 41px;
+};
+
+.become_title{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.text {
+    width: 716px;
+    color: #FFF;
+    text-align: center;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 41px;
+    margin-bottom: 41px;
+
+    :nth-child(n+2) {
+        margin-left: 22px;
+    }
+};
+
+.input {
+    display: flex;
+    width: 245px;
+    height: 51px;
+    padding: 16px 15px;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    color: #000;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: #000;
+    font-family: "Montserrat-Regular";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &::placeholder {
+        color: #000;
+        font-family: "Montserrat-Regular";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        opacity: 1;
+    }
+};
+
+.button_submit {
+    width: 245px;
+    height: 51px;
+    color: #000;
+    background: #FC0;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    padding: 0px 38px 0px 38px;
+    font-family: "Montserrat-Medium";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+};
+
+.info {
+    width: 579px;
+    color: #FFF;
+    text-align: center;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.partners {
+    padding-left: 147px;
+    margin-bottom: 50px;
+};
+
+.title {
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+};

@@ -2,6 +2,7 @@ import React from 'react';
 import scss from './Mission.module.scss';
 import photo_team from '../../images/Photo_team.png';
 import union from '../../images/Union.png';
+import ellipse_1 from '../../images/ellipse_1.png';
 
 const Mission = () => {
 
@@ -15,6 +16,7 @@ const Mission = () => {
             <img src={photo_team} alt="photo_team" className={scss.photo}/>
             <img src={union} alt="union" className={scss.union}/>
         </div>
+        <img src={ellipse_1} alt="ellipse_1" className={scss.ellipse_1}/>
     </div>
   );
 };

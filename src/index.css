@@ -24,6 +24,24 @@
   src: url(./fonts/OpenSans-Regular.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: 'OpenSans_Condensed-Light';
+  src: url(./fonts/OpenSans_Condensed-Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url(./fonts/Montserrat-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url(./fonts/Montserrat-Regular.woff2) format('woff2');
+}
+
+
+
+
 
 body {
   width:100vw;

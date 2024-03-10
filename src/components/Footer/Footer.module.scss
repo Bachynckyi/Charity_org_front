@@ -1,11 +1,166 @@
 .container {
     max-width: 1600px;
     width: 100vw;
-    height: 567px;
     background-color:#000000;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+};
+
+.main_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 275px;
+};
+
+.left_container {
+    display: flex;
+    flex-direction: column;
+};
+
+.right_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 360px;
+    align-items: flex-end;
+};
+
+.navigation {
+
+    :nth-child(n+2) {
+        margin-left: 23px;
+    };
+};
+
+.navigation_item {
+    color: #fff;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+};
+
+.support_link {
+    margin-top: 20px;
+    width: 166px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    border-radius: 15px;
+    background: #1679D3;  
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+};
+
+.logo_container { 
+    padding: 51px 0px 0px 141px;
+};
+
+.info_container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 147px;
+}
+
+.contacts_item{
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5px;
+    margin-top: 20px;
+};
+
+.link_container {
+    margin: 0px;
+};
+
+.contacts_link {
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+};
+
+.address {
+    width: 275px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.VAT_number {
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0px;
+};
+
+.links_social {
+    display: flex;
+    flex-direction: column;
+};
+
+.links_container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 58px;
+
+    :nth-child(n+2) {
+        margin-left: 10px;
+    }
+};
+
+.social_logos {
+    width: 18px;
+    height: 18px;
+};
+
+.politics_container {
+    border-top: 1px solid #fff;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-    margin: auto;
+    justify-content: flex-start;
+    padding-left: 147px;
+};
+
+.politics {
+    color: #8D8D8D;
+    font-family: "OpenSans_Condensed-Light";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+};
+
+.politics_link {
+    margin-left: 5px;
+    color: #fff;
+    font-family: "OpenSans_Condensed-Light";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 };
