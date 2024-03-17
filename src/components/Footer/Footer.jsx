@@ -45,30 +45,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className={scss.right_container}>
-          <div className={scss.navigation}>
-              <NavLink to="/" className={scss.navigation_item}>
-                  ПРО ФОНД
-              </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
-                  ПРОЄКТИ
-              </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
-                  НОВИНИ
-              </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
-                  КОНТАКТИ
-              </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
-                  ДОКУМЕНТИ
-              </NavLink>
-          </div>
-          <NavLink className={scss.support_link}>
-            Підтримати
-          </NavLink>
-        </div>
       </div>
-
       <div className={scss.politics_container}>
         <span className={scss.politics}>© 2024 Unity Horizon, Ink. All Reserved</span>
         <NavLink style={{textDecoration: 'none'}}>

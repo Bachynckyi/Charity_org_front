@@ -6,6 +6,7 @@ import AboutUs from 'components/AboutUs/AboutUs';
 import Achievements from 'components/Achievements/Achievements';
 import News from 'components/News/News';
 import Partners from 'components/Partners/Partners';
+import SliderPartner from 'components/SliderPartner/SliderPartner';
 
 const HomePage = () => {
 
@@ -16,6 +17,7 @@ const HomePage = () => {
       <AboutUs/>
       <Achievements/>
       <News/>
+      <SliderPartner/>
       <Partners/>
     </div>
   );

@@ -1,0 +1,270 @@
+.container {
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: auto;
+    position: relative;
+};
+
+.tagline_container {
+    padding: 80px 0px 90px 147px;
+    position: relative;
+    margin-top: 150px;
+};
+
+.tagline_title_container {
+    width: 717px;
+    margin-bottom: 20px;
+};
+
+.tagline_title {
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+};
+
+.tagline_title_blue {
+    color: #1679D3;
+    font-family: "OpenSans_Condensed-ExtraBold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+};
+
+.tagline_title_yellow {
+    color: #FC0;
+    font-family: "OpenSans_Condensed-ExtraBold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+};
+
+.tagline_text {
+    width: 717px;
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0px;
+    margin-top: 20px;
+};
+
+.image_stamp {
+    width: 450px;
+    height: 1280px;
+    position: absolute;
+    top: 160px;
+    right: 0;
+};
+
+.memories_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 147px;
+    margin-bottom: 67px;
+};
+
+.memories_container_photo {
+    position: relative;
+    z-index: 1;
+};
+
+.photo_team {
+    display: block;
+    width: 569px;
+    height: 338px;
+};
+
+.union_blue_bottom {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 272px;
+    left: -15px;
+};
+
+.union_blue_top {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -15px;
+    right: -15px;
+    transform: rotate(180deg);
+};
+
+.memories_container_text {
+    width: 657px;
+};
+
+.memories_text {
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 0px;
+};
+
+.memories_text_result {
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 40px;
+    margin-bottom: 0px;
+};
+
+.memories_target {
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+};
+
+.image_ellipse {
+    position: absolute;
+    width: 748px;
+    height: 1279px;
+    bottom: 80px;
+    left: 0px;
+    z-index: 0;
+};
+
+.road {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+};
+
+.road_title {
+    width: 396px;
+    box-sizing: border-box;
+    display: flex;
+    padding: 10px 35px;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #FC0;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 51px;
+};
+
+.road_item {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+};
+
+.road_item_description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 82px;
+};
+
+.road_item_title {
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+};
+
+.road_item_text {
+    width: 569px;
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0px;
+    margin-bottom: 109px;
+};
+
+.road_item_circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #1679D3;
+    border-radius: 50%;
+    z-index: 1;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 120px;
+        background-color: #FC0;
+        bottom: -120px;
+        z-index: 0;
+    };
+};
+
+.road_item_circlelast {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #1679D3;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.road_item_image {
+    width: 50px;
+    height: 50px;
+};
+
+.memories_blue {
+    color: #1679D3;
+    font-family: "KyivTypeSerif-Heavy";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 840;
+    line-height: normal;
+};
+
+.memories_yellow {
+    color: #FC0;
+    font-family: "KyivTypeSerif-Heavy";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 840;
+    line-height: normal;
+};

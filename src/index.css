@@ -39,6 +39,12 @@
   src: url(./fonts/Montserrat-Regular.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: 'KyivTypeSerif-Heavy';
+  src: url(./fonts/KyivTypeSerif-Heavy.woff2) format('woff2');
+}
+
+
 
 
 

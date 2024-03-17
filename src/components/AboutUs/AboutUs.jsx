@@ -1,7 +1,7 @@
 import React from 'react';
 import scss from './AboutUs.module.scss';
 import { NavLink } from 'react-router-dom';
-import union from '../../images/Union.png';
+import union from '../../images/Union_yellow.png';
 
 const AboutUs = () => {
 
@@ -20,7 +20,7 @@ const AboutUs = () => {
           <NavLink className={scss.support_link}>
             Підтримати
           </NavLink>
-          <NavLink className={scss.read_link}>
+          <NavLink className={scss.read_link} to="/about">
             Читати про фонд
           </NavLink>
         </div>

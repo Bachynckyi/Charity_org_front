@@ -1,6 +1,6 @@
 import React from 'react';
 import scss from './Achievements.module.scss';
-import union from '../../images/Union.png';
+import union from '../../images/Union_yellow.png';
 
 const Achievements = () => {
 

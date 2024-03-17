@@ -5,9 +5,6 @@ const Partners = () => {
 
   return (
     <div className={scss.container}>
-        <div className={scss.partners}>
-          <span className={scss.title}>Наші партнери</span>
-        </div>
         <div className={scss.become_partner}>
             <span className={scss.become_title}>Стати партнером</span>
             <span className={scss.text}>Допомагай ЗСУ. Зроби внесок у перемогу, ти зможеш внести частку у перемогу. Пора приймати рішення !</span>

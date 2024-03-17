@@ -35,7 +35,7 @@ const Header = () => {
       <div className={scss.container_navigation}>
           <Logo/>
           <div className={scss.navigation}>
-              <NavLink to="/" className={scss.navigation_item}>
+              <NavLink to="/about" className={scss.navigation_item}>
                   ПРО ФОНД
               </NavLink>
               <NavLink to="/" className={scss.navigation_item}>
