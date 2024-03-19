@@ -8,8 +8,6 @@ const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 const DetailsPage = lazy(() => import('./pages/DetailsPage/DetailsPage'));
 
-
-
 const UserRoutes = () => {
   return (
     <>
@@ -21,8 +19,9 @@ const UserRoutes = () => {
           <Route path="/contacts" element={<ContactsPage/>}></Route>
           <Route path="/details" element={<DetailsPage/>}></Route>
         </Routes>
+        <Footer/>
       </Suspense>
-      <Footer/>
+
     </>
   );
 };
