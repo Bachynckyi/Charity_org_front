@@ -29,7 +29,9 @@ const Partners = () => {
               />
               <button type='submit' className={scss.button_submit}>Відправити форму</button>
             </form>
-            <span className={scss.info}>Якщо ви хочете зв’язатись з нами іншим способом, напишіть нам на hello@unity.horizon.ua</span>
+            <span className={scss.info}>Якщо ви хочете зв’язатись з нами іншим способом, напишіть нам на 
+              <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com"> unityhorizon@gmail.com</a>
+            </span>
         </div>
     </div>
   );

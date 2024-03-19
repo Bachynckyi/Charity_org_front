@@ -10,7 +10,6 @@ const Footer = () => {
 
   return (
     <div className={scss.container}>
-      <div className={scss.main_container}>
         <div className={scss.left_container}>
           <div className={scss.logo_container}>
             <Logo/>
@@ -18,15 +17,15 @@ const Footer = () => {
           <div className={scss.info_container}>
             <div className={scss.contacts_container}>
               <p className={scss.contacts_item}>Адреса</p>
-              <address className={scss.address}>Вулиця Миколи Бажана 14, Київ, Київська область, Україна, 44016</address>
-              <p className={scss.VAT_number}>ЄДРПОУ: 43674951</p>
+              <address className={scss.address}>Україна, 09801, Київська обл., Білоцерківський р-н, місто Тетіїв, вул.Центральна, будинок 105А</address>
+              <p className={scss.VAT_number}>ЄДРПОУ: 45502942</p>
               <p className={scss.contacts_item}>Електронна пошта:</p>
               <p className={scss.link_container}>
-                <a className={scss.contacts_link} href="hello@unity.horizon.ua"> hello@unity.horizon.ua</a>
+                <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com">unityhorizon@gmail.com</a>
               </p>
               <p className={scss.contacts_item}>Телефон:</p>
               <p className={scss.link_container}>
-                <a className={scss.contacts_link} href="tel:+380673538808"> +38 (067) 353 88 08</a>
+                <a className={scss.contacts_link} href="tel:+380937038008">+38 (093) 703 80 08</a>
               </p>
             </div>
             <div className={scss.links_social}>
@@ -44,7 +43,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
       </div>
       <div className={scss.politics_container}>
         <span className={scss.politics}>© 2024 Unity Horizon, Ink. All Reserved</span>

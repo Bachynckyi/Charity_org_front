@@ -20,7 +20,7 @@ const AboutUs = () => {
           <NavLink className={scss.support_link}>
             Підтримати
           </NavLink>
-          <NavLink className={scss.read_link} to="/about">
+          <NavLink to="/about" className={scss.read_link} >
             Читати про фонд
           </NavLink>
         </div>

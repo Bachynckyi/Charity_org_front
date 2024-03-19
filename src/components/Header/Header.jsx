@@ -44,13 +44,13 @@ const Header = () => {
               <NavLink to="/" className={scss.navigation_item}>
                   НОВИНИ
               </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
+              <NavLink to="/contacts" className={scss.navigation_item}>
                   КОНТАКТИ
               </NavLink>
               <NavLink to="/" className={scss.navigation_item}>
                   ДОКУМЕНТИ
               </NavLink>
-              <NavLink to="/" className={scss.navigation_item}>
+              <NavLink to="/details" className={scss.navigation_item}>
                   РЕКВІЗИТИ
               </NavLink>
           </div>

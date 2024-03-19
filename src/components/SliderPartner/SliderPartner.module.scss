@@ -17,6 +17,29 @@
     line-height: normal;
 };
 
+.slider_container {
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 147px;
+    padding-right: 147px;
+};
+
+
+.slide_res {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 49px 0px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 12px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+};
+
 .image {
     width: 380px;
     height: 152px;

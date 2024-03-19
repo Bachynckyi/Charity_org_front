@@ -1,0 +1,174 @@
+.container {
+    max-width: 1600px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+};
+
+.title_container {
+    height: 248px;
+    background-color: #1679D3;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.title {
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.content_container {
+    padding: 80px 147px 72px 147px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+};
+
+.contacts_container {
+    width: 569px;
+};
+
+.contact_name_first {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.contact_name {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.address {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.contact_link {
+    color: #1679D3;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    margin: 0px;
+};
+
+.form {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 630px;
+    padding: 0px 110px 0px 20px;
+};
+
+.input {
+    display: flex;
+    width: 500px;
+    padding: 17px 16px;
+    justify-content: center;
+    align-items: center;
+    background: #1679D3;
+    color: #fff;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 500px;
+    font-family: "OpenSans-Regular";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    
+
+    &::placeholder {
+        color: #fff;
+        font-family: "OpenSans-Regular";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        opacity: 1;
+    };
+};
+
+.button_submit {
+    width: 153px;
+    color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-family: "OpenSans-Regular";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    border-radius: 500px;
+    background: #FC0;
+    border: none;
+    outline: none;
+};
+
+.form_title {
+    color: #000;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 33.6px;
+    margin-bottom: 40px;
+};
+
+.textarea {
+    width: 500px;
+    height: 140px;
+    box-sizing: border-box;
+    background-color: #1679D3;
+    border-radius: 25px;
+    padding: 11px 15px;
+    outline: none;
+    border: none;
+    color: #FFF;
+    font-family: "OpenSans-Regular";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 1;
+    margin-bottom: 20px;
+    resize: none;
+
+    &::placeholder {
+        color: #FFF;
+        font-family: "OpenSans-Regular";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        opacity: 1;
+    };
+};

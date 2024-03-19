@@ -1,0 +1,84 @@
+.container {
+    max-width: 1600px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+};
+
+.title_container {
+    max-width: 1600px;
+    width: 100vw;
+    height: 248px;
+    background-color: #1679D3;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.title {
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.content_container {
+    padding: 80px 147px 72px 147px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+};
+
+.contacts_container {
+    width: 569px;
+};
+
+.contact_name_first {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.contact_name {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.address {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.contact_link {
+    color: #1679D3;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    margin: 0px;
+};
