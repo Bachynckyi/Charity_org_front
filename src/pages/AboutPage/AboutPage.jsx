@@ -2,7 +2,7 @@ import React from 'react';
 import scss from './AboutPage.module.scss';
 import Partners from 'components/Partners/Partners';
 import stamp from '../../images/Stamp.png';
-import photo_team from '../../images/Photo_team.png';
+import photo_team from '../../images/Photo_team.jpg';
 import union from '../../images/Union_blue.png';
 import ellipse from '../../images/ellipse_2.png'
 import phone from '../../images/phone.svg';

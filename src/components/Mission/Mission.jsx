@@ -1,6 +1,6 @@
 import React from 'react';
 import scss from './Mission.module.scss';
-import photo_team from '../../images/Photo_team.png';
+import photo_team from '../../images/Photo_team.jpg';
 import union from '../../images/Union_yellow.png';
 import ellipse_1 from '../../images/ellipse_1.png';
 
