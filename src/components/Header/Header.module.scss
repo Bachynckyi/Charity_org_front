@@ -69,12 +69,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     box-sizing: border-box;
     padding: 0px 147px 0px 141px;
 };
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .navigation {
-    margin-left: 281px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
     :nth-child(n+2) {
         margin-left: 25px;
@@ -91,8 +102,29 @@
     text-decoration: none;
 };
 
+.navigation_item_active {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #1679D3;
+    };
+};
+
 .language_container {
-    margin-left: 47px;
+    margin-left: 46px;
 
     :nth-child(n+2) {
         margin-left: 10px;

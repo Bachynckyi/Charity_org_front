@@ -29,56 +29,118 @@
     line-height: normal;
 };
 
-.content_container {
-    padding: 80px 147px 72px 147px;
+.details_container {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0px 63px 147px;
+};
+
+.payment_details {
+    margin-bottom: 20px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.input_container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
 };
 
-.contacts_container {
-    width: 569px;
+.input_option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    position: relative;
+
+    &:nth-child(n+2) {
+        margin-left: 30px;
+    };
 };
 
-.contact_name_first {
-    margin-top: 0px;
-    margin-bottom: 5px;
+.radio_button {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;  
+};
+
+.custom_button {
+    display: flex;
+    box-sizing: border-box;
+    width: 56px;
+    height: 53px;
+    border: 3px solid #1679D3;
+};
+
+.custom_button::before {
+    content: '';
+    position: absolute;
+    display: none;
+    width: 53px;
+    height: 50px;
+    background-color: #1679D3;
+};
+
+.radio_button:checked + .custom_button::before {
+    display: flex;
+};
+
+.input_name {
+    position: absolute;
     color: #000;
-    font-family: "OpenSans_Condensed-Bold";
+    font-family: "OpenSans_Condensed-SemiBold";
     font-size: 24px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
 };
 
-.contact_name {
-    margin-top: 30px;
-    margin-bottom: 5px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Bold";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.radio_button:checked ~ .input_name {
+    color: #FFF;
 };
 
-.address {
+
+
+
+
+
+
+
+
+
+
+.name_container {
+    display: flex;
+    flex-direction: column;
+};
+
+.name_company {
+    width: 717px;
+    margin-top: 22px;
     color: #000;
     font-family: "OpenSans_Condensed-Regular";
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 };
 
-.contact_link {
-    color: #1679D3;
+.name_text {
+    margin-top: 40px;
+    color: #000;
     font-family: "OpenSans_Condensed-Regular";
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-decoration: none;
-    margin: 0px;
 };
