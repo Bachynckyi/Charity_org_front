@@ -8,7 +8,7 @@ import phone from '../../images/phone.svg';
 import handshake from '../../images/handshake.svg';
 import star from '../../images/star.svg';
 import person_add from '../../images/person_add.svg';
-import stamp from '../../images/stamp.png';
+import stamp from '../../images/stamp_image.png';
 
 const AboutPage = () => {
 
