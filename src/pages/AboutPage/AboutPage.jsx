@@ -1,7 +1,6 @@
 import React from 'react';
 import scss from './AboutPage.module.scss';
 import Partners from 'components/Partners/Partners';
-import stamp from '../../images/stamp.png';
 import photo_team from '../../images/Photo_team.jpg';
 import union from '../../images/Union_blue.png';
 import ellipse from '../../images/ellipse_2.png'
@@ -9,6 +8,7 @@ import phone from '../../images/phone.svg';
 import handshake from '../../images/handshake.svg';
 import star from '../../images/star.svg';
 import person_add from '../../images/person_add.svg';
+import stamp from '../../images/stamp.png';
 
 const AboutPage = () => {
 
