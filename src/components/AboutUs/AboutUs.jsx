@@ -2,6 +2,7 @@ import React from 'react';
 import scss from './AboutUs.module.scss';
 import { NavLink } from 'react-router-dom';
 import union from '../../images/Union_yellow.png';
+
 const AboutUs = () => {
 
   return (
