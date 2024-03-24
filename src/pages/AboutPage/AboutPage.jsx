@@ -8,7 +8,7 @@ import phone from '../../images/phone.svg';
 import handshake from '../../images/handshake.svg';
 import star from '../../images/star.svg';
 import person_add from '../../images/person_add.svg';
-import stamp from '../../images/stamp.png';
+// import stamp from '../../images/stamp.png';
 
 const AboutPage = () => {
 
@@ -85,7 +85,7 @@ const AboutPage = () => {
             <p className={scss.memories_text_result}>Загалом, цілі фонду спрямовані на створення кращого майбутнього для тих, хто потребує допомоги, і сприяння єднанню громадян навколо важливих гуманітарних цінностей.</p>
         </div>
       </div>
-      <img src={stamp} alt="stamp" className={scss.image_stamp}/>
+      {/* <img src={stamp} alt="stamp" className={scss.image_stamp}/> */}
       <img src={ellipse} alt="ellipse" className={scss.image_ellipse}/>
       <Partners/>
     </div>
