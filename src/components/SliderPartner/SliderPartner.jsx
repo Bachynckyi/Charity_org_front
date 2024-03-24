@@ -1,10 +1,27 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css/bundle';
-import image from '../../images/NP.png';
 import scss from './SliderPartner.module.scss';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import CustomSlide from './CustomSlide/CustomSlide';
+import SliderButtonNext from './SliderButtons/SliderButtonNext';
+import SliderButtonPrev from './SliderButtons/SliderButtonPrev';
 
-const SliderPatner = () => {
+const SliderPartner = () => {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <SliderButtonNext/>,
+        prevArrow: <SliderButtonPrev/>,
+        lazyLoad: true,
+        swipeToSlide: true,
+        focusOnSelect: true,
+        pauseOnHover: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+      };
 
     return (
         <div className={scss.container}>
@@ -12,32 +29,17 @@ const SliderPatner = () => {
                 <span className={scss.title}>Наші партнери</span>
             </div>
             <div className={scss.slider_container}>
-                <Swiper
-                    modules={[Navigation, Pagination]}
-                    navigation
-                    spaceBetween={30}
-                    slidesPerView={3}
-                    loop={true}
-                    >
-                    
-                    <SwiperSlide className={scss.slide_res}>
-                        <img src={image} alt='partners' className={scss.image}/>
-                    </SwiperSlide>
-                    <SwiperSlide className={scss.slide_res}>
-                        <img src={image} alt='partners' className={scss.image}/>
-                    </SwiperSlide>
-                    <SwiperSlide className={scss.slide_res}>
-                        <img src={image} alt='partners' className={scss.image}/>
-                    </SwiperSlide>
-                    <SwiperSlide className={scss.slide_res}>
-                        <img src={image} alt='partners' className={scss.image}/>
-                    </SwiperSlide>
-                </Swiper>
-
+                <Slider {...settings}>
+                    <CustomSlide idex={1}/>
+                    <CustomSlide idex={2}/>
+                    <CustomSlide idex={3}/>
+                    <CustomSlide idex={4}/>
+                    <CustomSlide idex={5}/>
+                </Slider>
             </div>
     </div>
 
     );
   };
   
-  export default SliderPatner;
+  export default SliderPartner;

@@ -1,7 +1,6 @@
 .container {
     max-width: 1600px;
     width: 1600px;
-    width: 100vw;
     flex-shrink: 0;
     background-color: #fff;
     display: flex;
@@ -31,6 +30,7 @@
     margin: 0px;
     padding: 0px;
     list-style-type: none;
+    z-index: 1;
 };
 
 .news_item {

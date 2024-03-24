@@ -1,6 +1,6 @@
 .container {
     max-width: 1600px;
-    width: 100vw;
+    width: 1600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,15 +109,37 @@
     color: #FFF;
 };
 
+.details_name_IBAN {
+    margin-top: 40px;
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+};
 
+.details_name_VAT {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 28px;
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 
-
-
-
-
-
-
-
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: #FC0;
+        width: 487px;
+        height: 1px;
+        bottom: -28px;
+        left: 0px;
+    };
+};
 
 .name_container {
     display: flex;
