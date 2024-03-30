@@ -1,34 +1,109 @@
 import React from 'react';
 import scss from './Partners.module.scss';
+import { useState, useCallback } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { isLoading } from '../../redux/partners/partners-selectors';
+import {newRequestPartner} from '../../redux/partners/partners-operations';
+import Loader from 'components/Loader/Loader';
+import iconfail from '../../images/icon_fail.svg';
 
 const Partners = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector(isLoading);
+  const todayDate = new Date();
+  const date = todayDate.toLocaleString();
+  const [dispatchingStatus, setDispatchingStatus] = useState(null);
+
+  const [request, setRequest] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    date: date,
+  });
+
+  const handleChange = useCallback(({target}) => {
+      const {name, value} = target;
+      setRequest(prevState => {
+        return {...prevState, [name]: value}
+      })
+  }, [setRequest]);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    dispatch(newRequestPartner(request))
+      .then(response => setDispatchingStatus(response.payload.request.status));
+  };
+
+  const refresh = () => {
+    setDispatchingStatus(null);
+    setRequest({
+      name: "",
+      phone: "",
+      email: "",
+      date: date,
+    })
+  };
 
   return (
     <div className={scss.container}>
         <div className={scss.become_partner}>
             <span className={scss.become_title}>Стати партнером</span>
             <span className={scss.text}>Допомагай ЗСУ. Зроби внесок у перемогу, ти зможеш внести частку у перемогу. Пора приймати рішення !</span>
-            <form className={scss.form}>
-              <input 
-                className={scss.input}
-                required
-                id='name'
-                placeholder="Ваше ім'я *"
-              />
-              <input 
-                className={scss.input}
-                required
-                id='phone'
-                placeholder="Телефон *"
-              />
-              <input 
-                className={scss.input}
-                required
-                id='email'
-                placeholder="Електронна пошта *"
-              />
-              <button type='submit' className={scss.button_submit}>Відправити форму</button>
-            </form>
+            {loading === true ? 
+                (<div className={scss.loader_container}>
+                  <Loader/>
+                </div>) : (
+            <>
+              {dispatchingStatus === null ? (
+                <form className={scss.form} onSubmit={submitForm}>
+                  <input 
+                    className={scss.input}
+                    required
+                    id='name'
+                    name='name'
+                    minLength="3"
+                    placeholder="Ваше ім'я *"
+                    value={request.name}
+                    onChange={handleChange}
+                    type='text'
+                  />
+                  <input 
+                    className={scss.input}
+                    required
+                    id='phone'
+                    name='phone'
+                    placeholder="Телефон *"
+                    value={request.phone}
+                    onChange={handleChange}
+                    type='tel'
+                    minLength="7"
+                  />
+                  <input 
+                    className={scss.input}
+                    required
+                    id='email'
+                    name='email'
+                    placeholder="Електронна пошта *"
+                    value={request.email}
+                    onChange={handleChange}
+                    type='email'
+                  />
+                  <button type='submit' className={scss.button_submit}>Відправити форму</button>
+                </form>
+              ) : 
+              (<>
+                {dispatchingStatus === 201 ? (
+                  <div className={scss.request_container}>
+                      <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                  </div>
+                ) : (
+                  <div className={scss.request_container_fail} onClick={refresh}>
+                      <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
+                      <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span>
+                  </div>
+                )}
+                </>)}
+            </>)}
             <span className={scss.info}>Якщо ви хочете зв’язатись з нами іншим способом, напишіть нам на 
               <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com"> unityhorizon@gmail.com</a>
             </span>

@@ -1,0 +1,1 @@
+export const isLoading = ({ partners }) => partners.loading;
