@@ -8,6 +8,14 @@ import Logo from 'components/Logo/Logo';
 
 const Header = () => {
 
+  const scrollToTop = () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <div className={scss.container}>
       <div className={scss.container_header}>
@@ -36,25 +44,25 @@ const Header = () => {
           <Logo/>
           <div className={scss.wrapper}>
             <div className={scss.navigation}>
-                <NavLink to="/" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ГОЛОВНА
                 </NavLink>
-                <NavLink to="/about" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/about" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ПРО ФОНД
                 </NavLink>
-                <NavLink to="/projects" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/projects" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ПРОЄКТИ
                 </NavLink>
-                <NavLink to="/news" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/news" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     НОВИНИ
                 </NavLink>
-                <NavLink to="/contacts" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/contacts" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     КОНТАКТИ
                 </NavLink>
-                <NavLink to="documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ДОКУМЕНТИ
                 </NavLink>
-                <NavLink to="/details" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item}>
+                <NavLink to="/details" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     РЕКВІЗИТИ
                 </NavLink>
             </div>

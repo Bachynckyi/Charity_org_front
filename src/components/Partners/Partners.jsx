@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { isLoading } from '../../redux/partners/partners-selectors';
 import {newRequestPartner} from '../../redux/partners/partners-operations';
 import Loader from 'components/Loader/Loader';
-import iconfail from '../../images/icon_fail.svg';
+import iconfail from '../../images/icon_fail_yellow.svg';
 
 const Partners = () => {
   const dispatch = useDispatch();
@@ -66,6 +66,7 @@ const Partners = () => {
                     value={request.name}
                     onChange={handleChange}
                     type='text'
+                    autoComplete='off'
                   />
                   <input 
                     className={scss.input}
@@ -77,6 +78,7 @@ const Partners = () => {
                     onChange={handleChange}
                     type='tel'
                     minLength="7"
+                    autoComplete='off'
                   />
                   <input 
                     className={scss.input}
@@ -87,6 +89,7 @@ const Partners = () => {
                     value={request.email}
                     onChange={handleChange}
                     type='email'
+                    autoComplete='off'
                   />
                   <button type='submit' className={scss.button_submit}>Відправити форму</button>
                 </form>

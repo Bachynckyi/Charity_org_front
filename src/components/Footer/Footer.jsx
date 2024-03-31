@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
       </div>
       <div className={scss.politics_container}>
-        <span className={scss.politics}>© 2024 Unity Horizon, Ink. All Reserved</span>
+        <span className={scss.politics}>© 2024 Unity Horizon, Ink. All Rights Reserved</span>
         <NavLink style={{textDecoration: 'none'}}>
           <span className={scss.politics_link}>Privacy Policy</span>
         </NavLink>

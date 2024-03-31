@@ -1,0 +1,1 @@
+export const isLoading = ({ feedback }) => feedback.loading;
