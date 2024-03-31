@@ -41,7 +41,9 @@ const Header = () => {
         </div>
       </div>
       <div className={scss.container_navigation}>
-          <Logo/>
+          <NavLink to="/" onClick={scrollToTop}>
+            <Logo/>
+          </NavLink>
           <div className={scss.wrapper}>
             <div className={scss.navigation}>
                 <NavLink to="/" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>

@@ -3,7 +3,7 @@ import scss from './AboutPage.module.scss';
 import Partners from 'components/Partners/Partners';
 import photo_team from '../../images/Photo_team.jpg';
 import union from '../../images/Union_blue.png';
-import ellipse from '../../images/ellipse_2.png'
+import ellipse from '../../images/ellipse_2.png';
 import phone from '../../images/phone.svg';
 import handshake from '../../images/handshake.svg';
 import star from '../../images/star.svg';

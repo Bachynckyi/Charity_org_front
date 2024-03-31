@@ -148,9 +148,11 @@
     box-sizing: border-box;
     background-color: #1679D3;
     border-radius: 25px;
-    padding: 11px 15px;
     outline: none;
-    border: none;
+    border-right: 18px solid #1679D3;
+    border-top: 11px solid #1679D3;
+    border-left: 15px solid #1679D3;
+    border-bottom: 11px solid #1679D3;
     color: #FFF;
     font-family: "OpenSans-Regular";
     font-size: 15px;
@@ -170,6 +172,20 @@
         line-height: normal;
         opacity: 1;
     };
+};
+
+.textarea::-webkit-scrollbar {
+    width: 10px;
+};
+   
+.textarea::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+};
+   
+.textarea::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background-color: #FC0;
 };
 
 .loader_container {

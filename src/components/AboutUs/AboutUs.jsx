@@ -5,6 +5,14 @@ import union from '../../images/Union_yellow.png';
 
 const AboutUs = () => {
 
+  const scrollToTop = () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={scss.container}>
         <div className={scss.description}>
@@ -20,7 +28,7 @@ const AboutUs = () => {
           <NavLink className={scss.support_link}>
             Підтримати
           </NavLink>
-          <NavLink to="/about" className={scss.read_link} >
+          <NavLink to="/about" className={scss.read_link} onClick={scrollToTop}>
             Читати про фонд
           </NavLink>
         </div>
