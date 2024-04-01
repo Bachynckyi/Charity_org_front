@@ -1,6 +1,6 @@
 import React from 'react';
 import scss from '../Header/Header.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import instagram_logo from '../../images/instagram.svg';
 import facebook_logo from '../../images/facebook.svg';
 import linkedin_logo from '../../images/linkedin.svg';
@@ -14,7 +14,7 @@ const Header = () => {
       left: 0,
       behavior: "smooth",
     });
-  }
+  };
 
   return (
     <div className={scss.container}>
@@ -29,15 +29,15 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={scss.links_social}>
-          <NavLink className={scss.social_logos}>
-            <img src={instagram_logo} alt='instagram_logo' />
-          </NavLink>
-          <NavLink className={scss.social_logos}>
+          <Link className={scss.social_logos} to="https://www.instagram.com/unity_horizon_charity_fund/">
+            <img src={instagram_logo} alt='instagram_logo'/>
+          </Link>
+          <Link className={scss.social_logos} to="https://www.facebook.com/profile.php?id=61557831786093">
             <img src={facebook_logo} alt='facebook_logo'/>
-          </NavLink>
-          <NavLink className={scss.social_logos}>
+          </Link>
+          <Link className={scss.social_logos} to="https://www.linkedin.com/in/unity-horizon-5523b9301">
             <img src={linkedin_logo} alt='linkedin_logo'/>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div className={scss.container_navigation}>

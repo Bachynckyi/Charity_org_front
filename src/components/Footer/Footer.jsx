@@ -1,18 +1,28 @@
 import React from 'react';
 import scss from './Footer.module.scss';
 import Logo from 'components/Logo/Logo';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import instagram_logo from '../../images/instagram.svg';
 import facebook_logo from '../../images/facebook.svg';
 import linkedin_logo from '../../images/linkedin.svg';
 
 const Footer = () => {
 
+  const scrollToTop = () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={scss.container}>
         <div className={scss.left_container}>
           <div className={scss.logo_container}>
-            <Logo/>
+            <NavLink to="/" onClick={scrollToTop}>
+              <Logo/>
+            </NavLink>
           </div>
           <div className={scss.info_container}>
             <div className={scss.contacts_container}>
@@ -31,15 +41,15 @@ const Footer = () => {
             <div className={scss.links_social}>
               <span className={scss.contacts_item}>Соціальні мережі</span>
               <div className={scss.links_container}>
-                <NavLink>
+                <Link to="https://www.instagram.com/unity_horizon_charity_fund/">
                   <img src={instagram_logo} alt='instagram_logo' className={scss.social_logos}/>
-                </NavLink>
-                <NavLink>
+                </Link>
+                <Link to="https://www.facebook.com/profile.php?id=61557831786093">
                   <img src={facebook_logo} alt='facebook_logo'/>
-                </NavLink>
-                <NavLink>
+                </Link>
+                <Link to="https://www.linkedin.com/in/unity-horizon-5523b9301">
                   <img src={linkedin_logo} alt='linkedin_logo'/>
-                </NavLink>
+                </Link>
               </div>
             </div>
           </div>
