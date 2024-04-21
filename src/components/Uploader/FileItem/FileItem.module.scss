@@ -1,0 +1,38 @@
+.file_item {
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 3px solid #1679D3;
+    border-radius: 12px;
+};
+
+.document_icon {
+    width: 24px;
+    height: 24px;
+    color: #1679D3;
+};
+
+.name {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.delete_icon {
+    width: 24px;
+    height: 24px;
+    color: #000;
+    cursor: pointer;
+    margin-left: 30px;
+
+    &:hover {
+        color: red;
+    };
+};

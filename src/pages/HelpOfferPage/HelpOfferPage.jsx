@@ -3,7 +3,8 @@ import scss from "./HelpOfferPage.module.scss";
 import { Link } from 'react-router-dom';
 import BankDetails from 'components/BankDetails/BankDetails';
 import ContactForm from 'components/ContactForm/ContactForm';
-import HelpRequestOrganization from 'components/HelpRequests/HelpRequestOrganization/HelpRequestOrganization';
+import OfferPartner from 'components/OfferPartner/OfferPartner';
+
 
 const HelpOfferPage = () => {
     const [typeHelp, setTypeHelp] = useState("payment");
@@ -60,7 +61,7 @@ const HelpOfferPage = () => {
                 </div>
                 <Link className={scss.link_mono} to="#">МОНОБАНКА</Link>
                 {typeHelp === "payment" && (<BankDetails/>)}
-                {typeHelp === "becomePartner" && (<HelpRequestOrganization/>)}
+                {typeHelp === "becomePartner" && (<OfferPartner/>)}
                 {typeHelp === "otherHelp" && (<ContactForm/>)}
             </form>
 

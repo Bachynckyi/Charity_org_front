@@ -1,0 +1,49 @@
+.form_files {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+};
+
+.button_input_file {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 12px;
+    border: 3px solid #1679D3;
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #1679D3;
+        color: #FFF;
+    };
+};
+
+.input_file {
+    position: absolute;
+    opacity: 0;
+};
+
+.text_container {
+    margin-bottom: 10px;
+};
+
+.text {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};

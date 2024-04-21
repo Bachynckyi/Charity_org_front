@@ -1,5 +1,7 @@
 import React, { useState, useCallback }from 'react';
 import scss from "./HelpRequestOrganization.module.scss";
+import Uploader from 'components/Uploader/Uploader';
+import FileList from 'components/Uploader/FileList/FileList';
 
 const initialState = {
     organization: "",
@@ -16,17 +18,22 @@ const initialState = {
 
 const HelpRequestOrganization = () => {
     const [data, setData] = useState({...initialState});
+    const [files, setFiles] = useState([]);
+
+    const removeFile = (filename) => {
+        setFiles(files.filter(file => file.name !== filename));
+    };
 
     const onChangeForm = useCallback(({ target }) => {
         const {name, value } = target;
-            setData(prevState => {
-                return {...prevState, [name]: value};
-            })
+        setData(prevState => {
+            return {...prevState, [name]: value};
+        })
     },[]);
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        console.log(data)
+        console.log(files)
     };
 
     return (
@@ -137,15 +144,9 @@ const HelpRequestOrganization = () => {
                     />
                 </label>
             </div>
-            <div className={scss.form_files}>
-                <label htmlFor="file" className={scss.button_input_file}>Завантажити файл</label>
-                <input
-                    className={scss.input_file}
-                    type='file'
-                    name="file"
-                    id='file'
-                    accept="image/png, image/jpeg, image/jpg .doc, .pdf, .docx, .xlsx, .xls"
-                />
+            <div className={scss.uploader_wrapper}>
+                <Uploader files={files} setFiles={setFiles} removeFile={removeFile}/>
+                <FileList files={files} removeFile={removeFile}/>
             </div>
             <div className={scss.form_checkbox}>
                 <label>

@@ -1,9 +1,10 @@
 import React, { useState, useCallback }from 'react';
-import scss from "./HelpRequestIndividual.module.scss";
+import scss from "./OfferPartner.module.scss";
 import Uploader from 'components/Uploader/Uploader';
 import FileList from 'components/Uploader/FileList/FileList';
 
 const initialState = {
+    organization: "",
     name: "",
     email: "",
     phone: "",
@@ -15,7 +16,7 @@ const initialState = {
     date: "",
 };
 
-const HelpRequestIndividual = () => {
+const OfferPartner = () => {
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
 
@@ -37,7 +38,22 @@ const HelpRequestIndividual = () => {
 
     return (
         <form className={scss.form_container} onSubmit={onSubmitForm}>
-            <div className={scss.form_individual}>
+            <div className={scss.form_organization}>
+                <label className={scss.form_label}>
+                    <span className={scss.form_input_name}>Назва організіції</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='organization'
+                            placeholder="Введіть назву організації, яка запрошує допомогу"
+                            name='organization'
+                            minLength="3"
+                            type='text'
+                            autoComplete='off'
+                            value={data.organization}
+                            onChange={onChangeForm}
+                        />
+                </label>
                 <label className={scss.form_label}>
                     <span className={scss.form_input_name}>Контактна особа</span>
                     <input 
@@ -152,4 +168,4 @@ const HelpRequestIndividual = () => {
     );
 };
 
-export default HelpRequestIndividual; 
+export default OfferPartner; 
