@@ -41,7 +41,7 @@ const Footer = () => {
             <div className={scss.links_social}>
               <span className={scss.contacts_item}>Соціальні мережі</span>
               <div className={scss.links_container}>
-                <Link to="https://www.instagram.com/unity_horizon_charity_fund/">
+                <Link to="https://www.instagram.com/unity.horizon/">
                   <img src={instagram_logo} alt='instagram_logo' className={scss.social_logos}/>
                 </Link>
                 <Link to="https://www.facebook.com/profile.php?id=61557831786093">

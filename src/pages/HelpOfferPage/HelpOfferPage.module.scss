@@ -1,0 +1,130 @@
+.container {
+    max-width: 1600px;
+    width: 1600px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+};
+
+.title_container {
+    max-width: 1600px;
+    width: 100vw;
+    height: 248px;
+    background-color: #1679D3;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.title {
+    margin: 0px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    padding: 65px 147px 70px 147px;
+    box-sizing: border-box;
+};
+
+.form_title {
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+};
+
+.form_selector {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 30px;
+};
+
+.input_option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    position: relative;
+
+    &:nth-child(n+2) {
+        margin-left: 30px;
+    };
+};
+
+.radio_button {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;  
+};
+
+.custom_button {
+    display: flex;
+    box-sizing: border-box;
+    width: 302px;
+    height: 53px;
+    border: 3px solid #1679D3;
+    border-radius: 12px;
+};
+
+.custom_button::before {
+    left: 0px;
+    top: 0px;
+    content: '';
+    position: absolute;
+    display: none;
+    width: 302px;
+    height: 53px;
+    background-color: #1679D3;
+    border-radius: 12px;
+};
+
+.radio_button:checked + .custom_button::before {
+    display: flex;
+};
+
+.input_name {
+    position: absolute;
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+};
+
+.radio_button:checked ~ .input_name {
+    color: #FFF;
+};
+
+.link_mono {
+    width: 198px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px 40px;
+    border-radius: 12px;
+    background-color: #1679D3;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    margin-bottom: 30px;
+};

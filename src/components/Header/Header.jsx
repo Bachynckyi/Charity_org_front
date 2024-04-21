@@ -5,6 +5,7 @@ import instagram_logo from '../../images/instagram.svg';
 import facebook_logo from '../../images/facebook.svg';
 import linkedin_logo from '../../images/linkedin.svg';
 import Logo from 'components/Logo/Logo';
+import menu_icon from '../../images/menu_icon.svg';
 
 const Header = () => {
 
@@ -20,16 +21,12 @@ const Header = () => {
     <div className={scss.container}>
       <div className={scss.container_header}>
         <div className={scss.links_support}>
-          <NavLink to="/" className={scss.support_link}>
-            ЗАПРОСИТИ ДОПОМОГУ
-          </NavLink>
+          <NavLink to="/request" className={scss.support_link} onClick={scrollToTop}>ЗАПРОСИТИ ДОПОМОГУ</NavLink>
           <span className={scss.text}>/</span>
-          <NavLink to="/" className={scss.request_link}>
-            НАДАТИ ДОПОМОГУ
-          </NavLink>
+          <NavLink to="/offer" className={scss.request_link} onClick={scrollToTop}>НАДАТИ ДОПОМОГУ</NavLink>
         </div>
         <div className={scss.links_social}>
-          <Link className={scss.social_logos} to="https://www.instagram.com/unity_horizon_charity_fund/">
+          <Link className={scss.social_logos} to="https://www.instagram.com/unity.horizon/">
             <img src={instagram_logo} alt='instagram_logo'/>
           </Link>
           <Link className={scss.social_logos} to="https://www.facebook.com/profile.php?id=61557831786093">
@@ -41,9 +38,7 @@ const Header = () => {
         </div>
       </div>
       <div className={scss.container_navigation}>
-          <NavLink to="/" onClick={scrollToTop}>
-            <Logo/>
-          </NavLink>
+          <NavLink to="/" onClick={scrollToTop}><Logo/></NavLink>
           <div className={scss.wrapper}>
             <div className={scss.navigation}>
                 <NavLink to="/" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
@@ -76,6 +71,9 @@ const Header = () => {
                       EN
                   </NavLink>
             </div>
+            <button className={scss.menu_button}>
+                    <img src={menu_icon} alt="menu_icon" className={scss.menu_icon}/>
+            </button>
           </div>
       </div>
     </div>

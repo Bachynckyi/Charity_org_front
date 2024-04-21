@@ -25,7 +25,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className={scss.links_container}>
-          <NavLink className={scss.support_link}>
+          <NavLink to="/offer" className={scss.support_link} onClick={scrollToTop}>
             Підтримати
           </NavLink>
           <NavLink to="/about" className={scss.read_link} onClick={scrollToTop}>

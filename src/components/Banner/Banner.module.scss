@@ -1,25 +1,39 @@
 .container {
-    width: 1600px;
+    width: 100vw;
     max-width: 1600px;
     display: flex;
     justify-content: center;
     position: relative;
-    margin-top: 150px;
+    margin-top: 102px;
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 150px;
+    };
 };
 
 .banner {
     display: block;
-    max-width: 1600px;
-    width: 1600px;
+    width: 100vw;
 };
 
 .text {
     position: absolute;
-    top: 220px;
     color: #1679D3;
     font-family: "OpenSans_Condensed-ExtraBold";
-    font-size: 158px;
+    font-size: 43px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    top: 30%;
+
+    @media screen and (min-width: 1024px) { 
+        position: absolute;
+        top: 220px;
+        color: #1679D3;
+        font-family: "OpenSans_Condensed-ExtraBold";
+        font-size: 158px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    };
 };

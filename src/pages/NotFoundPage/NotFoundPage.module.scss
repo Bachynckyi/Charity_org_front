@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
+    box-sizing: border-box;
 };
 
 .title_container {
@@ -21,6 +22,7 @@
 };
 
 .title {
+    margin: 0px;
     color: #FFF;
     font-family: "OpenSans_Condensed-Bold";
     font-size: 48px;
@@ -29,9 +31,20 @@
     line-height: normal;
 };
 
-.bank_details_container {
-    display: flex;
+.text_container {
     width: 100%;
-    box-sizing: border-box;
-    padding: 80px 147px 63px 147px;
+    margin: auto;
+    padding: 80px 147px;
+    height: 650px;
+};
+
+.text {
+    width: 630px;
+    margin: 0px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 };
