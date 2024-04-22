@@ -1,7 +1,7 @@
 import React from 'react';
 import scss from './NotFoundPage.module.scss';
 
-const AboutPage = () => {
+const NotFoundPage = () => {
 
   return (
     <div className={scss.container}>
@@ -9,10 +9,11 @@ const AboutPage = () => {
             <span className={scss.title}>Вибачте, сталася помилка !</span>
         </div>
         <div className={scss.text_container}>
-            <p className={scss.text}>Сторінку, яку ви шукаєте, не знайдено. Можливо, вона була переміщена або видалена.</p>
+            <p className={scss.text}>Сторінку, яку ви шукаєте, не знайдено.</p>
+            <p className={scss.text}>Можливо, вона була переміщена або видалена.</p>
         </div>
     </div>
   );
 };
 
-export default AboutPage;
+export default NotFoundPage;
