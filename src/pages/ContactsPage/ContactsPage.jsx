@@ -11,7 +11,7 @@ const ContactsPage = () => {
         </div>
         <div className={scss.content_container}>
             <div className={scss.contacts_container}>
-                <p className={scss.contact_name_first}>Юридична адреса:</p>
+                <p className={scss.contact_name}>Юридична адреса:</p>
                 <address className={scss.address}>Україна, 09801, Київська обл., Білоцерківський р-н, місто Тетіїв, вул.Центральна, будинок 105А</address>
                 <p className={scss.contact_name}>Електронна пошта:</p>
                 <a className={scss.contact_link} href='mailto: unityhorizon@gmail.com'>unityhorizon@gmail.com</a>
