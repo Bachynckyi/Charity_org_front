@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <div className={scss.container}>
-        <div className={scss.left_container}>
+      <div className={scss.content_container}>
           <div className={scss.logo_container}>
             <NavLink to="/" onClick={scrollToTop}>
               <Logo/>
@@ -39,7 +39,7 @@ const Footer = () => {
               </p>
             </div>
             <div className={scss.links_social}>
-              <span className={scss.contacts_item}>Соціальні мережі</span>
+              <span className={scss.social_title}>Соціальні мережі</span>
               <div className={scss.links_container}>
                 <Link to="https://www.instagram.com/unity.horizon/">
                   <img src={instagram_logo} alt='instagram_logo' className={scss.social_logos}/>
