@@ -1,31 +1,37 @@
 .container {
-    max-width: 1600px;
-    width: 1600px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: auto;
+    box-sizing: border-box;
 };
 
-.details_container {
-    display: flex;
-    flex-direction: column;
-};
-
-.payment_details {
+.title {
     margin-bottom: 20px;
     color: #000;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 32px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media screen and (min-width: 768px) { 
+        font-size: 32px;
+    };
 };
 
 .input_container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    @media screen and (min-width: 768px) {
+        gap: 30px;
+    };
 };
 
 .input_option {
@@ -35,37 +41,44 @@
     flex-direction: row;
     cursor: pointer;
     position: relative;
-
-    &:nth-child(n+2) {
-        margin-left: 30px;
-    };
 };
 
 .radio_button {
     opacity: 0;
     position: absolute;
-    cursor: pointer;  
+    cursor: pointer;
+    user-select: none;  
 };
 
 .custom_button {
     display: flex;
     box-sizing: border-box;
-    width: 56px;
-    height: 53px;
+    width: 46px;
+    height: 42px;
     border: 3px solid #1679D3;
-    border-radius: 12px;
+    border-radius: 12px; 
+
+    @media screen and (min-width: 768px) { 
+        width: 56px;
+        height: 53px;
+    };
 };
 
-.custom_button::before {
+.custom_button::before {    
     left: 0px;
     top: 0px;
     content: '';
     position: absolute;
     display: none;
-    width: 56px;
-    height: 53px;
+    width: 46px;
+    height: 42px;
     background-color: #1679D3;
     border-radius: 12px;
+
+    @media screen and (min-width: 768px) { 
+        width: 56px;
+        height: 53px;
+    };
 };
 
 .radio_button:checked + .custom_button::before {
@@ -76,10 +89,20 @@
     position: absolute;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    @media screen and (min-width: 768px) { 
+        font-size: 24px;
+    };
 };
 
 .radio_button:checked ~ .input_name {
@@ -87,78 +110,143 @@
 };
 
 .details_wrapper {
-    height: 187px;
+    height: 160px;
     position: relative;
 
     &::after {
         position: absolute;
         content: "";
         background-color: #FC0;
-        width: 487px;
+        width: 100%;
         height: 2px;
         bottom: 0px;
         left: 0px;
     };
+
+    @media screen and (min-width: 390px) {
+        height: 180px;
+    };
+
+    @media screen and (min-width: 768px) {
+        width: 487px;
+        height: 186px;
+    };
 };
 
 .details_name_IBAN {
-    margin-top: 40px;
+    margin-top: 35px;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     margin-bottom: 0px;
+
+    @media screen and (min-width: 390px) {
+        font-size: 20px;
+    };
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+        margin-top: 40px;
+    };
 };
 
 .details_name_VAT {
     position: relative;
     margin-top: 10px;
-    margin-bottom: 70px;
+    margin-bottom: 0px;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    @media screen and (min-width: 390px) {
+        font-size: 20px;
+    };
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    };
 };
 
 .name_container {
+    width: 100%;
     display: flex;
     flex-direction: column;
 };
 
 .name_company {
-    width: 717px;
-    margin-top: 22px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-};
-
-.name_company_attribute {
-    width: 717px;
-    margin-top: 20px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-};
-
-.name_text {
     margin-top: 40px;
     color: #000;
     font-family: "OpenSans_Condensed-Regular";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 22px;
+        font-size: 24px;
+    };
+
+    @media screen and (min-width: 1024px) {
+        width: 717px;
+    };
+};
+
+.name_company_attribute {
+    margin-top: 20px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    };
+
+    @media screen and (min-width: 1024px) {
+        width: 717px;
+    };
+};
+
+.name_company_bank {
+    margin: 0px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (min-width: 390px) {
+        font-size: 16px;
+    };
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    };
+}
+
+.name_text {
+    margin-top: 20px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 40px;
+        font-size: 24px;
+    };
 };
 
 .details_name_account {
@@ -166,20 +254,37 @@
     margin-bottom: 0px;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    @media screen and (min-width: 390px) {
+        font-size: 20px;
+    };
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+    };
 };
 
 .details_name_code {
     position: relative;
     margin-top: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 0px;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    @media screen and (min-width: 390px) {
+        font-size: 20px;
+    };
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+        // margin-bottom: 28px;
+    };
 };

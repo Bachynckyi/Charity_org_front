@@ -23,7 +23,7 @@ const UserRoutes = () => {
           <Route path="/" element={<HomePage/>}></Route>
           <Route path="/about" element={<AboutPage/>}></Route>
           <Route path="/contacts" element={<ContactsPage/>}></Route>
-          <Route path="/details" element={<DetailsPage/>}></Route>
+          <Route path="/bankdetails" element={<DetailsPage/>}></Route>
           <Route path="/news" element={<NewsPage/>}></Route>
           <Route path="/projects" element={<ProjectPage/>}></Route>
           <Route path="/documents" element={<DocumentPage/>}></Route>

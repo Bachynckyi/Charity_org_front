@@ -59,7 +59,7 @@ const Header = () => {
                 <NavLink to="documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ДОКУМЕНТИ
                 </NavLink>
-                <NavLink to="/details" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
+                <NavLink to="/bankdetails" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     РЕКВІЗИТИ
                 </NavLink>
             </div>
