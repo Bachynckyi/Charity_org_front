@@ -1,71 +1,94 @@
-.container {
-    max-width: 1600px;
-    width: 1600px;
-    width: 100vw;
-    position: relative;
-};
-
 .become_partner {
-    width: 1600px;
-    height: 383px; 
-    background-color:#1679D3;
+    width: 100%;
+    padding: 32px 17px 37px 17px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 41px;
-    position: relative;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color:#1679D3;
 
     &::after {
         content: '';
         display: block;
         position: absolute;
-        width: 1306px;
+        width: calc(100vw - 34px);
+        box-sizing: border-box;
         height: 3px;
         background-color: #FC0;
         bottom: 0px;
-    }
+
+        @media screen and (min-width: 1024px) {
+            width: calc(100vw - 294px);
+        };
+    };
 };
 
 .become_title{
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 15px;
     color: #FFF;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 40px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 40px;
+        margin-bottom: 20px;
+    };
 };
 
 .text {
-    width: 716px;
+    width: calc(100% - 20px);
     color: #FFF;
     text-align: center;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 20px;
+        width: 716px;
+    };
 };
 
 .form {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     margin-top: 41px;
-    margin-bottom: 41px;
+    margin-bottom: 20px;
+    padding: 0px 20px;
 
     :nth-child(n+2) {
-        margin-left: 22px;
+        margin-top: 15px;
+    };
+
+    @media screen and (min-width: 1024px) {
+        flex-direction: row;
+        margin-bottom: 41px;
+
+        :nth-child(n+2) {
+            margin-left: 22px;
+            margin-top: 0px;
+        };
     };
 };
 
 .input {
     display: flex;
-    width: 245px;
-    height: 51px;
-    padding: 16px 15px;
+    width: 100%;
+    max-width: 316px;
+    height: 40px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     background: #FFF;
@@ -73,111 +96,163 @@
     border: none;
     outline: none;
     box-sizing: border-box;
-    border-radius: 40px;
+    border-radius: 12px;
     color: #000;
     font-family: "Montserrat-Regular";
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    caret-color: #fff;
+    caret-color: #000;
 
     &::placeholder {
         color: #000;
         font-family: "Montserrat-Regular";
-        font-size: 15px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         opacity: 1;
-    }
+    };
+
+    @media screen and (min-width: 1024px) {
+        width: 245px;
+        height: 51px;
+        padding: 16px 15px;
+    };
 };
 
 .button_submit {
-    width: 245px;
-    height: 51px;
+    width: 100%;
+    max-width: 316px;
+    height: 40px;
     color: #000;
     background: #FC0;
-    border-radius: 40px;
+    border-radius: 12px;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 0px 38px 0px 38px;
     font-family: "Montserrat-Medium";
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
+
+    @media screen and (min-width: 1024px) {
+        width: 245px;
+        height: 51px;
+    };
 };
 
 .info {
-    width: 579px;
+    width: 100%;
     color: #FFF;
     text-align: center;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        width: 579px;
+        font-size: 20px;
+    };
 };
 
 .contacts_link {
     color: #FFF;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 20px;
+    };
 };
 
 .loader_container {
     display: flex;
+    box-sizing: border-box;;
     align-items: center;
     justify-content: center;
-    margin-top: 41px;
-    margin-bottom: 41px;
-    height: 51px;
+    margin-top: 124px;
+    margin-bottom: 102px;
+    height: 40px;
+
+    @media screen and (min-width: 1024px) {
+        height: 51px;
+        margin-top: 41px;
+        margin-bottom: 41px;
+    };
 };
 
-.request_container { 
+.request_container {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    margin-top: 41px;
-    margin-bottom: 41px;
-    height: 51px;
-    border-radius: 15px;
+    margin-top: 124px;
+    margin-bottom: 102px;
+    height: 40px;
+    border-radius: 12px;
     background: #FFF;
     padding: 10px 20px;
+
+    @media screen and (min-width: 1024px) {
+        height: 51px;
+        margin-top: 41px;
+        margin-bottom: 41px;
+    };
 };
 
 .request_container_fail { 
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    margin-top: 41px;
-    margin-bottom: 41px;
-    height: 51px;
-    border-radius: 15px;
+    margin-top: 124px;
+    margin-bottom: 102px;
+    height: 40px;
+    border-radius: 12px;
     background: #FFF;
-    padding: 10px 20px;
     cursor: pointer;
+    padding: 10px 20px;
+
+    @media screen and (min-width: 1024px) {
+        height: 51px;
+        margin-top: 41px;
+        margin-bottom: 41px;
+    };
 };
 
 .request_text {
     color: #1679D3;
     text-align: center;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 32px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 32px;
+    };
+
 };
 
 .icon_fail {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     margin-right: 15px;
+
+    @media screen and (min-width: 1024px) {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    };
 };
