@@ -18,7 +18,7 @@ const HelpOfferPage = () => {
             <div className={scss.title_container}>
                 <h1 className={scss.title}>Надати допомогу</h1>
             </div>
-            <form className={scss.form_container}>
+            <form className={scss.wrapper}>
                 <span className={scss.form_title}>Оберіть вид допомоги</span>
                 <div className={scss.form_selector}>
                         <label className={scss.input_option} htmlFor="payment"> 

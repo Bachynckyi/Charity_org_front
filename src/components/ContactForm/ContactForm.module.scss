@@ -3,12 +3,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
 
     @media screen and (min-width: 1024px) {
         width: 500px;
-        align-items: flex-start;
     };
 };
 
@@ -41,16 +40,17 @@
     box-sizing: border-box;
     border-radius: 12px;
     font-family: "OpenSans-Regular";
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     margin-bottom: 15px;
+    caret-color: #fff;
 
     &::placeholder {
         color: #fff;
         font-family: "OpenSans-Regular";
-        font-size: 15px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -82,6 +82,7 @@
     opacity: 1;
     margin-bottom: 25px;
     resize: none;
+    caret-color: #fff;
 
     &::placeholder {
         color: #FFF;
@@ -95,6 +96,7 @@
 
     @media screen and (min-width: 1024px) { 
         margin-bottom: 20px;
+        padding: 0px;
         border-right: 17px solid #1679D3;
         border-top: 16px solid #1679D3;
         border-left: 17px solid #1679D3;
