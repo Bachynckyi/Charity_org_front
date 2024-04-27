@@ -110,14 +110,14 @@
 .custom_button {
     display: flex;
     box-sizing: border-box;
-    width: 108px;
-    height: 42px;
+    width: 114px;
+    height: 48px;
     border: 3px solid #1679D3;
     border-radius: 12px;
 
     @media screen and (min-width: 768px) { 
-        width: 152px;
-        height: 53px;
+        width: 158px;
+        height: 59px;
     };
 };
 
@@ -127,14 +127,14 @@
     content: '';
     position: absolute;
     display: none;
-    width: 108px;
-    height: 42px;
+    width: 114px;
+    height: 48px;
     background-color: #1679D3;
     border-radius: 12px;
 
     @media screen and (min-width: 768px) { 
-        width: 152px;
-        height: 53px;
+        width: 158px;
+        height: 59px;
     };
 };
 
