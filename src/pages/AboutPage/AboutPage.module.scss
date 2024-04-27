@@ -136,7 +136,6 @@
 };
 
 .road_title {
-    width: 166px;
     box-sizing: border-box;
     display: flex;
     padding: 7px 15px;
@@ -233,8 +232,8 @@
         display: block;
         position: absolute;
         width: 1px;
-        height: 60px;
-        bottom: -60px;
+        height: 70px;
+        bottom: -70px;
         background-color: #FC0;
         z-index: 0;
 
@@ -353,8 +352,8 @@
     position: absolute;
     width: 60px;
     height: 50px;
-    top: 130px;
-    left: -10px;
+    top: 131px;
+    left: -11px;
 
     @media screen and (min-width: 768px) {
         display: none;
@@ -366,7 +365,7 @@
     position: absolute;
     width: 60px;
     height: 50px;
-    top: -10px;
+    top: -9.5px;
     right: -10px;
     transform: rotate(180deg);
 
