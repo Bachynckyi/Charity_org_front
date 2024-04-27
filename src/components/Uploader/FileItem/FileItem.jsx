@@ -5,10 +5,13 @@ import { RxCross1 } from "react-icons/rx";
 
 const FileItem = ({file, deleteFile}) => {
 
+    const fullNameArray = file.name.split(".");
+
     return (
         <li className={scss.file_item} key={file.name}>
-            <IoDocumentTextOutline className={scss.document_icon}/>
-            <span className={scss.name}>{file.name}</span>
+            <IoDocumentTextOutline className={scss.document_icon} style={{width: 20, height: 20}}/>
+            <span className={scss.name}>{fullNameArray[0]}</span>
+            <span className={scss.type}>.{fullNameArray[1]}</span>
             <RxCross1 className={scss.delete_icon} onClick={() => {deleteFile(file.name)}}/>
         </li>
     );

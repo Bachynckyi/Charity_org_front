@@ -1,4 +1,5 @@
 .file_item {
+    max-width: 100%;
     display: flex;
     box-sizing: border-box;
     padding: 10px;
@@ -8,31 +9,68 @@
     margin-bottom: 10px;
     border: 3px solid #1679D3;
     border-radius: 12px;
+
+    @media screen and (min-width: 768px) {
+        max-width: 400px;
+    };
 };
 
 .document_icon {
-    width: 24px;
-    height: 24px;
+    width: 20px !important;
+    height: 20px !important;
     color: #1679D3;
+    overflow: visible;
+
+    @media screen and (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    };    
 };
 
 .name {
     color: #000;
     font-family: "OpenSans_Condensed-Regular";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+    };
+};
+
+.type {
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+    };
 };
 
 .delete_icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     color: #000;
     cursor: pointer;
     margin-left: 30px;
+    overflow: visible;
 
     &:hover {
         color: red;
     };
+
+    @media screen and (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    };  
 };

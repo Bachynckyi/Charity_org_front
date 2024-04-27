@@ -41,6 +41,7 @@
     flex-direction: row;
     cursor: pointer;
     position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 };
 
 .radio_button {

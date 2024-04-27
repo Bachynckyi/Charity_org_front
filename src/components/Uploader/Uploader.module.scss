@@ -1,11 +1,12 @@
 .form_files {
+    width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
 };
 
 .button_input_file {
-    width: 180px;
+    width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +16,7 @@
     border: 3px solid #1679D3;
     color: #000;
     font-family: "OpenSans_Condensed-SemiBold";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -26,6 +27,12 @@
         background-color: #1679D3;
         color: #FFF;
     };
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+        width: 180px;
+        font-size: 16px;
+    };
 };
 
 .input_file {
@@ -33,17 +40,26 @@
     opacity: 0;
 };
 
-.text_container {
-    margin-bottom: 10px;
-};
-
 .text {
     margin-top: 0px;
     margin-bottom: 10px;
     color: #000;
     font-family: "OpenSans_Condensed-Regular";
-    font-size: 16px;
+    font-size: 11px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    
+    @media screen and (min-width: 340px) { 
+        font-size: 12px;
+    };
+
+    @media screen and (min-width: 390px) { 
+        font-size: 14px;
+    };
+
+    @media screen and (min-width: 768px) { 
+        font-size: 16px;
+    };
 };
