@@ -190,13 +190,12 @@
 };
 
 .request_container {
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     margin-top: 124px;
-    margin-bottom: 102px;
+    margin-bottom: 104px;
     border-radius: 12px;
     background: #FFF;
     padding: 10px 20px;
@@ -209,13 +208,12 @@
 };
 
 .request_container_fail { 
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     margin-top: 124px;
-    margin-bottom: 102px;
+    margin-bottom: 104px;
     border-radius: 12px;
     background: #FFF;
     cursor: pointer;
@@ -232,10 +230,14 @@
     color: #1679D3;
     text-align: center;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 15px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media screen and (min-width: 390px) {
+        font-size: 15px;
+    };
 
     @media screen and (min-width: 1024px) {
         font-size: 32px;
