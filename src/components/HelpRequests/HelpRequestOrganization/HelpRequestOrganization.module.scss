@@ -30,7 +30,6 @@
     padding: 17px 5px;
     width: 100%;
     max-width: 737px;
-    height: 53px;
     margin-bottom: 20px;
     border-radius: 12px;
     background-color: #1679D3;
@@ -38,7 +37,7 @@
     border: none;
     color: #FFF;
     font-family: "OpenSans-Regular";
-    font-size: 12px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -53,34 +52,39 @@
         line-height: normal;
     };
 
-    @media screen and (min-width: 390px) { 
+    @media screen and (min-width: 375px) { 
         &::placeholder {
             font-size: 7px;
         };
     };
 
-    @media screen and (min-width: 450px) { 
+    @media screen and (min-width: 420px) { 
         &::placeholder {
             font-size: 8px;
         };
     };
 
-    @media screen and (min-width: 550px) { 
+    @media screen and (min-width: 500px) { 
         &::placeholder {
             font-size: 10px;
         };
     };
 
-    @media screen and (min-width: 650px) { 
+    @media screen and (min-width: 600px) { 
         &::placeholder {
             font-size: 12px;
+        };
+    };
+
+    @media screen and (min-width: 690px) { 
+        &::placeholder {
+            font-size: 14px;
         };
     };
 
     @media screen and (min-width: 768px) { 
         padding: 17px 16px;
         margin-bottom: 30px;
-        font-size: 12px;
 
         &::placeholder {
             font-size: 15px;
