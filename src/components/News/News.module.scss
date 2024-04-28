@@ -55,11 +55,10 @@
 };
 
 .news_item {
-    width: 286px;
+    width: 100%;
     height: calc(100vw/2.10);
     display: flex;
     box-sizing: border-box;
-
     border-radius: 15px;
     background: #1679D3;
     display: flex;
