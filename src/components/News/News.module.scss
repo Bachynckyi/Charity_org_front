@@ -8,63 +8,123 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
     position: relative;
+    padding: 32px 17px 32px 17px;
+
+    @media screen and (min-width: 1024px) { 
+        // padding: 32px 147px 32px 147px;
+    };
 };
 
 .title {
-    margin: 50px 0px 40px 0px;
+    // margin: 50px 0px 40px 0px;
+    margin: 0px 0px 30px 0px;
     color: #000;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 48px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     z-index: 1;
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 48px;
+    };
 };
 
 .news_list {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 26px;
+    gap: 30px;
     margin: 0px;
     padding: 0px;
     list-style-type: none;
-    z-index: 1;
+    z-index: 3;
+
+    @media screen and (min-width: 768px) { 
+        gap: 22px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        gap: 26px;
+    };
 };
 
 .news_item {
-    width: 640px;
-    height: 286px;
-    flex-shrink: 0;
+    width: 286px;
+    height: calc(100vw/2.10);
+    display: flex;
+    box-sizing: border-box;
+
     border-radius: 15px;
     background: #1679D3;
     display: flex;
+    z-index: 3;
     flex-direction: row;
+
+    @media screen and (min-width: 390px) { 
+        width: 356px;
+        height: 210px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        width: 610px;
+        height: 286px;
+    };
+
+    @media screen and (min-width: 1400px) { 
+        width: 640px;
+        height: 286px;
+    };
+    
 };
 
 .photo {
     display: block;
+    width: 50%;
     border-radius: 15px 0px 0px 15px;
+
+    @media screen and (min-width: 390px) { 
+        width: 200px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        width: 320px;
+    };
 };
 
 .description_container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 10px 5px;
+
+    @media screen and (min-width: 1024px) { 
+        padding: 15px 20px;
+    };
 };
 
 .description {
     color: #FFF;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-bottom: 0px;
+
+    @media screen and (min-width: 390px) { 
+        font-size: 16px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 20px;
+    };
 };
 
 .date_container {
@@ -77,13 +137,34 @@
 .date {
     color: #FFF;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    @media screen and (min-width: 390px) { 
+        font-size: 16px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 20px;
+    };
 };
 
 .arrow_link {
-    width: 30px;
-    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 390px) { 
+        width: 25px;
+        height: 25px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        width: 30px;
+        height: 30px;
+    };
 };
