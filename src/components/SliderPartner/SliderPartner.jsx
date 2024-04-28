@@ -2,6 +2,8 @@ import scss from './SliderPartner.module.scss';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import "./slick-theme.css"
+// import "./slick.css"
 import CustomSlide from './CustomSlide/CustomSlide';
 import SliderButtonNext from './SliderButtons/SliderButtonNext';
 import SliderButtonPrev from './SliderButtons/SliderButtonPrev';
@@ -21,11 +23,19 @@ const SliderPartner = () => {
         pauseOnHover: true,
         autoplay: true,
         autoplaySpeed: 4000,
+        responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+              }
+            },
+          ]
       };
 
     return (
         <div className={scss.container}>
-            <div className={scss.partners}>
+            <div className={scss.title_container}>
                 <span className={scss.title}>Наші партнери</span>
             </div>
             <div className={scss.slider_container}>

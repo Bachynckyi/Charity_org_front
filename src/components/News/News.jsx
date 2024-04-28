@@ -6,7 +6,7 @@ import news3 from '../../images/News3.png';
 import news4 from '../../images/News4.png';
 import { NavLink } from 'react-router-dom';
 import arrow_link from '../../images/arrow_link.svg';
-import ellipse from '../../images/ellipse_3.png'
+// import ellipse from '../../images/ellipse_3.png'
 
 const News = () => {
   return (
@@ -23,7 +23,6 @@ const News = () => {
                       <img src={arrow_link} alt='arrow_link' className={scss.arrow_link}/>
                     </NavLink>
                 </div>
-
             </div>
           </li>
           <li className={scss.news_item}>
@@ -63,7 +62,7 @@ const News = () => {
             </div>
           </li>
         </ul>
-        <img src={ellipse} alt="ellipse_1" className={scss.ellipse}/>
+        {/* <img src={ellipse} alt="ellipse_1" className={scss.ellipse}/> */}
     </div>
   );
 };

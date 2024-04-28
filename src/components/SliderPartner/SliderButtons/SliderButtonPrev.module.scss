@@ -1,18 +1,48 @@
 .button_arrow_prev {
     position: absolute;
-    top: 120px;
-    left: -50px;
+    top: 44px;
+    left: -20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
+    width: 24px;
+    height: 24px;
     padding: 0px;
     background-color: #fff;
     border: none;
     cursor: pointer;
     outline: none;
     transform: rotate(180deg);
+
+    @media screen and (min-width: 390px) {
+        top: 55px;
+        left: -20px;
+    };
+
+    @media screen and (min-width: 600px) {
+        left: -25px;
+    };
+
+    @media screen and (min-width: 800px) {
+        top: 68px;
+        left: -30px;
+    };
+
+    @media screen and (min-width: 1024px) {
+        width: 35px;
+        height: 35px;
+        top: 66px;
+    };
+
+    @media screen and (min-width: 1280px) {
+        top: 86px;
+        left: -40px;
+    };
+
+    @media screen and (min-width: 1600px) {
+        top: 120px;
+        left: -50px;
+    };  
 };
 
 .button_image {

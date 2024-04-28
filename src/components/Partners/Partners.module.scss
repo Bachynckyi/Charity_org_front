@@ -1,4 +1,4 @@
-.become_partner {
+.container {
     width: 100%;
     padding: 32px 17px 37px 17px;
     position: relative;
@@ -9,19 +9,29 @@
     box-sizing: border-box;
     background-color:#1679D3;
 
+    @media screen and (min-width: 1024px) {
+        padding: 30px 147px 38px 147px;
+    };
+};
+
+.become_partner {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
     &::after {
         content: '';
         display: block;
         position: absolute;
-        width: calc(100vw - 34px);
+        width: 100%;
         box-sizing: border-box;
         height: 3px;
         background-color: #FC0;
-        bottom: 0px;
-
-        @media screen and (min-width: 1024px) {
-            width: calc(100vw - 294px);
-        };
+        bottom: -37px;
     };
 };
 
