@@ -1,63 +1,163 @@
 .container {
-    max-width: 1600px;
-    width: 1600px;
-    height: 350px;
-    flex-shrink: 0;
+    width: 100%;
     background-color: #1679D3;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
+    box-sizing: border-box;
+    padding: 32px 17px 52px 17px;
+    z-index: 3;
+
+    @media screen and (min-width: 768px) { 
+        flex-direction: row;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        padding: 0px;
+    };
 };
 
 .description {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 30px 88px 74px 147px;
+    z-index: 3;
+
+    @media screen and (min-width: 1024px) { 
+        padding: 30px 88px 74px 147px;
+    };
+
 };
 
 .title {
     color: #FFF;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 48px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 48px;
+    };
 };
 
 .text {
     color: #FFF;
     font-family: "OpenSans-Regular";
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 19px;
+    margin-top: 20px;
+    z-index: 3;
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 20px;
+    };
 };
 
 .photo_container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    background-color: #1679D3;
+
+    @media screen and (min-width: 768px) { 
+        margin-top: 64px;
+        margin-left: 20px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    };
+    
 };
 
 .photo {
     display: block;
-    width: 589px;
-    height: 350px;
+    width: 286px;
+    height: 172px;
+
+    @media screen and (min-width: 1280px) { 
+        width: 589px;
+        height: 356px;
+    };
+
 };
 
 .union {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    top: 285px;
-    left: -15px;
+    width: 60px;
+    height: 50px;
+    top: 131px;
+    left: -10.5px;
+
+    @media screen and (min-width: 1024px) { 
+        top: 248px;
+    };
+
+    @media screen and (min-width: 1096px) { 
+        top: 235px;
+    };
+
+    @media screen and (min-width: 1096px) { 
+        top: 222px;
+    };
+
+    @media screen and (min-width: 1280px) { 
+        width: 80px;
+        height: 80px;
+        top: 341px;
+        left: -14px;
+    };
+
+    @media screen and (min-width: 1284px) { 
+        top: 329px;
+    };
+
+    @media screen and (min-width: 1317px) { 
+        top: 315px;
+    };
+
+    @media screen and (min-width: 1399px) { 
+        top: 302px;
+    };
+
+    @media screen and (min-width: 1488px) { 
+        top: 288px;
+    };
+};
+
+.union_tranform {
+    position: absolute;
+    width: 60px;
+    height: 50px;
+    transform: rotate(180deg);
+    top: -9px;
+    right: -11px;
+
+    @media screen and (min-width: 1024px) { 
+        display: none;
+    };
 };
 
 .ellipse_1 {
     position: absolute;
-    width: 194px;
-    height: 2071px;
+    display: none;
     right: 0px;
     top: 0px;
     z-index: 1;
+
+    @media screen and (min-width: 1280px) { 
+        width: 194px;
+        height: 2071px;
+        display: flex;
+    };
 };

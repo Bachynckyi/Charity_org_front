@@ -1,6 +1,7 @@
 .container {
     width: 100vw;
     max-width: 1600px;
+    min-width: 320px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -15,26 +16,18 @@
     display: block;
     width: 100vw;
     max-width: 1600px;
+    min-width: 320px;
 };
 
 .text {
     position: absolute;
     color: #1679D3;
     font-family: "OpenSans_Condensed-ExtraBold";
-    font-size: 43px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    top: 30%;
-
-    @media screen and (min-width: 1024px) { 
-        position: absolute;
-        top: 220px;
-        color: #1679D3;
-        font-family: "OpenSans_Condensed-ExtraBold";
-        font-size: 158px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
-    };
+    top: 37%;
+    font-size: clamp(36px, 8vw, 158px);
+    margin: 0px;
+    text-align: center;
 };

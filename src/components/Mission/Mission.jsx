@@ -15,6 +15,7 @@ const Mission = () => {
         <div className={scss.photo_container}>
             <img src={photo_team} alt="photo_team" className={scss.photo}/>
             <img src={union} alt="union" className={scss.union}/>
+            <img src={union} alt="union_tranform" className={scss.union_tranform}/>
         </div>
         <img src={ellipse_1} alt="ellipse_1" className={scss.ellipse_1}/>
     </div>
