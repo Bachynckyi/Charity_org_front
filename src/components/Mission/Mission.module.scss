@@ -98,6 +98,7 @@
     height: 50px;
     top: 131px;
     left: -10.5px;
+    user-select: none; 
 
     @media screen and (min-width: 1024px) { 
         top: 248px;
@@ -142,6 +143,7 @@
     transform: rotate(180deg);
     top: -9px;
     right: -11px;
+    user-select: none;
 
     @media screen and (min-width: 1024px) { 
         display: none;

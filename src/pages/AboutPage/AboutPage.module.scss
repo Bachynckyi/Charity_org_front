@@ -358,6 +358,7 @@
     height: 50px;
     top: 131px;
     left: -11px;
+    user-select: none;
 
     @media screen and (min-width: 768px) {
         display: none;
@@ -372,6 +373,7 @@
     top: -9.5px;
     right: -10px;
     transform: rotate(180deg);
+    user-select: none;
 
     @media screen and (min-width: 768px) {
         display: none;
@@ -465,6 +467,7 @@
     position: absolute;
     top: 160px;
     right: 0;
+    user-select: none;
 
     @media screen and (min-width: 1280px) { 
         display: flex;
@@ -487,6 +490,7 @@
     bottom: 75px;
     left: 0px;
     z-index: 0;
+    user-select: none;
 
     @media screen and (min-width: 1400px) { 
         display: flex;

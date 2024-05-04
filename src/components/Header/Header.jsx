@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import scss from '../Header/Header.module.scss';
 import { NavLink, Link } from 'react-router-dom';
 import instagram_logo from '../../images/instagram.svg';
 import facebook_logo from '../../images/facebook.svg';
 import linkedin_logo from '../../images/linkedin.svg';
 import Logo from 'components/Logo/Logo';
-import menu_icon from '../../images/menu_icon.svg';
+import { IoMdMenu } from "react-icons/io";
+import { MdClose } from "react-icons/md";
 
 const Header = () => {
+  const [isOpenMenu, setOpenMenu] = useState(false);
 
   const scrollToTop = () => {
     document.documentElement.scrollTo({
@@ -15,6 +17,26 @@ const Header = () => {
       left: 0,
       behavior: "smooth",
     });
+  };
+
+  const scrollToTopMobile = () => {
+    setOpenMenu(false);
+    document.body.style.cssText = `overflow-y: auto`
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const openMenu = () => {
+    document.body.style.cssText = `overflow-y: hidden`
+    setOpenMenu(true);
+  };
+
+  const closeMenu = () => {
+    document.body.style.cssText = `overflow-y: auto`
+    setOpenMenu(false);
   };
 
   return (
@@ -56,7 +78,7 @@ const Header = () => {
                 <NavLink to="/contacts" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     КОНТАКТИ
                 </NavLink>
-                <NavLink to="documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
+                <NavLink to="/documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                     ДОКУМЕНТИ
                 </NavLink>
                 <NavLink to="/bankdetails" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
@@ -71,9 +93,23 @@ const Header = () => {
                       EN
                   </NavLink>
             </div>
-            <button className={scss.menu_button}>
-                    <img src={menu_icon} alt="menu_icon" className={scss.menu_icon}/>
-            </button>
+            <IoMdMenu className={scss.menu_icon} onClick={openMenu}/>
+            <div className={isOpenMenu ? scss.mobile_menu_active : scss.mobile_menu}>
+                  <MdClose className={scss.icon_close} onClick={closeMenu}/>
+                  <div className={scss.mobile_navigation}>
+                    <NavLink to="/" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Головна</NavLink>
+                    <NavLink to="/about" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Про фонд</NavLink>
+                    <NavLink to="/projects" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Проєкти</NavLink>
+                    <NavLink to="/news" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Новини</NavLink>
+                    <NavLink to="/contacts" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Контакти</NavLink>
+                    <NavLink to="/documents" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Документи</NavLink>
+                    <NavLink to="/bankdetails" className={scss.mobile_navigation_item } onClick={scrollToTopMobile}>Реквізити</NavLink>
+                  </div>
+                  <div className={scss.mobile_buttons}>
+                      <NavLink to="/request" className={scss.mobile_request_link} onClick={scrollToTopMobile}>ЗАПРОСИТИ ДОПОМОГУ</NavLink>
+                      <NavLink to="/offer" className={scss.mobile_support_link} onClick={scrollToTopMobile}>НАДАТИ ДОПОМОГУ</NavLink>
+                  </div>
+            </div>
           </div>
       </div>
     </div>

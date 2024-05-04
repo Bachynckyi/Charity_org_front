@@ -39,6 +39,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    user-select: none;
 
     @media screen and (min-width: 390px) { 
         font-size: 32px;
@@ -95,6 +96,7 @@
     cursor: pointer;
     position: relative;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    user-select: none;
 
     &:nth-child(n+2) {
         margin-top: 15px;
@@ -190,6 +192,7 @@
     line-height: normal;
     text-decoration: none;
     margin-bottom: 20px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     @media screen and (min-width: 1280px) { 
         width: 198px;
