@@ -1,7 +1,17 @@
+.background_container {
+    width: 100vw;
+    background-color: #1679D3;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
 .container {
-    width: 100%;
-    padding: 32px 17px 37px 17px;
+    width: 100vw;
+    max-width: 1600px;
     position: relative;
+    padding: 32px 17px 37px 17px;
     display: flex;
     flex-direction: column;
     align-items: center;

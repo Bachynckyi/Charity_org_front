@@ -1,3 +1,13 @@
+.background_container {
+    width: 100vw;
+    background-color: #1679D3;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
+
 .container {
     position: relative;
     width: 100vw;
@@ -5,11 +15,13 @@
     min-width: 320px;
     display: flex;
     flex-direction: column;
-    background-color: #1679D3;
     z-index: 3;
+    box-sizing: border-box;
+    padding: 0px 17px 0px 17px;
 
     @media screen and (min-width: 1024px) { 
         height: 350px;
+        padding: 0px 147px 0px 147px;
     };
 };
 
@@ -24,6 +36,7 @@
     line-height: normal;
 
     @media screen and (min-width: 1024px) { 
+        text-align: start;
         font-size: 48px;
         margin-bottom: 36px;
         margin-top: 30px;

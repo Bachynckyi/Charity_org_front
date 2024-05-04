@@ -45,6 +45,7 @@ const Partners = () => {
   };
 
   return (
+    <div className={scss.background_container}>
     <div className={scss.container}>
       <div className={scss.become_partner}>
           <span className={scss.become_title}>Стати партнером</span>
@@ -111,6 +112,7 @@ const Partners = () => {
             <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com"> unityhorizon@gmail.com</a>
           </span>
       </div>
+    </div>
     </div>
   );
 };

@@ -1,9 +1,16 @@
+.background_container {
+    position: relative;
+    width: 100vw;
+};
+
 .container {
     width: 100vw;
     max-width: 1600px;
     min-width: 320px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     margin: auto;
     position: relative;

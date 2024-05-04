@@ -4,12 +4,14 @@
     min-width: 320px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     box-sizing: border-box;
 };
 
 .title_container {
-    width: 100%;
+    width: 100vw;
     height: 110px;
     margin-top: 102px;
     display: flex;
