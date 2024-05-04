@@ -92,7 +92,7 @@
         margin-top: 15px;
     };
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         flex-direction: row;
         margin-bottom: 41px;
 
@@ -135,7 +135,13 @@
         opacity: 1;
     };
 
+    
     @media screen and (min-width: 1024px) {
+        width: 400px;
+        height: 51px;
+    };
+
+    @media screen and (min-width: 1280px) {
         width: 245px;
         height: 51px;
         padding: 16px 15px;
@@ -158,6 +164,11 @@
     font-weight: 500;
 
     @media screen and (min-width: 1024px) {
+        width: 400px;
+        height: 51px;
+    };
+
+    @media screen and (min-width: 1280px) {
         width: 245px;
         height: 51px;
     };
