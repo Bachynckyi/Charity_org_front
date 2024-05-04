@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import scss from '../Header/Header.module.scss';
 import { NavLink, Link } from 'react-router-dom';
 import instagram_logo from '../../images/instagram.svg';
@@ -10,6 +10,25 @@ import { MdClose } from "react-icons/md";
 
 const Header = () => {
   const [isOpenMenu, setOpenMenu] = useState(false);
+  const menuRef = useRef(null); 
+
+  const useClickOutside = (ref, callback) => {
+    const handleClick = (e) => {
+      if(ref.current && !ref.current.contains(e.target)) {
+        callback();
+      }
+    };
+    useEffect(() => {
+      document.addEventListener("mousedown", handleClick);
+      return () => {
+        document.removeEventListener("mousedown", handleClick)
+      };
+    });
+  };
+
+  useClickOutside(menuRef, () => {
+    closeMenu();
+  })
 
   const scrollToTop = () => {
     document.documentElement.scrollTo({
@@ -94,7 +113,7 @@ const Header = () => {
                   </NavLink>
             </div>
             <IoMdMenu className={scss.menu_icon} onClick={openMenu}/>
-            <div className={isOpenMenu ? scss.mobile_menu_active : scss.mobile_menu}>
+            <div className={isOpenMenu ? scss.mobile_menu_active : scss.mobile_menu} ref={menuRef}>
                   <MdClose className={scss.icon_close} onClick={closeMenu}/>
                   <div className={scss.mobile_navigation}>
                     <NavLink to="/" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Головна</NavLink>
