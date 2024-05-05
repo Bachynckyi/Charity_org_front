@@ -156,6 +156,8 @@
     position: absolute;
     color: #FFF;
     font-size: 22px;
+    user-select: none;
+    font-family: 'Zapf Dingbats';
 };
 
 .form_input_checkbox:checked + .form_input_checkbox_custom::before, .flag {
