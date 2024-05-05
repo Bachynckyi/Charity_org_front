@@ -143,7 +143,10 @@ const HelpRequestIndividual = () => {
                         required
                         onChange={onChangeForm}
                     />
-                    <span className={scss.form_input_checkbox_custom}></span>
+                    <span className={scss.form_input_checkbox_custom}>
+                        <span className={scss.flag}>✔</span>
+                    </span>
+                    
                 </label>
                 <span className={scss.form_checkbox_text}>Я даю згоду на обробку моїх персональних данних</span>
             </div>
