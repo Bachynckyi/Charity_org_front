@@ -11,14 +11,13 @@ const initialState = {
     location: "",
     reason: "",
     help: "",
-    file: [],
     agreement: "",
-    date: "",
 };
 
 const OfferPartner = () => {
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
+    const {organization, name, phone, email, location, reason, help, agreement } = data;
 
     const removeFile = (filename) => {
         setFiles(files.filter(file => file.name !== filename));
@@ -33,7 +32,21 @@ const OfferPartner = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        console.log(files)
+        const todayDate = new Date();
+        const date = todayDate.toLocaleString();
+        const formData = new FormData();
+        formData.append("organization", organization);
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("location", location);
+        formData.append("reason", reason);
+        formData.append("help", help);
+        formData.append("agreement", agreement);
+        formData.append("date", date);
+        formData.append("files", files);
+        const data = formData;
+        console.log(data)
     };
 
     return (

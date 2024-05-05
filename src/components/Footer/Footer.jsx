@@ -8,6 +8,9 @@ import linkedin_logo from '../../images/linkedin.svg';
 
 const Footer = () => {
 
+  const todayDate = new Date();
+  const currentYear = todayDate.getFullYear();
+
   const scrollToTop = () => {
     document.documentElement.scrollTo({
       top: 0,
@@ -56,7 +59,7 @@ const Footer = () => {
             </div>
         </div>
         <div className={scss.politics_container}>
-          <span className={scss.politics}>© 2024 Unity Horizon, Ink. All Rights Reserved</span>
+          <span className={scss.politics}>© {currentYear} Unity Horizon, Ink. All Rights Reserved</span>
           <NavLink style={{textDecoration: 'none'}}>
             <span className={scss.politics_link}>Privacy Policy</span>
           </NavLink>
