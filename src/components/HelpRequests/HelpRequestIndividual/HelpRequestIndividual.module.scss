@@ -122,7 +122,6 @@
     border: 2px solid #1679D3;
     border-radius: 2px;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 
     @media screen and (min-width: 360px) { 
         width: 24px;
@@ -137,13 +136,12 @@
     width: 20px;
     height: 20px;
     border-radius: 2px;
-    content: "";
-    // content: "\2714";
-    // color: #FFF;
-    // font-size: 22px;
+    content: "✔";
+    color: #FFF;
+    font-size: 22px;
+    font-family: 'Zapf Dingbats';
     background-color: #1679D3;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 
     @media screen and (min-width: 360px) { 
         width: 24px;
@@ -151,21 +149,19 @@
     };
 };
 
-.flag {
-    display: none;
-    position: absolute;
-    color: #FFF;
-    font-size: 22px;
-    user-select: none;
-    font-family: 'Zapf Dingbats';
-};
+// .flag {
+//     display: none;
+//     position: absolute;
+//     color: #FFF;
+//     font-size: 22px;
+//     user-select: none;
+//     font-family: 'Zapf Dingbats';
+// };
 
 .form_input_checkbox:checked + .form_input_checkbox_custom::before, .flag {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFF;
-    -webkit-tap-highlight-color: transparent;
 };
 
 .form_checkbox_text {
