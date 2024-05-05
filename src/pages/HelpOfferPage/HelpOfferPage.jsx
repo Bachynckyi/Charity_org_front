@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import scss from "./HelpOfferPage.module.scss";
 import { Link } from 'react-router-dom';
 import BankDetails from 'components/BankDetails/BankDetails';
@@ -12,6 +12,13 @@ const HelpOfferPage = () => {
     const onChange = (event) => {
         setTypeHelp(event.target.value)
     };
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+    }, []);
 
     return (
         <div className={scss.container}>
