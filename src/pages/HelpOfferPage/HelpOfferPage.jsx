@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import scss from "./HelpOfferPage.module.scss";
 import { Link } from 'react-router-dom';
 import BankDetails from 'components/BankDetails/BankDetails';
