@@ -13,13 +13,6 @@ const HelpOfferPage = () => {
         setTypeHelp(event.target.value)
     };
 
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-    }, []);
-
     return (
         <div className={scss.container}>
             <div className={scss.title_container}>
