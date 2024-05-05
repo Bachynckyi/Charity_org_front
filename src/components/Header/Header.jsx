@@ -31,7 +31,7 @@ const Header = () => {
   })
 
   const scrollToTop = () => {
-    document.documentElement.scrollTo({
+    window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
@@ -41,7 +41,7 @@ const Header = () => {
   const scrollToTopMobile = () => {
     setOpenMenu(false);
     document.body.style.cssText = `overflow-y: auto`
-    document.documentElement.scrollTo({
+    window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",

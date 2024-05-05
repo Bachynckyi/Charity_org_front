@@ -121,6 +121,7 @@
     border: 2px solid #1679D3;
     border-radius: 2px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     @media screen and (min-width: 360px) { 
         width: 24px;
@@ -140,7 +141,7 @@
     font-size: 22px;
     background-color: #1679D3;
     cursor: pointer;
-    -webkit-tap-highlight-color: #fff;
+    -webkit-tap-highlight-color: transparent;
 
     @media screen and (min-width: 360px) { 
         width: 24px;
