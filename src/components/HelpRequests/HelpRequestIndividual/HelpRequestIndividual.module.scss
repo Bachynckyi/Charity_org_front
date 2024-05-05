@@ -140,6 +140,7 @@
     font-size: 22px;
     background-color: #1679D3;
     cursor: pointer;
+    -webkit-tap-highlight-color: #fff;
 
     @media screen and (min-width: 360px) { 
         width: 24px;
