@@ -1,7 +1,12 @@
 import React, { useState, useCallback }from 'react';
-import scss from "./HelpRequestIndividual.module.scss";
+import scss from "./HelpRequestPrivat.module.scss";
 import Uploader from 'components/Uploader/Uploader';
 import FileList from 'components/Uploader/FileList/FileList';
+import {requestPrivat} from '../../../redux/request/request-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import iconfail from '../../../images/icon_fail_blue.svg';
+import { isLoading } from '../../../redux/request/request-selectors';
+import Loader from '../../../components/Loader/Loader';
 
 const initialState = {
     name: "",
@@ -10,14 +15,16 @@ const initialState = {
     location: "",
     reason: "",
     help: "",
-    file: [],
-    agreement: "",
-    date: "",
+    agreement: false,
 };
 
 const HelpRequestIndividual = () => {
+    const dispatch = useDispatch();
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
+    const {name, phone, email, location, reason, help, agreement } = data;
+    const [dispatchingStatus, setDispatchingStatus] = useState(null);
+    const loading = useSelector(isLoading);
 
     const removeFile = (filename) => {
         setFiles(files.filter(file => file.name !== filename));
@@ -32,7 +39,33 @@ const HelpRequestIndividual = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        console.log(files)
+        const todayDate = new Date();
+        const date = todayDate.toLocaleString();
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("location", location);
+        formData.append("reason", reason);
+        formData.append("help", help);
+        formData.append("agreement", agreement);
+        formData.append("date", date);
+        for(let file of files) {
+            formData.append('files', file);
+        };
+        const data = formData;
+        dispatch(requestPrivat(data))
+            .then(response => {
+                setDispatchingStatus(response.payload.request.status);
+                setData({...initialState});
+                setFiles([]);
+        })
+    };
+
+    const refresh = () => {
+        setDispatchingStatus(null);
+        setData({...initialState});
+        setFiles([]);
     };
 
     return (
@@ -49,7 +82,7 @@ const HelpRequestIndividual = () => {
                         minLength="3"
                         type='text'
                         autoComplete='off'
-                        value={data.name}
+                        value={name}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -63,7 +96,7 @@ const HelpRequestIndividual = () => {
                         name='email'
                         type='email'
                         autoComplete='off'
-                        value={data.email}
+                        value={email}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -78,7 +111,7 @@ const HelpRequestIndividual = () => {
                         minLength="7"
                         type='tel'
                         autoComplete='off'
-                        value={data.phone}
+                        value={phone}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -93,7 +126,7 @@ const HelpRequestIndividual = () => {
                         minLength="2"
                         type='text'
                         autoComplete='off'
-                        value={data.location}
+                        value={location}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -108,7 +141,7 @@ const HelpRequestIndividual = () => {
                         minLength="3"
                         type='text'
                         autoComplete='off'
-                        value={data.reason}
+                        value={reason}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -123,7 +156,7 @@ const HelpRequestIndividual = () => {
                         minLength="3"
                         type='text'
                         autoComplete='off'
-                        value={data.help}
+                        value={help}
                         onChange={onChangeForm}
                     />
                 </label>
@@ -142,12 +175,31 @@ const HelpRequestIndividual = () => {
                         id='agreement'
                         required
                         onChange={onChangeForm}
+                        checked={agreement} 
                     />
                     <span className={scss.form_input_checkbox_custom}></span>
                 </label>
                 <span className={scss.form_checkbox_text}>Я даю згоду на обробку моїх персональних данних</span>
             </div>
-            <button type='submit' className={scss.button_submit}>Відправити запит</button>
+            {loading === true ?
+            (<div className={scss.loader_container}><Loader/></div>)
+            : (
+            <>
+                {dispatchingStatus === null ? 
+                    (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
+                :
+                (<>
+                    {dispatchingStatus === 201 ? 
+                        (<div className={scss.request_container}>
+                            <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                        </div>) 
+                    : (
+                        <div className={scss.request_container_fail} onClick={refresh}>
+                        <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
+                        <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span></div>)}
+                </>)}
+            </>)
+            }
         </form>
     );
 };

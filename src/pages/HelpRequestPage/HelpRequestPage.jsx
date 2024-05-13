@@ -1,6 +1,6 @@
 import React, { useState }from 'react';
 import scss from "./HelpRequestPage.module.scss";
-import HelpRequestIndividual from 'components/HelpRequests/HelpRequestIndividual/HelpRequestIndividual';
+import HelpRequestIndividual from 'components/HelpRequests/HelpRequestPrivat/HelpRequestPrivat';
 import HelpRequestOrganization from 'components/HelpRequests/HelpRequestOrganization/HelpRequestOrganization';
 
 const HelpRequestPage = () => {

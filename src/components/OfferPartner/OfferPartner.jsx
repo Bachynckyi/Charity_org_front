@@ -57,8 +57,10 @@ const OfferPartner = () => {
         };
         const data = formData;
         dispatch(offerPartner(data))
-            .then(response => {
-                setDispatchingStatus(response.payload.request.status);
+            .then(response =>
+                setDispatchingStatus(response.payload.request.status)
+            )
+            .then(() => {
                 setData({...initialState});
                 setFiles([]);
             })
@@ -192,7 +194,7 @@ const OfferPartner = () => {
                         id='agreement'
                         required
                         onChange={onChangeForm}
-                        checked={data.agreement} 
+                        checked={data.agreement}
                     />
                     <span className={scss.form_input_checkbox_custom}></span>
                 </label>

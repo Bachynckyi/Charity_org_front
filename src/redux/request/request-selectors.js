@@ -1,0 +1,1 @@
+export const isLoading = ({ request }) => request.loading;
