@@ -2,6 +2,11 @@ import React, { useState, useCallback }from 'react';
 import scss from "./OfferPartner.module.scss";
 import Uploader from 'components/Uploader/Uploader';
 import FileList from 'components/Uploader/FileList/FileList';
+import {offerPartner} from '../../redux/partners/partners-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import iconfail from '../../images/icon_fail_blue.svg';
+import { isLoading } from '../../redux/partners/partners-selectors';
+import Loader from 'components/Loader/Loader';
 
 const initialState = {
     organization: "",
@@ -11,13 +16,16 @@ const initialState = {
     location: "",
     reason: "",
     help: "",
-    agreement: "",
+    agreement: false,
 };
 
 const OfferPartner = () => {
+    const dispatch = useDispatch();
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
     const {organization, name, phone, email, location, reason, help, agreement } = data;
+    const [dispatchingStatus, setDispatchingStatus] = useState(null);
+    const loading = useSelector(isLoading);
 
     const removeFile = (filename) => {
         setFiles(files.filter(file => file.name !== filename));
@@ -44,9 +52,22 @@ const OfferPartner = () => {
         formData.append("help", help);
         formData.append("agreement", agreement);
         formData.append("date", date);
-        formData.append("files", files);
+        for(let file of files) {
+            formData.append('files', file);
+        };
         const data = formData;
-        console.log(data)
+        dispatch(offerPartner(data))
+            .then(response => {
+                setDispatchingStatus(response.payload.request.status);
+                setData({...initialState});
+                setFiles([]);
+            })
+    };
+
+    const refresh = () => {
+        setDispatchingStatus(null);
+        setData({...initialState});
+        setFiles([]);
     };
 
     return (
@@ -171,12 +192,31 @@ const OfferPartner = () => {
                         id='agreement'
                         required
                         onChange={onChangeForm}
+                        checked={data.agreement} 
                     />
                     <span className={scss.form_input_checkbox_custom}></span>
                 </label>
                 <span className={scss.form_checkbox_text}>Я даю згоду на обробку моїх персональних данних</span>
             </div>
-            <button type='submit' className={scss.button_submit}>Відправити запит</button>
+            {loading === true ?
+            (<div className={scss.loader_container}><Loader/></div>)
+            : (
+            <>
+                {dispatchingStatus === null ? 
+                    (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
+                :
+                (<>
+                    {dispatchingStatus === 201 ? 
+                        (<div className={scss.request_container}>
+                            <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                        </div>) 
+                    : (
+                        <div className={scss.request_container_fail} onClick={refresh}>
+                        <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
+                        <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span></div>)}
+                </>)}
+            </>)
+            }
         </form>
     );
 };

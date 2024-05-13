@@ -12,3 +12,15 @@ export const newRequestPartner = createAsyncThunk(
       }
     }
 );
+
+export const offerPartner = createAsyncThunk(
+  'api/partners/offerpartner',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.offerPartner(data);
+      return result;
+    } catch (error) {
+      return rejectWithValue(error.response);
+    }
+  }
+);
