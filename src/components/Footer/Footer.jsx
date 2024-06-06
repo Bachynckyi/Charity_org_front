@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
         <div className={scss.politics_container}>
           <span className={scss.politics}>© {currentYear} Unity Horizon, Ink. All Rights Reserved</span>
-          <NavLink style={{textDecoration: 'none'}}>
+          <NavLink style={{textDecoration: 'none'}} to="/privacy" onClick={scrollToTop}>
             <span className={scss.politics_link}>Privacy Policy</span>
           </NavLink>
         </div>

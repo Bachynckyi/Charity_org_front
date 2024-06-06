@@ -13,6 +13,7 @@ const DocumentPage = lazy(() => import('./pages/DocumentPage/DocumentPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const HelpRequestPage = lazy(() => import('./pages/HelpRequestPage/HelpRequestPage'));
 const HelpOfferPage = lazy(() => import('./pages/HelpOfferPage/HelpOfferPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage/PrivacyPage'));
 
 const UserRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const UserRoutes = () => {
           <Route path="*" element={<NotFoundPage/>}/>
           <Route path='/request' element={<HelpRequestPage/>}></Route>
           <Route path='/offer' element={<HelpOfferPage/>}></Route>
+          <Route path='/privacy' element={<PrivacyPage/>}></Route>
         </Routes>
         <Footer/>
       </Suspense>

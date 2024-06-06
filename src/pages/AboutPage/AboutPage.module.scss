@@ -296,7 +296,7 @@
     z-index: 3;
 
     @media screen and (min-width: 1280px) { 
-        padding: 100px 0px 67px 0px;
+        padding: 180px 0px 67px 0px;
     };
 
     @media screen and (min-width: 1400px) { 
@@ -410,47 +410,6 @@
     };
 };
 
-.memories_target {
-    color: #000;
-    font-family: "OpenSans-Regular";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 0px;
-    margin-bottom: 0px;
-
-    @media screen and (min-width: 1024px) {
-        font-size: 20px;
-    };
-};
-
-.memories_blue {
-    color: #1679D3;
-    font-family: "KyivTypeSerif-Heavy";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 840;
-    line-height: normal;
-
-    @media screen and (min-width: 1024px) {
-        font-size: 20px;
-    };
-};
-
-.memories_yellow {
-    color: #FC0;
-    font-family: "KyivTypeSerif-Heavy";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 840;
-    line-height: normal;
-
-    @media screen and (min-width: 1024px) {
-        font-size: 20px;
-    };
-};
-
 .memories_text_result {
     color: #000;
     font-family: "OpenSans-Regular";
@@ -463,7 +422,7 @@
     
     @media screen and (min-width: 1024px) {
         font-size: 20px;
-        margin-top: 40px;
+        margin-top: 0px;
     };
 };
 

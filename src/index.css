@@ -49,6 +49,11 @@
   src: url(./fonts/Montserrat-SemiBold.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(./fonts/OpenSans-Bold.woff2) format('woff2');
+}
+
 
 
 

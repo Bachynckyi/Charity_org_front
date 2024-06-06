@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import iconfail from '../../images/icon_fail_blue.svg';
 import { isLoading } from '../../redux/partners/partners-selectors';
 import Loader from 'components/Loader/Loader';
+import { Link } from 'react-router-dom';
 
 const initialState = {
     organization: "",
@@ -70,6 +71,14 @@ const OfferPartner = () => {
         setDispatchingStatus(null);
         setData({...initialState});
         setFiles([]);
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
     };
 
     return (
@@ -198,7 +207,7 @@ const OfferPartner = () => {
                     />
                     <span className={scss.form_input_checkbox_custom}></span>
                 </label>
-                <span className={scss.form_checkbox_text}>Я даю згоду на обробку моїх персональних данних</span>
+                <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>Я даю згоду на обробку моїх персональних данних</Link>
             </div>
             {loading === true ?
             (<div className={scss.loader_container}><Loader/></div>)
