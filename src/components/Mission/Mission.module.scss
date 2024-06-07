@@ -119,39 +119,11 @@
     left: -10.5px;
     user-select: none; 
 
-    @media screen and (min-width: 1024px) { 
-        top: 248px;
-    };
-
-    @media screen and (min-width: 1096px) { 
-        top: 235px;
-    };
-
-    @media screen and (min-width: 1096px) { 
-        top: 222px;
-    };
-
-    @media screen and (min-width: 1280px) { 
+        @media screen and (min-width: 1280px) { 
         width: 80px;
         height: 80px;
-        top: 341px;
+        top: 290px;
         left: -14px;
-    };
-
-    @media screen and (min-width: 1284px) { 
-        top: 329px;
-    };
-
-    @media screen and (min-width: 1317px) { 
-        top: 315px;
-    };
-
-    @media screen and (min-width: 1399px) { 
-        top: 302px;
-    };
-
-    @media screen and (min-width: 1488px) { 
-        top: 288px;
     };
 };
 
