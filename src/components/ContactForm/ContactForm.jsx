@@ -10,8 +10,6 @@ import iconfail from '../../images/icon_fail_blue.svg';
 const ContactForm = () => {
     const dispatch = useDispatch();
     const loading = useSelector(isLoading);
-    const todayDate = new Date();
-    const date = todayDate.toLocaleString();
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
 
     const [request, setRequest] = useState({
@@ -19,30 +17,32 @@ const ContactForm = () => {
         phone: "",
         email: "",
         comments: "",
-        date: date,
+        date: "",
     });
 
     const handleChange = useCallback(({target}) => {
     const {name, value} = target;
+    const todayDate = new Date();
+    const date = todayDate.toLocaleString();
     setRequest(prevState => {
-        return {...prevState, [name]: value}
+        return {...prevState, [name]: value, date: date}
     })
     }, [setRequest]);
 
     const submitForm = (e) => {
         e.preventDefault();
         dispatch(newRequestFeedback(request))
-          .then(response => {
+        .then(response => {
             setDispatchingStatus(response.payload.request.status);
             setRequest({
                 name: "",
                 phone: "",
                 email: "",
                 comments: "",
-                date: date,
-              })
+                date: "",
+            })
             }
-        );
+        )
     };
 
     const refresh = () => {
@@ -51,7 +51,7 @@ const ContactForm = () => {
           name: "",
           phone: "",
           email: "",
-          date: date,
+          date: "",
         })
     };
 

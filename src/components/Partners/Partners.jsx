@@ -10,21 +10,21 @@ import iconfail from '../../images/icon_fail_yellow.svg';
 const Partners = () => {
   const dispatch = useDispatch();
   const loading = useSelector(isLoading);
-  const todayDate = new Date();
-  const date = todayDate.toLocaleString();
   const [dispatchingStatus, setDispatchingStatus] = useState(null);
 
   const [request, setRequest] = useState({
     name: "",
     phone: "",
     email: "",
-    date: date,
+    date: "",
   });
 
   const handleChange = useCallback(({target}) => {
       const {name, value} = target;
+      const todayDate = new Date();
+      const date = todayDate.toLocaleString();
       setRequest(prevState => {
-        return {...prevState, [name]: value}
+        return {...prevState, [name]: value, date: date}
       })
   }, [setRequest]);
 
@@ -40,7 +40,7 @@ const Partners = () => {
       name: "",
       phone: "",
       email: "",
-      date: date,
+      date: "",
     })
   };
 

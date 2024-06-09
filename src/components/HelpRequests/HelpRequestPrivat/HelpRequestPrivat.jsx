@@ -32,11 +32,18 @@ const HelpRequestIndividual = () => {
     };
 
     const onChangeForm = useCallback(({ target }) => {
-        const {name, value } = target;
-        setData(prevState => {
-            return {...prevState, [name]: value};
-        })
-    },[]);
+        const {name, value} = target;
+        if(agreement === "Підтверджено") {
+            setData(prevState => {
+                return {...prevState, agreement: false};
+            })
+        }
+        else {
+            setData(prevState => {
+                return {...prevState, [name]: value};
+            })
+        }
+    },[agreement]);
 
     const onSubmitForm = (event) => {
         event.preventDefault();
@@ -75,7 +82,7 @@ const HelpRequestIndividual = () => {
           left: 0,
           behavior: "smooth",
         });
-      };
+    };
 
     return (
         <form className={scss.form_container} onSubmit={onSubmitForm}>
@@ -184,31 +191,33 @@ const HelpRequestIndividual = () => {
                         id='agreement'
                         required
                         onChange={onChangeForm}
-                        checked={agreement} 
+                        checked={agreement}
                     />
                     <span className={scss.form_input_checkbox_custom}></span>
                 </label>
                 <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>Я даю згоду на обробку моїх персональних данних</Link>
             </div>
-            {loading === true ?
-            (<div className={scss.loader_container}><Loader/></div>)
-            : (
             <>
-                {dispatchingStatus === null ? 
-                    (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
-                :
-                (<>
-                    {dispatchingStatus === 201 ? 
-                        (<div className={scss.request_container}>
-                            <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
-                        </div>) 
-                    : (
-                        <div className={scss.request_container_fail} onClick={refresh}>
-                        <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
-                        <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span></div>)}
-                </>)}
-            </>)
-            }
+                {loading === true ?
+                (<div className={scss.loader_container}><Loader/></div>)
+                : (
+                <>
+                    {dispatchingStatus === null ? 
+                        (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
+                    :
+                    (<>
+                        {dispatchingStatus === 201 ? 
+                            (<div className={scss.request_container}>
+                                <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                            </div>) 
+                        : (
+                            <div className={scss.request_container_fail} onClick={refresh}>
+                            <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
+                            <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span></div>)}
+                    </>)}
+                </>)
+                }
+            </>
         </form>
     );
 };
