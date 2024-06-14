@@ -1,0 +1,87 @@
+import React, { useState, useCallback, useEffect }from 'react';
+import scss from "./MonoPage.module.scss";
+import { getMonoLink, editMonoLink } from '../../../redux/data/data-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { accessToken } from '../../../redux/user/user-selectors';
+import { checkUser } from '../../../redux/user/user-operations';
+import { Link } from 'react-router-dom';
+import NotForMobileDevices from 'components/NotForMobileDevices/NotForMobileDevises';
+
+const initialState = {
+  monoLink: "",
+  id: "",
+};
+
+const MonoPage = () => {
+  const [request, setRequest] = useState(initialState);
+  const dispatch = useDispatch();
+  const token = useSelector(accessToken);
+
+  useEffect(() => {
+    dispatch(getMonoLink())
+        .then(response => setRequest(
+          {
+            id: response.payload[0]._id,
+            monoLink: response.payload[0].monoLink,
+          }
+        ));
+  }, [dispatch]);
+
+  const handleChange = useCallback(({target}) => {
+    const {name, value} = target;
+    setRequest(prevState => {
+        return {...prevState, [name]: value}
+    })
+  }, [setRequest]);
+
+  const handleSubmit = () => {
+    dispatch(editMonoLink({token, request}))
+      .then(response => {
+        if(response.payload === 401){
+            dispatch(checkUser())
+              .then(response => {
+                if(response.payload !== 401){
+                  const token = response.payload.accessToken
+                  dispatch(editMonoLink({token, request}));
+                }
+                return;
+              })   
+        }
+      }) 
+  };
+
+  return (
+    <>
+    <div className={scss.container}>
+        <div className={scss.title_container}>
+          <span className={scss.title}>Редагування монобанки</span>
+        </div>
+        <div className={scss.content_container}>
+          <div className={scss.form}>
+              <input
+                  className={scss.input}
+                  required
+                  id='monoLink'
+                  name='monoLink'
+                  placeholder="Введіть посилання"
+                  value={request.monoLink}
+                  onChange={handleChange}
+                  type='text'
+              />
+            <button type='button' className={scss.button} onClick={handleSubmit}>Оновити</button>
+            <Link type='button' className={scss.button_menu} to="/admin/panel">Повернутись до меню</Link>
+          </div>
+          <div className={scss.info}>
+              <p className={scss.text}>1. У полі вводу відображено поточне посилання на монобанку.</p>
+              <p className={scss.text}>2. Для оновлення посилання введіть нове посилання та натисність кнопку "Оновити".</p>
+              <p className={scss.text}>3. Після оновлення? поле буде мати нове посилання, яке було введено.</p>
+              <p className={scss.text}>4. Якщо посилання на монобанку відсутнє, потрібно видалити посилання з поля вводу та натиснути кнопку "Оновити". В такому випадку кнопка "МОНОБАНКА" буде відсутня на сайті.</p>
+          </div>
+        </div>
+    </div>
+    <NotForMobileDevices/>
+    </>
+  );
+};
+
+export default MonoPage; 

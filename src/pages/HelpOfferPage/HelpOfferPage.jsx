@@ -1,13 +1,22 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import scss from "./HelpOfferPage.module.scss";
 import { Link } from 'react-router-dom';
 import BankDetails from 'components/BankDetails/BankDetails';
 import ContactForm from 'components/ContactForm/ContactForm';
 import OfferPartner from 'components/OfferPartner/OfferPartner';
+import { useDispatch } from 'react-redux';
+import { getMonoLink } from '../../redux/data/data-operations';
 
 
 const HelpOfferPage = () => {
     const [typeHelp, setTypeHelp] = useState("payment");
+    const [monoLink, SetMonoLink] = useState("");
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getMonoLink())
+            .then(response => SetMonoLink(response.payload[0].monoLink));
+      }, [dispatch]);
 
     const onChange = (event) => {
         setTypeHelp(event.target.value)
@@ -59,12 +68,11 @@ const HelpOfferPage = () => {
                             <span className={scss.input_name}>Запропонувати іншу допомогу</span>
                         </label>
                 </div>
-                <Link className={scss.link_mono} to="#">МОНОБАНКА</Link>
+                {monoLink.length !== 0 && (<Link className={scss.link_mono} to={monoLink} target='_blank'>МОНОБАНКА</Link>)}
                 {typeHelp === "payment" && (<BankDetails/>)}
                 {typeHelp === "becomePartner" && (<OfferPartner/>)}
                 {typeHelp === "otherHelp" && (<ContactForm/>)}
             </div>
-
         </div>
     );
 };

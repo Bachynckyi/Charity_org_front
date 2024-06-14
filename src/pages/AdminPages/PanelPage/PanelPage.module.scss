@@ -1,0 +1,158 @@
+.container {
+    display: none;
+    @media screen and (min-width: 1024px) { 
+        width: 100vw;
+        max-width: 1600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        box-sizing: border-box;
+    };
+};
+
+.title_container {
+    width: 100vw;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1679D3;
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 120px;
+    };
+
+    @media screen and (min-width: 1400px) { 
+        margin-top: 150px;
+    };
+};
+
+.title {
+    margin: 0px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    user-select: none;
+};
+
+.content_container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 147px;
+};
+
+.topbar_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+};
+
+.topbar_info_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid green;
+    padding: 5px 12px;
+    border-radius: 12px;
+};
+
+.topbar_text {
+    margin: 0px;
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+};
+
+.topbar_buttons_container {
+    display: flex;
+    flex-direction: row;
+};
+
+.button_logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    padding: 10px 20px;
+    background-color: rgb(240, 197, 27);
+    color: #FFF;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "OpenSans_Condensed-Regular";
+    font-style: normal;
+};
+
+.button_delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 200px;
+    height: 60px;
+    padding: 10px 10px;
+    background-color: red;
+    color: #FFF;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "OpenSans_Condensed-Regular";
+    font-style: normal;
+    margin-left: 20px;
+};
+
+.button_icon {
+    margin-left: 4px;
+    width: 32px;
+    height: 32px;
+};
+
+.controlls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+};
+
+.controll {
+    width: 150px;
+    height: 50px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #9c9c9c;
+    color: #FFF;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "OpenSans_Condensed-Regular";
+    font-style: normal;
+    text-decoration: none;
+};

@@ -1,0 +1,19 @@
+.container {
+    width: 100vw;
+    max-width: 1600px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    box-sizing: border-box;
+};
+
+.loader_container {
+    height: 700px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+};

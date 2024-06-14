@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import scss from "./ContactForm.module.scss";
-import { useState, useCallback } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { isLoading } from '../../redux/feedback/feedback-selectors';
 import {newRequestFeedback} from '../../redux/feedback/feedback-operations';

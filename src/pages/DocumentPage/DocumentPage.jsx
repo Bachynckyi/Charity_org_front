@@ -5,7 +5,6 @@ const DocumentPage = () => {
 
   return (
     <div className={scss.container}>
-
     </div>
   );
 };

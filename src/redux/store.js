@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import partnersReducer from './partners/partners-slice';
 import feedbackReducer from './feedback/feedback-slice';
 import requestReducer from './request/request-slice';
+import userReducer from './user/user-slice';
 
 const partnersPersistConfig = {
   key: 'partners',
@@ -20,11 +21,17 @@ const requestPersistConfig = {
   storage,
 };
 
+const userPersistConfig = {
+  key: 'auth',
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
     partners: persistReducer(partnersPersistConfig, partnersReducer),
     feedback: persistReducer(feedbackPersistConfig, feedbackReducer),
     request: persistReducer(requestPersistConfig, requestReducer),
+    auth: persistReducer(userPersistConfig, userReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

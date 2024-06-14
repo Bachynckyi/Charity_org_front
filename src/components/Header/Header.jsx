@@ -91,9 +91,6 @@ const Header = () => {
                   <NavLink to="/about" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                       ПРО ФОНД
                   </NavLink>
-                  <NavLink to="/projects" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      ПРОЄКТИ
-                  </NavLink>
                   <NavLink to="/news" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
                       НОВИНИ
                   </NavLink>
@@ -121,7 +118,6 @@ const Header = () => {
                     <div className={scss.mobile_navigation}>
                       <NavLink to="/" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Головна</NavLink>
                       <NavLink to="/about" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Про фонд</NavLink>
-                      <NavLink to="/projects" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Проєкти</NavLink>
                       <NavLink to="/news" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Новини</NavLink>
                       <NavLink to="/contacts" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Контакти</NavLink>
                       <NavLink to="/documents" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Документи</NavLink>
