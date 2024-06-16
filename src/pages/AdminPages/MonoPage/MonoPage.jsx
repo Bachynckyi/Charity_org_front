@@ -19,12 +19,7 @@ const MonoPage = () => {
 
   useEffect(() => {
     dispatch(getMonoLink())
-        .then(response => setRequest(
-          {
-            id: response.payload[0]._id,
-            monoLink: response.payload[0].monoLink,
-          }
-        ));
+        .then(response => setRequest(response.payload[0]));
   }, [dispatch]);
 
   const handleChange = useCallback(({target}) => {
@@ -41,10 +36,9 @@ const MonoPage = () => {
             dispatch(checkUser())
               .then(response => {
                 if(response.payload !== 401){
-                  const token = response.payload.accessToken
+                  const token = response.payload.accessToken;
                   dispatch(editMonoLink({token, request}));
                 }
-                return;
               })   
         }
       }) 

@@ -15,8 +15,6 @@ const initialState = {
     email: "",
     phone: "",
     location: "",
-    reason: "",
-    help: "",
     agreement: false,
 };
 
@@ -24,7 +22,7 @@ const OfferPartner = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
-    const {organization, name, phone, email, location, reason, help, agreement } = data;
+    const {organization, name, phone, email, location, agreement } = data;
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
     const loading = useSelector(isLoading);
 
@@ -56,8 +54,6 @@ const OfferPartner = () => {
         formData.append("email", email);
         formData.append("phone", phone);
         formData.append("location", location);
-        formData.append("reason", reason);
-        formData.append("help", help);
         formData.append("agreement", agreement);
         formData.append("date", date);
         for(let file of files) {
@@ -162,36 +158,6 @@ const OfferPartner = () => {
                         type='text'
                         autoComplete='off'
                         value={data.location}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Опис проблеми</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='reason'
-                        placeholder="Опишіть проблему, з метою подолання якої ви звернулися до фонду"
-                        name='reason'
-                        minLength="3"
-                        type='text'
-                        autoComplete='off'
-                        value={data.reason}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Необхідна допомога</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='help'
-                        placeholder="Опишіть, що вам необхідно для подолання проблеми"
-                        name='help'
-                        minLength="3"
-                        type='text'
-                        autoComplete='off'
-                        value={data.help}
                         onChange={onChangeForm}
                     />
                 </label>

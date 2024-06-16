@@ -80,22 +80,24 @@
 };
 
 .achievement_box {
+    width: 77px;
+    height: 74px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     background-color: #FC0;
     color: #000;
     font-family: "OpenSans_Condensed-Bold";
-    font-size: 40px;
+    font-size: 26px;
     border-radius: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 
     @media screen and (min-width: 1024px) { 
-        padding: 1px 30px;
-        font-size: 48px;
+        width: 128px;
+        height: 85px;
+        font-size: 40px;
     };
 };
 
@@ -107,7 +109,6 @@
     font-weight: 600;
     line-height: normal;
     margin-left: 0px !important;
-
 
     @media screen and (min-width: 1024px) { 
         font-size: 24px;

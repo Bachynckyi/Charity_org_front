@@ -23,3 +23,15 @@ export const editMonoLink = async ({token, request}) => {
   setToken();
   return data;
 };
+
+export const getAchievements = async () => {
+  const { data } = await instance.get('/api/user/achievements');
+  return data;
+};
+
+export const editAchievements = async ({token, request}) => {
+  setToken(token);
+  const { data } = await instance.patch('api/user/achievements/edit', request);
+  setToken();
+  return data;
+};

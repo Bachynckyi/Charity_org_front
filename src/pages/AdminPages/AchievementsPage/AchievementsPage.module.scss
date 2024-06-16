@@ -1,0 +1,191 @@
+.container {
+    display: none;
+    @media screen and (min-width: 1024px) { 
+        width: 100vw;
+        max-width: 1600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        box-sizing: border-box;
+    };
+};
+
+.title_container {
+    width: 100vw;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1679D3;
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 120px;
+    };
+
+    @media screen and (min-width: 1400px) { 
+        margin-top: 150px;
+    };
+};
+
+.title {
+    margin: 0px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    user-select: none;
+};
+
+.content_container {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 50px 147px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+};
+
+.achievements_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 37px;
+
+    @media screen and (min-width: 1024px) { 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0px;
+
+        :nth-child(n+2) {
+            margin-left: 73px;
+        };
+    };
+};
+
+.achievement_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 30px;
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 0px;
+    };
+
+};
+
+.achievement_box {
+    width: 77px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FC0;
+    color: #000;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 26px;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media screen and (min-width: 1024px) { 
+        width: 128px;
+        height: 85px;
+        font-size: 40px;
+    };
+};
+
+.achievement_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 128px;
+    color: #000;
+    font-family: "OpenSans_Condensed-SemiBold";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 0px !important;
+    border-radius: 12px;
+    border: 2px solid #000;
+    margin-top: 20px;
+    padding: 0px 10px;
+};
+
+.buttons_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+};
+
+.button {
+    box-sizing: border-box;
+    height: 53px;
+    padding: 0px 10px;
+    background-color: rgb(4, 199, 4);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: #FFF;
+    font-family: "OpenSans-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+
+    &:hover {
+        background-color: rgb(1, 148, 1);
+    };
+};
+
+.button_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 53px;
+    padding: 0px 10px;
+    background-color: #FC0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: #FFF;
+    font-family: "OpenSans-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgb(198, 158, 0);
+    };
+};
+
+.info_text {
+    margin: 40px 0px 0px 0px;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+};

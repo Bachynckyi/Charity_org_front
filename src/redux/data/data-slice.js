@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMonoLink, editMonoLink } from './data-operations';
+import { getMonoLink, editMonoLink, getAchievements, editAchievements } from './data-operations';
 
 const initialState = {
   data: {},
@@ -31,6 +31,28 @@ const dataSlice = createSlice({
         state.loading = false;
       })
       .addCase(editMonoLink.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(getAchievements.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAchievements.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(getAchievements.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(editAchievements.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(editAchievements.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(editAchievements.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       })
