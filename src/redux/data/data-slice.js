@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMonoLink, editMonoLink, getAchievements, editAchievements } from './data-operations';
+import { getMonoLink, 
+         editMonoLink, 
+         getAchievements, 
+         editAchievements, 
+         getAllPhotoSlider, 
+         addPhotoSlider, 
+         deletePhotoSlider} from './data-operations';
 
 const initialState = {
   data: {},
@@ -53,6 +59,39 @@ const dataSlice = createSlice({
         state.loading = false;
       })
       .addCase(editAchievements.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(getAllPhotoSlider.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAllPhotoSlider.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(getAllPhotoSlider.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(addPhotoSlider.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addPhotoSlider.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(addPhotoSlider.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(deletePhotoSlider.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deletePhotoSlider.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(deletePhotoSlider.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       })

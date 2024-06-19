@@ -35,3 +35,22 @@ export const editAchievements = async ({token, request}) => {
   setToken();
   return data;
 };
+
+export const getAllPhotoSlider = async () => {
+  const { data } = await instance.get('/api/user/getallphotoslider');
+  return data;
+};
+
+export const addPhotoSlider = async ({token, request}) => {
+  setToken(token);
+  const { data } = await instance.post('/api/user/addphotoslider', request);
+  setToken();
+  return data;
+};
+
+export const deletePhotoSlider = async ({token, id}) => {
+  setToken(token);
+  const { data } = await instance.delete(`/api/user/deletephotoslider/${id}`);
+  setToken();
+  return data;
+};

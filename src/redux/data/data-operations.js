@@ -45,7 +45,7 @@ export const getAchievements = createAsyncThunk(
 );
 
 export const editAchievements = createAsyncThunk(
-  'api/user/acievements/edit',
+  'api/user/achievements/edit',
   async ({token, request}, { rejectWithValue }) => {
     try {
       const result = await api.editAchievements({token, request});
@@ -59,4 +59,46 @@ export const editAchievements = createAsyncThunk(
     }
   }
 );
-  
+
+export const getAllPhotoSlider = createAsyncThunk(
+  'api/user/getallphotoslider',
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.getAllPhotoSlider();
+      return result;
+    } 
+    catch (error) {
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const addPhotoSlider = createAsyncThunk(
+  'api/user/addphotoslider',
+  async ({token, request}, { rejectWithValue }) => {
+    try {
+      const result = await api.addPhotoSlider({token, request});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result;
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const deletePhotoSlider = createAsyncThunk(
+  'api/user/deletephotoslider',
+  async ({token, id}, { rejectWithValue }) => {
+    try {
+      const result = await api.deletePhotoSlider({token, id});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result;
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
