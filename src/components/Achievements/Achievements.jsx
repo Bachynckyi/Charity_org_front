@@ -21,15 +21,19 @@ const Achievements = () => {
   ));
 
   return (
-    <div className={scss.background_container}>
-      <div className={scss.container}>
-        <img src={union} alt="union" className={scss.union}/>
-        <span className={scss.title}>Досягнення</span>
-        <ul className={scss.achievements_list}>
-            {achievementItem}
-        </ul>   
+    <>
+      {Object.keys(request).length !== 0 && (
+        <div className={scss.background_container}>
+        <div className={scss.container}>
+          <img src={union} alt="union" className={scss.union}/>
+          <span className={scss.title}>Досягнення</span>
+          <ul className={scss.achievements_list}>
+              {achievementItem}
+          </ul>   
+        </div>
       </div>
-    </div>
+      )}
+    </>
   );
 };
 

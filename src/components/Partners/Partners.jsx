@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import scss from './Partners.module.scss';
-import { useState, useCallback } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { isLoading } from '../../redux/partners/partners-selectors';
+import { isLoadingPartners } from '../../redux/partners/partners-selectors';
 import {newRequestPartner} from '../../redux/partners/partners-operations';
-import Loader from 'components/Loader/Loader';
 import iconfail from '../../images/icon_fail_yellow.svg';
+import GlobalLoader from '../GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const Partners = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(isLoading);
+  const loading = useSelector(isLoadingPartners);
   const [dispatchingStatus, setDispatchingStatus] = useState(null);
-
   const [request, setRequest] = useState({
     name: "",
     phone: "",
     email: "",
     date: "",
   });
+
+  useEffect(() => {
+    if(loading){
+      loader.show();
+      document.body.style.overflowY = 'hidden'
+    }
+    else {
+      loader.hide();
+      document.body.style.overflowY = 'scroll'
+    }
+}, [loading]);
 
   const handleChange = useCallback(({target}) => {
       const {name, value} = target;
@@ -45,16 +55,15 @@ const Partners = () => {
   };
 
   return (
-    <div className={scss.background_container}>
+    <>
+      <LoaderContainer>
+        <GlobalLoader/>
+      </LoaderContainer>
+      <div className={scss.background_container}>
     <div className={scss.container}>
       <div className={scss.become_partner}>
           <span className={scss.become_title}>Стати партнером</span>
           <span className={scss.text}>Допомагай ЗСУ. Зроби внесок у перемогу, ти зможеш внести частку у перемогу. Пора приймати рішення !</span>
-          {loading === true ? 
-              (<div className={scss.loader_container}>
-                <Loader/>
-              </div>) : (
-          <>
             {dispatchingStatus === null ? (
               <form className={scss.form} onSubmit={submitForm}>
                 <input 
@@ -107,13 +116,13 @@ const Partners = () => {
                 </div>
               )}
               </>)}
-          </>)}
           <span className={scss.info}>Якщо ви хочете зв’язатись з нами іншим способом, напишіть нам на 
             <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com"> unityhorizon@gmail.com</a>
           </span>
       </div>
     </div>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,1 @@
+export const isLoadingData = ({ data }) => data.loading;

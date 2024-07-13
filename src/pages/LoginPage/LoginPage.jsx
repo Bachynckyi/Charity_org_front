@@ -1,17 +1,31 @@
 import { logIn } from '../../redux/user/user-operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { accessToken, isLoading } from '../../redux/user/user-selectors';
+import { accessToken, isLoadingUser } from '../../redux/user/user-selectors';
 import { Navigate } from 'react-router-dom';
-import Loader from '../../components/Loader/Loader';
 import scss from "./LoginPage.module.scss";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LoginForm from 'components/LoginForm/LoginForm';
+import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const userStatus = useSelector(accessToken);
-  const loading = useSelector(isLoading);
+  const loading = useSelector(isLoadingUser);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if(loading){
+      loader.show();
+      document.body.style.overflowY = 'hidden';
+    }
+    else {
+      setTimeout(() => {
+        document.body.style.overflowY = 'scroll';
+        loader.hide();
+    }, 500);
+    }
+}, [loading]);
 
   const LogIn = data => {
     const { email, password } = data;
@@ -36,15 +50,17 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={scss.container}>
-        {userStatus === null ? 
-          (loading === true ? 
-            (<div className={scss.loader_container}><Loader/></div>) 
+    <> 
+      <LoaderContainer>
+        <GlobalLoader/>
+      </LoaderContainer>
+      <div className={scss.container}>
+          {userStatus === null ? 
+              (<LoginForm onSubmit={LogIn} error={error}/>)
             : 
-            (<LoginForm onSubmit={LogIn} error={error}/>)) 
-          : 
-          (<Navigate to="/admin/panel"/> )}
-    </div>
+            (<Navigate to="/admin/panel"/> )}
+      </div>
+    </>
   );
 };
 

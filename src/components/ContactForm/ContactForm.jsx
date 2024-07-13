@@ -1,15 +1,29 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import scss from "./ContactForm.module.scss";
 import { useDispatch, useSelector} from 'react-redux';
-import { isLoading } from '../../redux/feedback/feedback-selectors';
+import { isLoadingFeedback } from '../../redux/feedback/feedback-selectors';
 import {newRequestFeedback} from '../../redux/feedback/feedback-operations';
-import Loader from 'components/Loader/Loader';
 import iconfail from '../../images/icon_fail_blue.svg';
+import GlobalLoader from '../GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const ContactForm = () => {
     const dispatch = useDispatch();
-    const loading = useSelector(isLoading);
+    const loading = useSelector(isLoadingFeedback);
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
+
+    useEffect(() => {
+        if(loading){
+          loader.show();
+          document.body.style.overflowY = 'hidden'
+        }
+        else {
+        setTimeout(() => {
+            document.body.style.overflowY = 'scroll';
+            loader.hide();
+        }, 500);
+        }
+    }, [loading]);
 
     const [request, setRequest] = useState({
         name: "",
@@ -20,13 +34,16 @@ const ContactForm = () => {
     });
 
     const handleChange = useCallback(({target}) => {
+    if(dispatchingStatus !== 201) {
+        setDispatchingStatus(null);
+    };
     const {name, value} = target;
     const todayDate = new Date();
     const date = todayDate.toLocaleString();
     setRequest(prevState => {
         return {...prevState, [name]: value, date: date}
     })
-    }, [setRequest]);
+    }, [setRequest, dispatchingStatus]);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -44,17 +61,11 @@ const ContactForm = () => {
         )
     };
 
-    const refresh = () => {
-        setDispatchingStatus(null);
-        setRequest({
-          name: "",
-          phone: "",
-          email: "",
-          date: "",
-        })
-    };
-
     return (
+        <>
+        <LoaderContainer>
+            <GlobalLoader/>
+        </LoaderContainer>
         <form className={scss.form} onSubmit={submitForm}>
             <span className={scss.form_title}>Зв’яжіться з нами</span>
             <input 
@@ -100,25 +111,21 @@ const ContactForm = () => {
                 value={request.comments}
                 onChange={handleChange}
                 autoComplete='off'
-                ></textarea>
-            {loading === true ? 
-            (<div className={scss.loader_container}>
-                <Loader/>
-            </div>) 
-            : 
-            (dispatchingStatus === null ? 
+            ></textarea>
+            {dispatchingStatus === null ? 
                 (<button type='submit' className={scss.button_submit}>Відправити</button>) :
                 (<>
                     {dispatchingStatus === 201 ?
                     (<p className={scss.succesfull_request}>Дякуємо ! Вашу заявку успішно відправлено</p>) 
                     :
-                    (<button type='button' className={scss.button_refresh} onClick={refresh}>
+                    (<div className={scss.error_message}>
                         <img src={iconfail} alt="icon_fail" className={scss.icon_fail}/>
                         <span>Помилка ! Спробуйте ще раз</span>
-                    </button>)}
+                    </div>)}
                 </>)
-            )}
+            }
         </form>
+        </>
   );
 };
 

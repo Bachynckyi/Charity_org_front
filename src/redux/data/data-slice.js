@@ -5,7 +5,15 @@ import { getMonoLink,
          editAchievements, 
          getAllPhotoSlider, 
          addPhotoSlider, 
-         deletePhotoSlider} from './data-operations';
+         deletePhotoSlider,
+         addNews,
+         getLastNews,
+         getNewsById,
+         getNews,
+         deleteNewsById,
+         editNewsByIdWithImage,
+         editNewsByIdWithoutImage,
+      } from './data-operations';
 
 const initialState = {
   data: {},
@@ -92,6 +100,83 @@ const dataSlice = createSlice({
         state.loading = false;
       })
       .addCase(deletePhotoSlider.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(addNews.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addNews.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(addNews.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(getLastNews.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getLastNews.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(getLastNews.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(getNewsById.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getNewsById.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(getNewsById.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(getNews.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getNews.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(getNews.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(deleteNewsById.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteNewsById.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(deleteNewsById.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(editNewsByIdWithImage.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(editNewsByIdWithImage.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(editNewsByIdWithImage.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(editNewsByIdWithoutImage.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(editNewsByIdWithoutImage.fulfilled, (state, { payload }) => {
+        state.loading = false;
+      })
+      .addCase(editNewsByIdWithoutImage.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       })

@@ -184,7 +184,7 @@
     };
 };
 
-.button_refresh {
+.error_message {
     width: 100%;
     max-width: 356px;
     height: 40px;
@@ -194,7 +194,6 @@
     align-items: center;
     color: #000;
     text-align: center;
-    cursor: pointer;
     font-family: "OpenSans_Condensed-Bold";
     font-size: 15px;
     font-style: normal;
@@ -202,8 +201,6 @@
     line-height: normal;
     border-radius: 12px;
     background: #FC0;
-    border: none;
-    outline: none;
 
     @media screen and (min-width: 1024px) {
         max-width: 394px;
@@ -217,8 +214,7 @@
     width: 34px;
     height: 34px;
     margin-right: 10px;  
-};    
-
+};
 
 
 

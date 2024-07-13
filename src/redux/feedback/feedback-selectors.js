@@ -1,1 +1,1 @@
-export const isLoading = ({ feedback }) => feedback.loading;
+export const isLoadingFeedback = ({ feedback }) => feedback.loading;

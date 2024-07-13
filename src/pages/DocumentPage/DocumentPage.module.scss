@@ -1,9 +1,138 @@
 .container {
+    width: 100vw;
     max-width: 1600px;
-    width: 1600px;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: auto;
+    box-sizing: border-box;
+};
+
+.title_container {
+    width: 100vw;
+    height: 110px;
+    margin-top: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1679D3;
+
+    @media screen and (min-width: 768px) { 
+        height: 248px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        margin-top: 120px;
+    };
+
+    @media screen and (min-width: 1400px) { 
+        margin-top: 150px;
+    };
+};
+
+.title {
+    margin: 0px;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    user-select: none;
+
+    @media screen and (min-width: 390px) { 
+        font-size: 32px;
+    };
+
+    @media screen and (min-width: 768px) { 
+        font-size: 48px;
+    };
+
+    @media screen and (min-width: 1024px) { 
+        font-size: 64px;
+    };
+};
+
+.content_container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px 17px 204px 17px;
+
+    
+    @media screen and (min-width: 1024px) {
+        padding: 80px 147px 70px 147px;
+    };
+};
+
+.subtitle {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #000;
+    font-family: "OpenSans_Condensed-ExtraBold";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+        
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 40px;
+        font-size: 32px;
+    };
+};
+
+.text {
+    margin: 0px;
+    color: #000;
+    font-family: "OpenSans-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 24px;
+    };
+};
+
+.link {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px 0px 20px;
+    max-width: 356px;
+    height: 42px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #1679D3;
+    text-decoration: none;
+    color: #FFF;
+    font-family: "OpenSans_Condensed-Bold";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media screen and (min-width: 1024px) {
+        width: 317px;
+        height: 71px;
+        border-radius: 12px;
+        margin-top: 110px;
+        font-size: 32px;
+    };
+};
+
+.arrow_link {
+    width: 25px;
+    height: 25px;
+
+    @media screen and (min-width: 1024px) {
+        width: 40px;
+        height: 40px;
+    };
 };

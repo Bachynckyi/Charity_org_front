@@ -1,15 +1,16 @@
 import { Outlet } from 'react-router-dom';
-import { accessToken, isLoading } from '../../redux/user/user-selectors';
+import { accessToken, isLoadingUser } from '../../redux/user/user-selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { checkUser } from '../../redux/user/user-operations';
-import Loader from 'components/Loader/Loader';
 import scss from './PrivateRoute.module.scss';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import GlobalLoader from '../GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const PrivateRoute = () => {
   const token = useSelector(accessToken);
-  const loading = useSelector(isLoading);
+  const loading = useSelector(isLoadingUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,11 +20,29 @@ const PrivateRoute = () => {
   // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    if(loading) {
+      loader.show();
+      document.body.style.overflowY = 'hidden'
+    }
+    else {
+      setTimeout(() => {
+        loader.hide();
+        document.body.style.overflowY = 'scroll'
+      }, 1000);
+    }
+  }, [loading]);
+
   return (
-  <div className={scss.container}>
-    {loading === true ? (<div className={scss.loader_container}><Loader/></div>) : 
-      (<>{token === null ? (<NotFoundPage/>) : (<Outlet/>)}</>)}
-  </div>
+  <>
+    <LoaderContainer>
+      <GlobalLoader/>
+    </LoaderContainer>
+    <div className={scss.container}>
+    {token === null ? (<LoginPage/>) : (<Outlet/>)}
+    </div>
+  </>
+
   );
 };
 

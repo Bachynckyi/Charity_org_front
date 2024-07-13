@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
-import Loader from 'components/Loader/Loader';
 import Layout from 'components/Layout/Layout';
+import GlobalLoader from 'components/GlobalLoader/GlobalLoader';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'));
@@ -20,11 +20,15 @@ const MonoPage = lazy(() => import('./pages/AdminPages/MonoPage/MonoPage'));
 const AchievementsPage = lazy(() => import('./pages/AdminPages/AchievementsPage/AchievementsPage'));
 const DocsPage = lazy(() => import('./pages/AdminPages/DocsPage/DocsPage'));
 const LogoPage = lazy(() => import('./pages/AdminPages/LogoPage/LogoPage'));
+const AddNewsPage = lazy(() => import('./pages/AdminPages/AddNewsPage/AddNewsPage'));
+const OneNewsPage = lazy(() => import('./pages/OneNewsPage/OneNewsPage'));
+const EditNewsList = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNewsList'));
+const EditNews = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNews'));
 
 const UserRoutes = () => {
   return (
     <>
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<GlobalLoader/>}>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<HomePage/>}></Route>
@@ -32,6 +36,7 @@ const UserRoutes = () => {
             <Route path="/contacts" element={<ContactsPage/>}/>
             <Route path="/bankdetails" element={<DetailsPage/>}/>
             <Route path="/news" element={<NewsPage/>}/>
+            <Route path="/news/:id" element={<OneNewsPage/>}/>
             <Route path="/documents" element={<DocumentPage/>}/>
             <Route path='/request' element={<HelpRequestPage/>}/>
             <Route path='/offer' element={<HelpOfferPage/>}/>
@@ -44,6 +49,9 @@ const UserRoutes = () => {
               <Route path="/admin/achievements/edit" element={<AchievementsPage/>}/>
               <Route path="/admin/docs/edit" element={<DocsPage/>}/> 
               <Route path="/admin/logo/edit" element={<LogoPage/>}/>
+              <Route path="/admin/news/add" element={<AddNewsPage/>}/>
+              <Route path="/admin/news/edit" element={<EditNewsList/>}/>
+              <Route path="/admin/news/edit/:id" element={<EditNews/>}/>
             </Route>
           </Route>
         </Routes>

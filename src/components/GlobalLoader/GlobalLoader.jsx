@@ -1,8 +1,9 @@
 import { ThreeDots } from 'react-loader-spinner';
-// import css from './Loader.module.scss';
+import scss from './GlobalLoader.module.scss';
 
-const Loader = () => {
+const GlobalLoader = () => {
   return (
+    <div className={scss.container}>
       <ThreeDots
       height="150" 
       width="150" 
@@ -11,7 +12,8 @@ const Loader = () => {
       ariaLabel="three-dots-loading"
       visible={true}
       />
+    </div>
   );
 };
 
-export default Loader;
+export default GlobalLoader;

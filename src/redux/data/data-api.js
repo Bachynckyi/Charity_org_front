@@ -54,3 +54,46 @@ export const deletePhotoSlider = async ({token, id}) => {
   setToken();
   return data;
 };
+
+export const addNews = async ({token, request}) => {
+  setToken(token);
+  const { data } = await instance.post('/api/user/addnews', request);
+  setToken();
+  return data;
+};
+
+export const getLastNews = async () => {
+  const { data } = await instance.get('/api/user/getlastnews');
+  return data;
+};
+
+export const getNewsById = async (id) => {
+  const { data } = await instance.get(`/api/user/getnewsbyid/${id}`);
+  return data;
+};
+
+export const getNews = async (skip) => {
+  const { data } = await instance.get(`/api/user/getnews?skip=${skip}`);
+  return data;
+};
+
+export const deleteNewsById = async ({token, id}) => {
+  setToken(token);
+  const { data } = await instance.delete(`/api/user/deletenewsbyid/${id}`);
+  setToken();
+  return data;
+};
+
+export const editNewsByIdWithImage = async ({token, id, request}) => {
+  setToken(token);
+  const { data } = await instance.patch(`/api/user/editnewsbyidwithimage/${id}`, request);
+  setToken();
+  return data;
+};
+
+export const editNewsByIdWithoutImage = async ({token, id, request}) => {
+  setToken(token);
+  const { data } = await instance.patch(`/api/user/editnewsbyidwithoutimage/${id}`, request);
+  setToken();
+  return data;
+};

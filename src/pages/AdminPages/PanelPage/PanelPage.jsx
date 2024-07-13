@@ -53,8 +53,8 @@ const PanelPage = () => {
             <Link className={scss.controll} to="/admin/mono/edit">Посилання на монобанку</Link>
             <Link className={scss.controll} to="/admin/achievements/edit">Робота з досягненнями</Link>
             <Link className={scss.controll} to="/admin/logo/edit">Робота з логотипами</Link>
-            <Link className={scss.controll} to="/admin/news/edit">Робота з новинами</Link>
-            <Link className={scss.controll} to="/admin/docs/edit">Робота з документами</Link>
+            <Link className={scss.controll} to="/admin/news/add">Додати новину</Link>
+            <Link className={scss.controll} to="/admin/news/edit">Редагування новин</Link>
           </div>
         </div>
       </div>

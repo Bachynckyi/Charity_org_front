@@ -102,3 +102,102 @@ export const deletePhotoSlider = createAsyncThunk(
     }
   }
 );
+
+export const addNews = createAsyncThunk(
+  'api/user/addnews',
+  async ({token, request}, { rejectWithValue }) => {
+    try {
+      const result = await api.addNews({token, request});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result;
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const getLastNews = createAsyncThunk(
+  'api/user/getlastnews',
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.getLastNews();
+      return result;
+    } 
+    catch (error) {
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const getNewsById = createAsyncThunk(
+  'api/user/getnewsbyid',
+  async (id, { rejectWithValue }) => {
+    try {
+      const result = await api.getNewsById(id);
+      return result;
+    } 
+    catch (error) {
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const getNews = createAsyncThunk(
+  'api/user/getnews',
+  async (skip, { rejectWithValue }) => {
+    try {
+      const result = await api.getNews(skip);
+      return result
+    } 
+    catch (error) {
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const deleteNewsById = createAsyncThunk(
+  'api/user/deletenewsbyid',
+  async ({token, id}, { rejectWithValue }) => {
+    try {
+      const result = await api.deleteNewsById({token, id});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const editNewsByIdWithImage = createAsyncThunk(
+  'api/user/editnewsbyidwithimage',
+  async ({token, id, request}, { rejectWithValue }) => {
+    try {
+      const result = await api.editNewsByIdWithImage({token, id, request});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);
+
+export const editNewsByIdWithoutImage = createAsyncThunk(
+  'api/user/editnewsbyidwithoutimage',
+  async ({token, id, request}, { rejectWithValue }) => {
+    try {
+      const result = await api.editNewsByIdWithoutImage({token, id, request});
+      Notiflix.Notify.success('Оновлено успішно', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return result
+    } 
+    catch (error) {
+      Notiflix.Notify.failure('Не вдалось відправити запит', {timeout: 5000, position: "center-top", width: 200, showOnlyTheLastOne: true});
+      return rejectWithValue(error.response.request.status);
+    }
+  }
+);

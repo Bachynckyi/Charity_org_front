@@ -1,13 +1,14 @@
-import React, { useState, useCallback }from 'react';
+import React, { useState, useCallback, useEffect }from 'react';
 import scss from "./HelpRequestOrganization.module.scss";
 import Uploader from 'components/Uploader/Uploader';
 import FileList from 'components/Uploader/FileList/FileList';
 import {requestOrg} from '../../../redux/request/request-operations';
 import { useDispatch, useSelector } from 'react-redux';
 import iconfail from '../../../images/icon_fail_blue.svg';
-import { isLoading } from '../../../redux/request/request-selectors';
-import Loader from 'components/Loader/Loader';
+import { isLoadingRequest } from '../../../redux/request/request-selectors';
 import { Link } from "react-router-dom";
+import GlobalLoader from '../../GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const initialState = {
     organization: "",
@@ -26,13 +27,29 @@ const HelpRequestOrganization = () => {
     const [files, setFiles] = useState([]);
     const {organization, name, phone, email, location, reason, help, agreement } = data;
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
-    const loading = useSelector(isLoading);
+    const loading = useSelector(isLoadingRequest);
+
+    useEffect(() => {
+        if(loading){
+          loader.show();
+          document.body.style.overflowY = 'hidden'
+        }
+        else {
+            setTimeout(() => {
+                document.body.style.overflowY = 'scroll';
+                loader.hide();
+            }, 500);
+        }
+    }, [loading]);
 
     const removeFile = (filename) => {
         setFiles(files.filter(file => file.name !== filename));
     };
 
     const onChangeForm = useCallback(({ target }) => {
+        if(dispatchingStatus !== 201) {
+            setDispatchingStatus(null);
+        };
         const {name, value} = target;
         if(agreement === "Підтверджено") {
             setData(prevState => {
@@ -44,7 +61,7 @@ const HelpRequestOrganization = () => {
                 return {...prevState, [name]: value};
             })
         }
-    },[agreement]);
+    },[agreement, dispatchingStatus]);
 
     const onSubmitForm = (event) => {
         event.preventDefault();
@@ -72,12 +89,6 @@ const HelpRequestOrganization = () => {
         })
     };
 
-    const refresh = () => {
-        setDispatchingStatus(null);
-        setData({...initialState});
-        setFiles([]);
-    };
-
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
@@ -87,138 +98,137 @@ const HelpRequestOrganization = () => {
       };
 
     return (
-        <form className={scss.form_container} onSubmit={onSubmitForm}>
-            <div className={scss.form_organization}>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Назва організіції</span>
+        <>
+            <LoaderContainer>
+                <GlobalLoader/>
+            </LoaderContainer>
+            <form className={scss.form_container} onSubmit={onSubmitForm}>
+                <div className={scss.form_organization}>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Назва організіції</span>
+                            <input 
+                                className={scss.form_input}
+                                required
+                                id='organization'
+                                placeholder="Введіть назву організації, яка запрошує допомогу"
+                                name='organization'
+                                minLength="3"
+                                type='text'
+                                autoComplete='off'
+                                value={organization}
+                                onChange={onChangeForm}
+                            />
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Контактна особа</span>
                         <input 
                             className={scss.form_input}
                             required
-                            id='organization'
-                            placeholder="Введіть назву організації, яка запрошує допомогу"
-                            name='organization'
+                            id='name'
+                            placeholder="Введіть ПІБ особи, яка запрошує допомогу/уповноважена запросити допомогу"
+                            name='name'
                             minLength="3"
                             type='text'
                             autoComplete='off'
-                            value={organization}
+                            value={name}
                             onChange={onChangeForm}
                         />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Контактна особа</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='name'
-                        placeholder="Введіть ПІБ особи, яка запрошує допомогу/уповноважена запросити допомогу"
-                        name='name'
-                        minLength="3"
-                        type='text'
-                        autoComplete='off'
-                        value={name}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Електрона пошта</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='email'
-                        placeholder="Введіть електрону пошту для подальшого зв'язку"
-                        name='email'
-                        type='email'
-                        autoComplete='off'
-                        value={email}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Номер телефону</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='phone'
-                        placeholder="Введіть номер телефону для подальшого зв'язку"
-                        name='phone'
-                        minLength="7"
-                        type='tel'
-                        autoComplete='off'
-                        value={phone}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Населений пункт</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='location'
-                        placeholder="Введіть назву міста з якого відбувається запит на допомогу або актуальне місцезнаходження"
-                        name='location'
-                        minLength="2"
-                        type='text'
-                        autoComplete='off'
-                        value={location}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Опис проблеми</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='reason'
-                        placeholder="Опишіть проблему, з метою подолання якої ви звернулися до фонду"
-                        name='reason'
-                        minLength="3"
-                        type='text'
-                        autoComplete='off'
-                        value={reason}
-                        onChange={onChangeForm}
-                    />
-                </label>
-                <label className={scss.form_label}>
-                    <span className={scss.form_input_name}>Необхідна допомога</span>
-                    <input 
-                        className={scss.form_input}
-                        required
-                        id='help'
-                        placeholder="Опишіть, що вам необхідно для подолання проблеми"
-                        name='help'
-                        minLength="3"
-                        type='text'
-                        autoComplete='off'
-                        value={help}
-                        onChange={onChangeForm}
-                    />
-                </label>
-            </div>
-            <div className={scss.uploader_wrapper}>
-                <Uploader files={files} setFiles={setFiles} removeFile={removeFile}/>
-                <FileList files={files} removeFile={removeFile}/>
-            </div>
-            <div className={scss.form_checkbox}>
-                <label>
-                    <input
-                        className={scss.form_input_checkbox}
-                        type='checkbox'
-                        value="Підтверджено"
-                        name="agreement"
-                        id='agreement'
-                        required
-                        onChange={onChangeForm}
-                        checked={agreement}
-                    />
-                    <span className={scss.form_input_checkbox_custom}></span>
-                </label>
-                <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>Я даю згоду на обробку моїх персональних данних</Link>
-            </div>
-            <>
-                {loading === true ?
-                (<div className={scss.loader_container}><Loader/></div>)
-                : (
-                <>
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Електрона пошта</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='email'
+                            placeholder="Введіть електрону пошту для подальшого зв'язку"
+                            name='email'
+                            type='email'
+                            autoComplete='off'
+                            value={email}
+                            onChange={onChangeForm}
+                        />
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Номер телефону</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='phone'
+                            placeholder="Введіть номер телефону для подальшого зв'язку"
+                            name='phone'
+                            minLength="7"
+                            type='tel'
+                            autoComplete='off'
+                            value={phone}
+                            onChange={onChangeForm}
+                        />
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Населений пункт</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='location'
+                            placeholder="Введіть назву міста з якого відбувається запит на допомогу або актуальне місцезнаходження"
+                            name='location'
+                            minLength="2"
+                            type='text'
+                            autoComplete='off'
+                            value={location}
+                            onChange={onChangeForm}
+                        />
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Опис проблеми</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='reason'
+                            placeholder="Опишіть проблему, з метою подолання якої ви звернулися до фонду"
+                            name='reason'
+                            minLength="3"
+                            type='text'
+                            autoComplete='off'
+                            value={reason}
+                            onChange={onChangeForm}
+                        />
+                    </label>
+                    <label className={scss.form_label}>
+                        <span className={scss.form_input_name}>Необхідна допомога</span>
+                        <input 
+                            className={scss.form_input}
+                            required
+                            id='help'
+                            placeholder="Опишіть, що вам необхідно для подолання проблеми"
+                            name='help'
+                            minLength="3"
+                            type='text'
+                            autoComplete='off'
+                            value={help}
+                            onChange={onChangeForm}
+                        />
+                    </label>
+                </div>
+                <div className={scss.uploader_wrapper}>
+                    <Uploader files={files} setFiles={setFiles} removeFile={removeFile}/>
+                    <FileList files={files} removeFile={removeFile}/>
+                </div>
+                <div className={scss.form_checkbox}>
+                    <label>
+                        <input
+                            className={scss.form_input_checkbox}
+                            type='checkbox'
+                            value="Підтверджено"
+                            name="agreement"
+                            id='agreement'
+                            required
+                            onChange={onChangeForm}
+                            checked={agreement}
+                        />
+                        <span className={scss.form_input_checkbox_custom}></span>
+                    </label>
+                    <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>Я даю згоду на обробку моїх персональних данних</Link>
+                </div>
                     {dispatchingStatus === null ? 
                         (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
                     :
@@ -228,13 +238,12 @@ const HelpRequestOrganization = () => {
                                 <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
                             </div>) 
                         : (
-                            <div className={scss.request_container_fail} onClick={refresh}>
+                            <div className={scss.request_container_fail}>
                             <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
                             <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span></div>)}
                     </>)}
-                </>)}
-            </>
-        </form>
+            </form>
+        </>
     );
 };
 

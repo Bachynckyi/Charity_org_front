@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 50px 147px;
+    padding: 80px 147px 120px 147px;
 };
 
 .topbar_container {
@@ -130,6 +130,7 @@
 };
 
 .controlls {
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;

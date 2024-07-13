@@ -1,1 +1,1 @@
-export const isLoading = ({ partners }) => partners.loading;
+export const isLoadingPartners = ({ partners }) => partners.loading;

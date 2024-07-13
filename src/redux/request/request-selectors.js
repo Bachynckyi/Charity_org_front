@@ -1,1 +1,1 @@
-export const isLoading = ({ request }) => request.loading;
+export const isLoadingRequest = ({ request }) => request.loading;
