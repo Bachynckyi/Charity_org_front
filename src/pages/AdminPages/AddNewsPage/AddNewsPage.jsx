@@ -7,6 +7,7 @@ import defaultImage from '../../../images/default_image.png';
 import { RxCross1 } from "react-icons/rx";
 import { addNews } from '../../../redux/data/data-operations';
 import { checkUser } from '../../../redux/user/user-operations';
+import { motion } from 'framer-motion';
 
 const initialState = {
   date: "",
@@ -74,7 +75,11 @@ const AddNewsPage = () => {
   };
 
   return (
-    <>
+    <motion.div
+        transition={{ duration: 0.4}}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}>
       <div className={scss.container}>
         <div className={scss.title_container}>
           <span className={scss.title}>Додати новину</span>
@@ -169,7 +174,7 @@ const AddNewsPage = () => {
         </form>
       </div>
       <NotForMobileDevices/>
-    </>
+    </motion.div>
   );
 };
 

@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import scss from './Partners.module.scss';
-import { useDispatch, useSelector} from 'react-redux';
-import { isLoadingPartners } from '../../redux/partners/partners-selectors';
+import { useDispatch } from 'react-redux';
 import {newRequestPartner} from '../../redux/partners/partners-operations';
 import iconfail from '../../images/icon_fail_yellow.svg';
 import GlobalLoader from '../GlobalLoader/GlobalLoader';
@@ -9,7 +8,6 @@ import { LoaderContainer, loader } from "react-global-loader";
 
 const Partners = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(isLoadingPartners);
   const [dispatchingStatus, setDispatchingStatus] = useState(null);
   const [request, setRequest] = useState({
     name: "",
@@ -17,17 +15,6 @@ const Partners = () => {
     email: "",
     date: "",
   });
-
-  useEffect(() => {
-    if(loading){
-      loader.show();
-      document.body.style.overflowY = 'hidden'
-    }
-    else {
-      loader.hide();
-      document.body.style.overflowY = 'scroll'
-    }
-}, [loading]);
 
   const handleChange = useCallback(({target}) => {
       const {name, value} = target;
@@ -40,8 +27,16 @@ const Partners = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     dispatch(newRequestPartner(request))
-      .then(response => setDispatchingStatus(response.payload.request.status));
+      .then(response => {
+        setDispatchingStatus(response.payload.request.status);
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
+      });
   };
 
   const refresh = () => {

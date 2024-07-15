@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import defaultImage from '../../../images/default_image.png';
 import { RxCross1 } from "react-icons/rx";
 import LogoList from './LogoList/LogoList';
+import { motion } from 'framer-motion';
 
 const LogoPage = () => {
   const dispatch = useDispatch();
@@ -83,7 +84,11 @@ const LogoPage = () => {
   };
 
   return (
-    <>
+    <motion.div
+        transition={{ duration: 0.4}}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}>
       <div className={scss.container}>
         <div className={scss.title_container}>
             <span className={scss.title}>Редагування логотипів партнерів</span>
@@ -142,7 +147,7 @@ const LogoPage = () => {
         </div>
       </div>
       <NotForMobileDevices/>
-    </>
+    </motion.div>
 
   );
 };

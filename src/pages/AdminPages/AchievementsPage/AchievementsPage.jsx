@@ -7,6 +7,7 @@ import { checkUser } from '../../../redux/user/user-operations';
 import { getAchievements } from '../../../redux/data/data-operations';
 import { Link } from 'react-router-dom';
 import { editAchievements } from '../../../redux/data/data-operations';
+import { motion } from 'framer-motion';
 
 const AchievementsPage = () => {
   const dispatch = useDispatch();
@@ -71,24 +72,28 @@ const AchievementsPage = () => {
   ));
 
   return (
-    <>
-      <div className={scss.container}>
-        <div className={scss.title_container}>
-            <span className={scss.title}>Редагування досягнень</span>
-        </div>
-        <div className={scss.content_container}>
-          <ul className={scss.achievements_list}>
-            {achievementItem}
-          </ul>
-          <p className={scss.info_text}>Відкоригуйте необхідні значення та натисність кнопку "Оновити"</p>
-          <div className={scss.buttons_container}>
-            <button type='button' className={scss.button} onClick={handleSubmit}>Оновити</button>
-            <Link type='button' className={scss.button_menu} to="/admin/panel">Повернутись до меню</Link>
+    <motion.div
+        transition={{ duration: 0.4}}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}>
+        <div className={scss.container}>
+          <div className={scss.title_container}>
+              <span className={scss.title}>Редагування досягнень</span>
+          </div>
+          <div className={scss.content_container}>
+            <ul className={scss.achievements_list}>
+              {achievementItem}
+            </ul>
+            <p className={scss.info_text}>Відкоригуйте необхідні значення та натисність кнопку "Оновити"</p>
+            <div className={scss.buttons_container}>
+              <button type='button' className={scss.button} onClick={handleSubmit}>Оновити</button>
+              <Link type='button' className={scss.button_menu} to="/admin/panel">Повернутись до меню</Link>
+            </div>
           </div>
         </div>
-      </div>
-      <NotForMobileDevices/>
-    </>
+        <NotForMobileDevices/>
+    </motion.div>
 
   );
 };

@@ -5,8 +5,8 @@ const GlobalLoader = () => {
   return (
     <div className={scss.container}>
       <ThreeDots
-      height="150" 
-      width="150" 
+      height="110" 
+      width="110" 
       radius="9"
       color="#FC0" 
       ariaLabel="three-dots-loading"

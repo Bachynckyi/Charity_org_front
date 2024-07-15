@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import LoginForm from 'components/LoginForm/LoginForm';
 import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
 import { LoaderContainer, loader } from "react-global-loader";
+import { motion } from 'framer-motion';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -50,17 +51,21 @@ const LoginPage = () => {
   };
 
   return (
-    <> 
-      <LoaderContainer>
-        <GlobalLoader/>
-      </LoaderContainer>
-      <div className={scss.container}>
-          {userStatus === null ? 
-              (<LoginForm onSubmit={LogIn} error={error}/>)
-            : 
-            (<Navigate to="/admin/panel"/> )}
-      </div>
-    </>
+    <motion.div
+        transition={{ duration: 0.4}}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}>
+        <LoaderContainer>
+          <GlobalLoader/>
+        </LoaderContainer>
+        <div className={scss.container}>
+            {userStatus === null ? 
+                (<LoginForm onSubmit={LogIn} error={error}/>)
+              : 
+              (<Navigate to="/admin/panel"/> )}
+        </div>
+      </motion.div>
   );
 };
 

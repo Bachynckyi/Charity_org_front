@@ -4,14 +4,13 @@
     min-width: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: auto;
     margin-top: 102px;
     padding: 20px 17px 20px 17px;
+    min-height: 100vh;
 
     @media screen and (min-width: 1024px) {
-        padding: 30px 147px 70px 147px;
+        padding: 30px 147px 150px 147px;
         margin-top: 120px;
     };
 
@@ -28,6 +27,7 @@
     font-weight: 600;
     line-height: normal;
     margin: 0px;
+    text-align: center;
 };
 
 .date {
@@ -80,4 +80,8 @@
     font-weight: 400;
     line-height: normal;
     text-align: justify;
+};
+
+.pseudo_container {
+    min-height: 100vh;
 };

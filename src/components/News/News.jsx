@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import scss from './News.module.scss';
 import { NavLink } from 'react-router-dom';
 import arrow_link from '../../images/arrow_link.svg';
-import { getLastNews } from '../../redux/data/data-operations';
-import { useDispatch } from 'react-redux';
 
+const News = ({lastNews}) => {
 
-const News = () => {
-  const dispatch = useDispatch();
-  const [request, setRequest] = useState([]);
-
-  useEffect(() => {
-    dispatch(getLastNews())
-      .then(response => setRequest(response.payload));
-  }, [dispatch]);
-
-  const newsItem = request.map((item) => (
+  const newsItem = lastNews.map((item) => (
     <NavLink className={scss.news_item} key={item._id} to={`/news/${item._id}`}>
       <img src={item.image} alt="news" className={scss.photo}/>
         <div className={scss.description_container}>
@@ -30,7 +20,7 @@ const News = () => {
 
   return (
     <>
-      {Object.keys(request).length !== 0 && (
+      {Object.keys(lastNews).length !== 0 && (
         <div className={scss.container}>
           <span className={scss.title}>Новини</span>
           <ul className={scss.news_list}>

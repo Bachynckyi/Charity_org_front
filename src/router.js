@@ -1,8 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import Layout from 'components/Layout/Layout';
 import GlobalLoader from 'components/GlobalLoader/GlobalLoader';
+import { AnimatePresence } from "framer-motion";
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'));
@@ -18,7 +19,6 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const PanelPage = lazy(() => import('./pages/AdminPages/PanelPage/PanelPage'));
 const MonoPage = lazy(() => import('./pages/AdminPages/MonoPage/MonoPage'));
 const AchievementsPage = lazy(() => import('./pages/AdminPages/AchievementsPage/AchievementsPage'));
-const DocsPage = lazy(() => import('./pages/AdminPages/DocsPage/DocsPage'));
 const LogoPage = lazy(() => import('./pages/AdminPages/LogoPage/LogoPage'));
 const AddNewsPage = lazy(() => import('./pages/AdminPages/AddNewsPage/AddNewsPage'));
 const OneNewsPage = lazy(() => import('./pages/OneNewsPage/OneNewsPage'));
@@ -26,10 +26,13 @@ const EditNewsList = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNews
 const EditNews = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNews'));
 
 const UserRoutes = () => {
+  const location = useLocation();
+
   return (
     <>
       <Suspense fallback={<GlobalLoader/>}>
-        <Routes>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout/>}>
             <Route index element={<HomePage/>}></Route>
             <Route path="/about" element={<AboutPage/>}/>
@@ -47,7 +50,6 @@ const UserRoutes = () => {
               <Route path="/admin/panel" element={<PanelPage/>}/>
               <Route path="/admin/mono/edit" element={<MonoPage/>}/>
               <Route path="/admin/achievements/edit" element={<AchievementsPage/>}/>
-              <Route path="/admin/docs/edit" element={<DocsPage/>}/> 
               <Route path="/admin/logo/edit" element={<LogoPage/>}/>
               <Route path="/admin/news/add" element={<AddNewsPage/>}/>
               <Route path="/admin/news/edit" element={<EditNewsList/>}/>
@@ -55,6 +57,7 @@ const UserRoutes = () => {
             </Route>
           </Route>
         </Routes>
+      </AnimatePresence>
       </Suspense>
     </>
   );

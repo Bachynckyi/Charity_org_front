@@ -5,33 +5,29 @@ import { useDispatch } from 'react-redux';
 import arrow_link from '../../images/arrow_link.svg';
 import { NavLink } from 'react-router-dom';
 import { LoaderContainer, loader } from "react-global-loader";
-import { isLoadingData } from '../../redux/data/data-selectors';
-import { useSelector } from 'react-redux';
 import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
+import { motion } from 'framer-motion';
 
 const NewsPage = () => {
   const dispatch = useDispatch();
   const [request, setRequest] = useState([]);
-  const loading = useSelector(isLoadingData);
+  const [loading, setLoading] = useState(false); 
   const [skip, setSkip] = useState(0);
 
   useEffect(() => {
+  loader.show();
+  setLoading(true);
+  document.body.style.overflowY = 'hidden';
    dispatch(getNews(skip))
       .then(response => {
         setRequest(prevState => [...prevState, ...response.payload]);
+        setTimeout(() => {
+          setLoading(false);
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1500);
       })
   }, [dispatch, skip]);
-
-  useEffect(() => {
-    loader.show();
-    document.body.style.overflowY = 'hidden';
-    if(loading === false) {
-      setTimeout(() => {
-        document.body.style.overflowY = 'scroll';
-        loader.hide();
-      }, 600);
-    }
-  }, [loading]);
 
   const newsItem = request.map((item) => (
     <NavLink to={`/news/${item._id}`} key={item._id} className={scss.news_item}>
@@ -48,21 +44,27 @@ const NewsPage = () => {
 
   return (
     <>
-      {loading === true && (
-        <LoaderContainer>
-          <GlobalLoader/>
-        </LoaderContainer>
-      )}
+      <LoaderContainer>
+        <GlobalLoader/>
+      </LoaderContainer>
       <div className ={scss.container}>
         <div className={scss.title_container}>
             <span className={scss.title}>Новини</span>
         </div>
-        {Object.keys(request).length !== 0 ? (
-            <ul className={scss.news_list}>
-                {newsItem}
-            </ul>
-        ) : (<div className={scss.wrapper}></div>)}
-        {Number.isInteger(Object.keys(request).length/10) && <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>Показати більше</button> }
+        {loading !== true && (
+            <motion.div
+            transition={{ duration: 0.4}}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}>
+              {Object.keys(request).length !== 0 ? (
+                <ul className={scss.news_list}>
+                  {newsItem}
+                </ul>
+                ) : (<div className={scss.wrapper}></div>)}
+              {Number.isInteger(Object.keys(request).length/10) && <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>Показати більше</button> }
+            </motion.div>
+        )}
       </div>
     </>
   );

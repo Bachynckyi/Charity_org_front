@@ -8,4 +8,10 @@
     align-items: center;
     margin: auto;
     box-sizing: border-box;
+    min-height: 100vh;
+
+};
+
+.pseudo_container {
+    min-height: 100vh;
 };

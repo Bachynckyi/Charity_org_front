@@ -1,3 +1,4 @@
+import React from 'react';
 import scss from './SliderPartner.module.scss';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -5,19 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import CustomSlide from './CustomSlide/CustomSlide';
 import SliderButtonNext from './SliderButtons/SliderButtonNext';
 import SliderButtonPrev from './SliderButtons/SliderButtonPrev';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getAllPhotoSlider} from '../../redux/data/data-operations';
 
-const SliderPartner = () => {
-  const dispatch = useDispatch();
-  const [request, setRequest] = useState([]);
-
-  useEffect(() => {
-      dispatch(getAllPhotoSlider())
-        .then(response => {
-          setRequest(response.payload)});
-  }, [dispatch]);
+const SliderPartner = ({sliderImages}) => {
   
   const settings = {
       dots: false,
@@ -45,14 +35,14 @@ const SliderPartner = () => {
 
     return (
       <>
-        {Object.keys(request).length !== 0 && (        
+        {Object.keys(sliderImages).length !== 0 && (        
         <div className={scss.container}>
           <div className={scss.title_container}>
               <span className={scss.title}>Наші партнери</span>
           </div>
           <div className={scss.slider_container}>
               <Slider {...settings}>
-                {request.map((request) => 
+                {sliderImages.map((request) => 
                   <CustomSlide request={request} key={request._id}/>
                 )}
               </Slider>
