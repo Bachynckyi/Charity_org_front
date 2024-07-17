@@ -7,7 +7,7 @@ const Achievements = ({achievements}) => {
   const achievementItem = achievements.map((item) => (
     <li className={scss.achievement_item} key={item._id}>
       <span className={scss.achievement_box}>{item.text}</span>
-      <span className={scss.achievement_text}>{item.title}</span>
+      <span className={scss.achievement_text}>{item.titleUKR}</span>
     </li>
   ));
 

@@ -70,8 +70,17 @@ const AchievementsPage = () => {
         className={scss.achievement_text}
         required
         id={item._id}
-        name="title"
-        value={item.title}
+        name="titleUKR"
+        value={item.titleUKR}
+        onChange={handleChange}
+        type='text'
+        />
+      <input
+        className={scss.achievement_text}
+        required
+        id={item._id}
+        name="titleENG"
+        value={item.titleENG}
         onChange={handleChange}
         type='text'
         />
