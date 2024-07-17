@@ -35,7 +35,7 @@ const Partners = () => {
         setTimeout(() => {
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 1000);
+        }, 500);
       });
   };
 

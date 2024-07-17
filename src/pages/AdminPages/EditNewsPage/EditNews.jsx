@@ -9,6 +9,8 @@ import { getNewsById } from '../../../redux/data/data-operations';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { deleteNewsById, editNewsByIdWithImage, editNewsByIdWithoutImage } from '../../../redux/data/data-operations';
 import { useNavigate } from "react-router-dom";
+import { loader } from "react-global-loader";
+import { Link } from 'react-router-dom';
 
 const EditNews = () => {
   const dispatch = useDispatch();
@@ -54,6 +56,8 @@ const handleChange = useCallback(({target}) => {
 
 const updateNews = (event) => {
     event.preventDefault();
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     if(typeof(data.image) !== "string" ) {
         const id = newsId.id;
         const formData = new FormData();
@@ -80,6 +84,10 @@ const updateNews = (event) => {
                 }
                 setData(response.payload);
                 document.getElementById("file").value = "";
+                setTimeout(() => {
+                    document.body.style.overflowY = 'scroll';
+                    loader.hide();
+                  }, 1000);
                 }) 
     }
     else {
@@ -100,11 +108,17 @@ const updateNews = (event) => {
                     })   
           }
           setData(response.payload);
+          setTimeout(() => {
+            document.body.style.overflowY = 'scroll';
+            loader.hide();
+          }, 1000);
         })
     }
 };
 
 const deleteNews = () => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     const id = newsId.id;
     dispatch(deleteNewsById({token, id}))
     .then(response => {
@@ -161,6 +175,7 @@ return (
                         />
                         <div className={scss.button_container}>
                         <label htmlFor="file" className={scss.button_input_file}>Обрати файл</label>
+                        <Link type='button' className={scss.button_menu} to="/admin/news/edit">Назад</Link>
                     </div>
                     </div>
                     <div className={scss.input_title_wrapper}>

@@ -8,6 +8,7 @@ import { getAchievements } from '../../../redux/data/data-operations';
 import { Link } from 'react-router-dom';
 import { editAchievements } from '../../../redux/data/data-operations';
 import { motion } from 'framer-motion';
+import { loader } from "react-global-loader";
 
 const AchievementsPage = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ const AchievementsPage = () => {
   }, [setRequest]);
 
   const handleSubmit = () => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     dispatch(editAchievements({token, request}))
       .then(response => {
         if(response.payload === 401){
@@ -45,6 +48,10 @@ const AchievementsPage = () => {
                 }
               })   
         }
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
       }) 
   };
 

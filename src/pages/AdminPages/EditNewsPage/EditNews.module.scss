@@ -336,3 +336,28 @@
     flex-direction: row;
     gap: 50px;
 };
+
+.button_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 53px;
+    padding: 0px 20px;
+    background-color: #FC0;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: #FFF;
+    font-family: "OpenSans-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgb(198, 158, 0);
+    };
+};

@@ -7,6 +7,7 @@ import { checkUser } from '../../../redux/user/user-operations';
 import { Link } from 'react-router-dom';
 import NotForMobileDevices from 'components/NotForMobileDevices/NotForMobileDevises';
 import { motion } from 'framer-motion';
+import { loader } from "react-global-loader";
 
 const initialState = {
   monoLink: "",
@@ -31,6 +32,8 @@ const MonoPage = () => {
   }, [setRequest]);
 
   const handleSubmit = () => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     dispatch(editMonoLink({token, request}))
       .then(response => {
         if(response.payload === 401){
@@ -42,11 +45,16 @@ const MonoPage = () => {
                 }
               })   
         }
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
       }) 
   };
 
   return (
-    <motion.div
+    <>
+      <motion.div
         transition={{ duration: 0.4}}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
@@ -79,7 +87,8 @@ const MonoPage = () => {
           </div>
       </div>
       <NotForMobileDevices/>
-    </motion.div>
+      </motion.div>
+    </>
   );
 };
 

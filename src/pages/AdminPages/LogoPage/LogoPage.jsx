@@ -10,6 +10,7 @@ import defaultImage from '../../../images/default_image.png';
 import { RxCross1 } from "react-icons/rx";
 import LogoList from './LogoList/LogoList';
 import { motion } from 'framer-motion';
+import { loader } from "react-global-loader";
 
 const LogoPage = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ const LogoPage = () => {
   };
 
   const submitNewPhotoSlider = () => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     const formData = new FormData();
     formData.append("photoSlider", photoSlider);
     const request = formData;
@@ -58,11 +61,18 @@ const LogoPage = () => {
       document.getElementById("file").value = "";
       dispatch(getAllPhotoSlider())
       .then(response => {
-        setRequest(response.payload)});
+        setRequest(response.payload)
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
+      });
     }) 
   };
 
   const submitDeletePhotoSlider = (id) => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     dispatch(deletePhotoSlider({token, id}))
     .then(response => {
       if(response.payload === 401){
@@ -79,7 +89,12 @@ const LogoPage = () => {
       }
       dispatch(getAllPhotoSlider())
       .then(response => {
-        setRequest(response.payload)});
+        setRequest(response.payload)
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
+      });
     }) 
   };
 

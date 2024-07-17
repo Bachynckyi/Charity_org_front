@@ -8,6 +8,7 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
 import NotForMobileDevices from 'components/NotForMobileDevices/NotForMobileDevises';
 import { motion } from 'framer-motion';
+import { loader } from "react-global-loader";
 
 const PanelPage = () => {
   const dispatch = useDispatch();
@@ -22,8 +23,16 @@ const PanelPage = () => {
   };
 
   const handleLogOut = () => {
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     dispatch(logOut())
-      .then(scrollToTop());
+      .then(() => {
+        scrollToTop()
+        setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+          loader.hide();
+        }, 1000);
+      });
   };
 
   return (

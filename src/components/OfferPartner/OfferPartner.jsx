@@ -1,11 +1,10 @@
-import React, { useState, useCallback, useEffect }from 'react';
+import React, { useState, useCallback } from 'react';
 import scss from "./OfferPartner.module.scss";
 import Uploader from 'components/Uploader/Uploader';
 import FileList from 'components/Uploader/FileList/FileList';
 import {offerPartner} from '../../redux/partners/partners-operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import iconfail from '../../images/icon_fail_blue.svg';
-import { isLoadingPartners } from '../../redux/partners/partners-selectors';
 import { Link } from 'react-router-dom';
 import GlobalLoader from '../GlobalLoader/GlobalLoader';
 import { LoaderContainer, loader } from "react-global-loader";
@@ -25,20 +24,6 @@ const OfferPartner = () => {
     const [files, setFiles] = useState([]);
     const {organization, name, phone, email, location, agreement } = data;
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
-    const loading = useSelector(isLoadingPartners);
-
-    useEffect(() => {
-        if(loading){
-          loader.show();
-          document.body.style.overflowY = 'hidden';
-        }
-        else {
-            setTimeout(() => {
-                document.body.style.overflowY = 'scroll';
-                loader.hide();
-            }, 500);
-        }
-    }, [loading]);
 
     const removeFile = (filename) => {
         setFiles(files.filter(file => file.name !== filename));
@@ -63,6 +48,8 @@ const OfferPartner = () => {
     
     const onSubmitForm = (event) => {
         event.preventDefault();
+        loader.show();
+        document.body.style.overflowY = 'hidden';
         const todayDate = new Date();
         const date = todayDate.toLocaleString();
         const formData = new FormData();
@@ -78,12 +65,14 @@ const OfferPartner = () => {
         };
         const data = formData;
         dispatch(offerPartner(data))
-            .then(response =>
-                setDispatchingStatus(response.payload.request.status)
-            )
-            .then(() => {
+            .then(response => {
+                setDispatchingStatus(response.payload.request.status);
                 setData({...initialState});
                 setFiles([]);
+                setTimeout(() => {
+                    document.body.style.overflowY = 'scroll';
+                    loader.hide();
+                }, 500);
             })
     };
 

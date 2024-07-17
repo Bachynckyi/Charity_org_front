@@ -8,6 +8,9 @@ import { RxCross1 } from "react-icons/rx";
 import { addNews } from '../../../redux/data/data-operations';
 import { checkUser } from '../../../redux/user/user-operations';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { loader } from "react-global-loader";
+
 
 const initialState = {
   date: "",
@@ -31,7 +34,7 @@ const AddNewsPage = () => {
     setData(prevState => {
         return {...prevState, [name]: value, date: date}
     })
-    }, [setData]);
+  }, [setData]);
 
   const addNewImage = ({target}) => {
     if(target.files[0] !== undefined){
@@ -46,6 +49,8 @@ const AddNewsPage = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
+    loader.show();
+    document.body.style.overflowY = 'hidden';
     const formData = new FormData();
     formData.append("image", image);
     formData.append("title_UKR", data.title_UKR);
@@ -71,6 +76,10 @@ const AddNewsPage = () => {
       setImage("");
       document.getElementById("file").value = "";
       setData({...initialState});
+      setTimeout(() => {
+        document.body.style.overflowY = 'scroll';
+        loader.hide();
+      }, 1000);
     }) 
   };
 
@@ -114,6 +123,7 @@ const AddNewsPage = () => {
                 <button type='button' className={scss.button_delete} onClick={deleteImage}>     
                   <RxCross1 className={scss.delete_icon}/>
                 </button>
+                <Link type='button' className={scss.button_menu} to="/admin/panel">Повернутись до меню</Link>
             </div>
           </div>
           <div className={scss.input_title_wrapper}>

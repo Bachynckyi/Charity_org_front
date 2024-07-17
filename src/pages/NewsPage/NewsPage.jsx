@@ -25,7 +25,7 @@ const NewsPage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 1500);
+        }, 1200);
       })
   }, [dispatch, skip]);
 

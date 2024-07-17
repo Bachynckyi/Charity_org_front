@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import scss from "./ContactForm.module.scss";
-import { useDispatch, useSelector} from 'react-redux';
-import { isLoadingFeedback } from '../../redux/feedback/feedback-selectors';
+import { useDispatch } from 'react-redux';
 import {newRequestFeedback} from '../../redux/feedback/feedback-operations';
 import iconfail from '../../images/icon_fail_blue.svg';
 import GlobalLoader from '../GlobalLoader/GlobalLoader';
@@ -9,21 +8,7 @@ import { LoaderContainer, loader } from "react-global-loader";
 
 const ContactForm = () => {
     const dispatch = useDispatch();
-    const loading = useSelector(isLoadingFeedback);
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
-
-    useEffect(() => {
-        if(loading){
-          loader.show();
-          document.body.style.overflowY = 'hidden'
-        }
-        else {
-        setTimeout(() => {
-            document.body.style.overflowY = 'scroll';
-            loader.hide();
-        }, 500);
-        }
-    }, [loading]);
 
     const [request, setRequest] = useState({
         name: "",
@@ -47,6 +32,8 @@ const ContactForm = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
+        loader.show();
+        document.body.style.overflowY = 'hidden';
         dispatch(newRequestFeedback(request))
         .then(response => {
             setDispatchingStatus(response.payload.request.status);
@@ -56,7 +43,11 @@ const ContactForm = () => {
                 email: "",
                 comments: "",
                 date: "",
-            })
+            });
+            setTimeout(() => {
+                document.body.style.overflowY = 'scroll';
+                loader.hide();
+            }, 500);
             }
         )
     };
