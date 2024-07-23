@@ -74,7 +74,7 @@ const NewsPage = () => {
 
               {Number.isInteger(Object.keys(request).length/10) && 
               <div className={scss.button_wrapper}>
-                <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>Показати більше</button>
+                <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>{t("News_button")}</button>
               </div>
               }
             </motion.div>

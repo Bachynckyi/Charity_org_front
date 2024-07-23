@@ -104,6 +104,8 @@ export const en = {
 
     // News
     "News": "News",
+    "News_button": "Show more",
+
 
     // Header
     "Header_support_link": "ASK FOR HELP",

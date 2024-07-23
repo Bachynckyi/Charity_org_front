@@ -104,6 +104,7 @@ export const uk = {
 
     // News
     "News": "Новини",
+    "News_button": "Показати більше",
 
     // Header
     "Header_support_link": "ЗАПРОСИТИ ДОПОМОГУ",
