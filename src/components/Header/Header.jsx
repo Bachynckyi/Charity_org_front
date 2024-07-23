@@ -10,6 +10,7 @@ import { MdClose } from "react-icons/md";
 import i18next from 'i18next';
 import { LOCALS } from 'i18n/constants';
 import { useTranslation } from 'react-i18next';
+import "../../i18n"
 
 const Header = () => {
   const { t } = useTranslation();
