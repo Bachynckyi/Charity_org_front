@@ -3,16 +3,18 @@ import scss from './Mission.module.scss';
 import photo_team from '../../images/Photo_team.jpg';
 import union from '../../images/Union_yellow.png';
 import ellipse_1 from '../../images/ellipse_1.png';
+import { useTranslation } from 'react-i18next';
 
 const Mission = () => {
+  const { t } = useTranslation();
 
   return (
     <div className={scss.main_container}>
       <div className={scss.background_container}>
         <div className={scss.container}>
           <div className={scss.description}>
-              <span className={scss.title}>НАША МІСІЯ</span>
-              <span className={scss.text}>Ми - команда серця і доброти, об'єднана однією метою - надавати допомогу військовим, цивільним та тим, хто потребує цього найбільше. Ми тут, аби допомогти забезпечити мир, процвітання та свободу в нашій державі, де кожен матиме можливість на щасливе та безпечне життя.</span>
+              <span className={scss.title}>{t("Mission_title")}</span>
+              <span className={scss.text}>{t("Mission_text")}</span>
           </div>
           <div className={scss.photo_container}>
               <img src={photo_team} alt="photo_team" className={scss.photo}/>

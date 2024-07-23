@@ -11,8 +11,10 @@ import star from '../../images/star.svg';
 import person_add from '../../images/person_add.svg';
 import stamp from '../../images/stamp_image.png';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
+  const { t } = useTranslation();
 
   return (
     <motion.div
@@ -24,26 +26,26 @@ const AboutPage = () => {
           <div className={scss.container}>
             <div className={scss.tagline_container}>
               <div className={scss.tagline_title_container}>
-                <span className={scss.tagline_title}>Ми - </span>
-                <span className={scss.tagline_title_blue}>команда серця і </span> 
-                <span className={scss.tagline_title_yellow}>доброти, </span>
-                <span className={scss.tagline_title}>об'єднана однією метою - надавати допомогу військовим, цивільним та тим, хто потребує цього найбільше.</span>
+                <span className={scss.tagline_title}>{t("AboutPage_tagline_title")}</span>
+                <span className={scss.tagline_title_blue}>{t("AboutPage_tagline_title_blue")}</span> 
+                <span className={scss.tagline_title_yellow}>{t("AboutPage_tagline_title_yellow")}</span>
+                <span className={scss.tagline_title}>{t("AboutPage_tagline_title1")}</span>
               </div>
               <div className={scss.tagline_text_container}>
-              <p className={scss.tagline_text}>БФ Unity Horizon - це команда серця і доброти, об'єднана однією метою - надавати допомогу військовим, цивільним та тим, хто потребує цього найбільше.</p>
-              <p className={scss.tagline_text}>Ми здійснюємо широкий спектр благодійних програм, спрямованих на різноманітні виклики війни, аби втілити мрію кожного українця - жити у вільній та процвітаючій Україні</p>
-              <p className={scss.tagline_text}>Наш успіх - це результат важкої роботи відданих та пристрасних членів команди.</p>
+              <p className={scss.tagline_text}>{t("AboutPage_tagline_text")}</p>
+              <p className={scss.tagline_text}>{t("AboutPage_tagline_text1")}</p>
+              <p className={scss.tagline_text}>{t("AboutPage_tagline_text2")}</p>
               </div>
             </div>
             <div className={scss.road}>
-                <span className={scss.road_title}>Як ми працюємо</span>
+                <span className={scss.road_title}>{t("AboutPage_road_title")}</span>
                 <div className={scss.road_item}>
                     <div className={scss.road_item_circle}>
                       <img src={phone} alt="phone" className={scss.road_item_image}/>
                     </div>
                     <div className={scss.road_item_description}>
-                      <p className={scss.road_item_title}>Зв’язок</p>
-                      <p className={scss.road_item_text}>Направлення заявки про отримання того чи іншого виду допомоги</p>
+                      <p className={scss.road_item_title}>{t("AboutPage_road_item_title")}</p>
+                      <p className={scss.road_item_text}>{t("AboutPage_road_item_text")}</p>
                     </div>
                 </div>
                 <div className={scss.road_item}>
@@ -51,8 +53,8 @@ const AboutPage = () => {
                       <img src={person_add} alt="person_add" className={scss.road_item_image}/>
                     </div>
                     <div className={scss.road_item_description}>
-                      <p className={scss.road_item_title}>Опрацювання заявки</p>
-                      <p className={scss.road_item_text}>Визначення відповідального учасника</p>
+                      <p className={scss.road_item_title}>{t("AboutPage_road_item_title1")}</p>
+                      <p className={scss.road_item_text}>{t("AboutPage_road_item_text1")}</p>
                     </div>
                 </div>
                 <div className={scss.road_item}>
@@ -60,8 +62,8 @@ const AboutPage = () => {
                       <img src={star} alt="star" className={scss.road_item_image}/>
                     </div>
                     <div className={scss.road_item_description}>
-                      <p className={scss.road_item_title}>Збір коштів</p>
-                      <p className={scss.road_item_text}>Організація збору коштів, або їх виділення наказом директора за наявності коштів</p>
+                      <p className={scss.road_item_title}>{t("AboutPage_road_item_title2")}</p>
+                      <p className={scss.road_item_text}>{t("AboutPage_road_item_text2")}</p>
                     </div>
                 </div>
                 <div className={scss.road_item}>
@@ -69,8 +71,8 @@ const AboutPage = () => {
                       <img src={handshake} alt="handshake" className={scss.road_item_image}/>
                     </div>
                     <div className={scss.road_item_description}>
-                      <p className={scss.road_item_title}>Надання допомоги</p>
-                      <p className={scss.road_item_text}>Надання запитуваної допомоги набувачу благодійної допомоги за актом приймання-передачі</p>
+                      <p className={scss.road_item_title}>{t("AboutPage_road_item_title3")}</p>
+                      <p className={scss.road_item_text}>{t("AboutPage_road_item_text3")}</p>
                     </div>
                 </div>
             </div>
@@ -83,12 +85,12 @@ const AboutPage = () => {
                 <img src={union_yellow} alt='union_yellow' className={scss.union_yellow_top}/>
               </div>
               <div className={scss.memories_container_text}>
-                  <p className={scss.memories_text_result}>Основні цілі фонду включають:</p>
-                  <p className={scss.memories_text}>1. Надання гуманітарної допомоги: забезпечення усією необхідною матеріальною допомогою, медичним обладнанням, харчами та іншими ресурсами для тих, хто опинився у скрутних обставинах.</p>
-                  <p className={scss.memories_text}>2. Психологічна підтримка: надання консультацій та психологічної допомоги тим, хто пережив травматичні події або стикається зі стресом через воєнний конфлікт.</p>
-                  <p className={scss.memories_text}>3. Соціальна реабілітація: допомога у відновленні після війни, включаючи підтримку у навчанні, професійному розвитку та інтеграції до суспільства.</p>
-                  <p className={scss.memories_text}>4. Створення спільноти підтримки: об'єднання зусиль та ресурсів для сприяння солідарності та взаємодопомозі серед всіх учасників фонду.</p>
-                  <p className={scss.memories_text_result}>Загалом, цілі фонду спрямовані на створення кращого майбутнього для тих, хто потребує допомоги, і сприяння єднанню громадян навколо важливих гуманітарних цінностей.</p>
+                  <p className={scss.memories_text_result}>{t("AboutPage_memories_text_result")}</p>
+                  <p className={scss.memories_text}>1. {t("AboutPage_memories_text")}</p>
+                  <p className={scss.memories_text}>2. {t("AboutPage_memories_text1")}</p>
+                  <p className={scss.memories_text}>3. {t("AboutPage_memories_text2")}</p>
+                  <p className={scss.memories_text}>4. {t("AboutPage_memories_text3")}</p>
+                  <p className={scss.memories_text_result}>{t("AboutPage_memories_text_result1")}</p>
               </div>
             </div>
             <Partners/>

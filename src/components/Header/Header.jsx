@@ -7,8 +7,12 @@ import linkedin_logo from '../../images/linkedin.svg';
 import Logo from 'components/Logo/Logo';
 import { IoMdMenu } from "react-icons/io";
 import { MdClose } from "react-icons/md";
+import i18next from 'i18next';
+import { LOCALS } from 'i18n/constants';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isOpenMenu, setOpenMenu] = useState(false);
   const menuRef = useRef(null); 
 
@@ -63,9 +67,9 @@ const Header = () => {
       <div className={scss.background_container_header}>
         <div className={scss.container_header}>
           <div className={scss.links_support}>
-            <NavLink to="/request" className={scss.support_link} onClick={scrollToTop}>ЗАПРОСИТИ ДОПОМОГУ</NavLink>
+            <NavLink to="/request" className={scss.support_link} onClick={scrollToTop}>{t("Header_support_link")}</NavLink>
             <span className={scss.text}>/</span>
-            <NavLink to="/offer" className={scss.request_link} onClick={scrollToTop}>НАДАТИ ДОПОМОГУ</NavLink>
+            <NavLink to="/offer" className={scss.request_link} onClick={scrollToTop}>{t("Header_request_link")}</NavLink>
           </div>
           <div className={scss.links_social}>
             <Link className={scss.social_logos} to="https://www.instagram.com/unity.horizon/">
@@ -86,46 +90,54 @@ const Header = () => {
             <div className={scss.wrapper}>
               <div className={scss.navigation}>
                   <NavLink to="/" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      ГОЛОВНА
+                      {t("Header_navigation_item")}
                   </NavLink>
                   <NavLink to="/about" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      ПРО ФОНД
+                      {t("Header_navigation_item1")}
                   </NavLink>
                   <NavLink to="/news" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      НОВИНИ
+                      {t("Header_navigation_item2")}
                   </NavLink>
                   <NavLink to="/contacts" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      КОНТАКТИ
+                      {t("Header_navigation_item3")}
                   </NavLink>
                   <NavLink to="/documents" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      ДОКУМЕНТИ
+                      {t("Header_navigation_item4")}
                   </NavLink>
                   <NavLink to="/bankdetails" className={({isActive}) => isActive ? scss.navigation_item_active : scss.navigation_item} onClick={scrollToTop}>
-                      РЕКВІЗИТИ
+                      {t("Header_navigation_item5")}
                   </NavLink>
               </div>
               <div className={scss.language_container}>
-                    <NavLink to="/" className={scss.language_item_current}>
-                        UA
-                    </NavLink>
-                    <NavLink to="/" className={scss.language_item}>
-                        EN
-                    </NavLink>
+                    <button 
+                      type='button' 
+                      className={i18next.language=== LOCALS.UK ? (scss.language_item_current) : (scss.language_item)} 
+                      onClick={() => {
+                        i18next.changeLanguage(LOCALS.UK)
+                      }}
+                    >UA</button>
+                    <button 
+                      type='button' 
+                      className={i18next.language === LOCALS.EN ? (scss.language_item_current) : (scss.language_item)} 
+                      onClick={() => {
+                        i18next.changeLanguage(LOCALS.EN)
+                      }}
+                    >EN</button>
               </div>
               <IoMdMenu className={scss.menu_icon} onClick={openMenu}/>
               <div className={isOpenMenu ? scss.mobile_menu_active : scss.mobile_menu} ref={menuRef}>
                     <MdClose className={scss.icon_close} onClick={closeMenu}/>
                     <div className={scss.mobile_navigation}>
-                      <NavLink to="/" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Головна</NavLink>
-                      <NavLink to="/about" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Про фонд</NavLink>
-                      <NavLink to="/news" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Новини</NavLink>
-                      <NavLink to="/contacts" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Контакти</NavLink>
-                      <NavLink to="/documents" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>Документи</NavLink>
-                      <NavLink to="/bankdetails" className={scss.mobile_navigation_item } onClick={scrollToTopMobile}>Реквізити</NavLink>
+                      <NavLink to="/" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>{t("Header_navigation_item")}</NavLink>
+                      <NavLink to="/about" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>{t("Header_navigation_item1")}</NavLink>
+                      <NavLink to="/news" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>{t("Header_navigation_item2")}</NavLink>
+                      <NavLink to="/contacts" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>{t("Header_navigation_item3")}</NavLink>
+                      <NavLink to="/documents" className={scss.mobile_navigation_item} onClick={scrollToTopMobile}>{t("Header_navigation_item4")}</NavLink>
+                      <NavLink to="/bankdetails" className={scss.mobile_navigation_item } onClick={scrollToTopMobile}>{t("Header_navigation_item5")}</NavLink>
                     </div>
                     <div className={scss.mobile_buttons}>
-                        <NavLink to="/request" className={scss.mobile_request_link} onClick={scrollToTopMobile}>ЗАПРОСИТИ ДОПОМОГУ</NavLink>
-                        <NavLink to="/offer" className={scss.mobile_support_link} onClick={scrollToTopMobile}>НАДАТИ ДОПОМОГУ</NavLink>
+                        <NavLink to="/request" className={scss.mobile_request_link} onClick={scrollToTopMobile}>{t("Header_support_link")}</NavLink>
+                        <NavLink to="/offer" className={scss.mobile_support_link} onClick={scrollToTopMobile}>{t("Header_request_link")}</NavLink>
                     </div>
               </div>
             </div>

@@ -5,9 +5,10 @@ import { Link, NavLink } from 'react-router-dom';
 import instagram_logo from '../../images/instagram.svg';
 import facebook_logo from '../../images/facebook.svg';
 import linkedin_logo from '../../images/linkedin.svg';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-
+  const { t } = useTranslation();
   const todayDate = new Date();
   const currentYear = todayDate.getFullYear();
 
@@ -30,20 +31,20 @@ const Footer = () => {
             </div>
             <div className={scss.info_container}>
               <div className={scss.contacts_container}>
-                <p className={scss.contacts_item}>Адреса</p>
-                <address className={scss.address}>Україна, 09801, Київська обл., Білоцерківський р-н, місто Тетіїв, вул.Центральна, будинок 105А</address>
-                <p className={scss.VAT_number}>ЄДРПОУ: 45502942</p>
-                <p className={scss.contacts_item}>Електронна пошта:</p>
+                <p className={scss.contacts_item}>{t("Footer_contacts_item")}</p>
+                <address className={scss.address}>{t("Footer_contacts_address")}</address>
+                <p className={scss.VAT_number}>{t("Footer_VAT_number")}: 45502942</p>
+                <p className={scss.contacts_item}>{t("Footer_contacts_item1")}</p>
                 <p className={scss.link_container}>
                   <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com">unityhorizon@gmail.com</a>
                 </p>
-                <p className={scss.contacts_item}>Телефон:</p>
+                <p className={scss.contacts_item}>{t("Footer_contacts_item2")}</p>
                 <p className={scss.link_container}>
                   <a className={scss.contacts_link} href="tel:+380937038008">+38 (093) 703 80 08</a>
                 </p>
               </div>
               <div className={scss.links_social}>
-                <span className={scss.social_title}>Соціальні мережі</span>
+                <span className={scss.social_title}>{t("Footer_contacts_item3")}</span>
                 <div className={scss.links_container}>
                   <Link to="https://www.instagram.com/unity.horizon/">
                     <img src={instagram_logo} alt='instagram_logo' className={scss.social_logos}/>

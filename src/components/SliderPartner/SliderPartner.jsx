@@ -6,8 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import CustomSlide from './CustomSlide/CustomSlide';
 import SliderButtonNext from './SliderButtons/SliderButtonNext';
 import SliderButtonPrev from './SliderButtons/SliderButtonPrev';
+import { useTranslation } from 'react-i18next';
 
 const SliderPartner = ({sliderImages}) => {
+  const { t } = useTranslation();
   
   const settings = {
       dots: false,
@@ -38,7 +40,7 @@ const SliderPartner = ({sliderImages}) => {
         {Object.keys(sliderImages).length !== 0 && (        
         <div className={scss.container}>
           <div className={scss.title_container}>
-              <span className={scss.title}>Наші партнери</span>
+              <span className={scss.title}>{t("SliderPartner_title")}</span>
           </div>
           <div className={scss.slider_container}>
               <Slider {...settings}>

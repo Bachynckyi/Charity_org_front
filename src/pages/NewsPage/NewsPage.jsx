@@ -7,12 +7,16 @@ import { NavLink } from 'react-router-dom';
 import { LoaderContainer, loader } from "react-global-loader";
 import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 const NewsPage = () => {
+  const [language, setLanguage] = useState(i18next.language);
   const dispatch = useDispatch();
   const [request, setRequest] = useState([]);
   const [loading, setLoading] = useState(false); 
   const [skip, setSkip] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
   loader.show();
@@ -29,11 +33,16 @@ const NewsPage = () => {
       })
   }, [dispatch, skip]);
 
+  useEffect(() => {
+    setLanguage(i18next.language);
+    // eslint-disable-next-line 
+  },[i18next.language])
+
   const newsItem = request.map((item) => (
     <NavLink to={`/news/${item._id}`} key={item._id} className={scss.news_item}>
       <img src={item.image} alt="news" className={scss.photo}/>
       <div className={scss.description_container}>
-            <span className={scss.description}>{item.title_UKR}</span>
+            <span className={scss.description}>{language === "uk" ? (item.title_UKR) : (item.title_ENG)}</span>
             <div className={scss.date_container}>
                 <span className={scss.date}>{item.date.split(",")[0]}</span>
                   <img src={arrow_link} alt='arrow_link' className={scss.arrow_image}/>
@@ -49,7 +58,7 @@ const NewsPage = () => {
       </LoaderContainer>
       <div className ={scss.container}>
         <div className={scss.title_container}>
-            <span className={scss.title}>Новини</span>
+            <span className={scss.title}>{t("News")}</span>
         </div>
         {loading !== true && (
             <motion.div
@@ -62,7 +71,12 @@ const NewsPage = () => {
                   {newsItem}
                 </ul>
                 ) : (<div className={scss.wrapper}></div>)}
-              {Number.isInteger(Object.keys(request).length/10) && <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>Показати більше</button> }
+
+              {Number.isInteger(Object.keys(request).length/10) && 
+              <div className={scss.button_wrapper}>
+                <button type="button" className={scss.button} onClick={() => setSkip(skip + 10)}>Показати більше</button>
+              </div>
+              }
             </motion.div>
         )}
       </div>

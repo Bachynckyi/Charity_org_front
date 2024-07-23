@@ -5,8 +5,10 @@ import {newRequestPartner} from '../../redux/partners/partners-operations';
 import iconfail from '../../images/icon_fail_yellow.svg';
 import GlobalLoader from '../GlobalLoader/GlobalLoader';
 import { LoaderContainer, loader } from "react-global-loader";
+import { useTranslation } from 'react-i18next';
 
 const Partners = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [dispatchingStatus, setDispatchingStatus] = useState(null);
   const [request, setRequest] = useState({
@@ -57,8 +59,8 @@ const Partners = () => {
       <div className={scss.background_container}>
     <div className={scss.container}>
       <div className={scss.become_partner}>
-          <span className={scss.become_title}>Стати партнером</span>
-          <span className={scss.text}>Допомагай ЗСУ. Зроби внесок у перемогу, ти зможеш внести частку у перемогу. Пора приймати рішення !</span>
+          <span className={scss.become_title}>{t("Partners_become_title")}</span>
+          <span className={scss.text}>{t("Partners_text")}</span>
             {dispatchingStatus === null ? (
               <form className={scss.form} onSubmit={submitForm}>
                 <input 
@@ -67,7 +69,7 @@ const Partners = () => {
                   id='name'
                   name='name'
                   minLength="3"
-                  placeholder="Ваше ім'я *"
+                  placeholder={t("Partners_input")}
                   value={request.name}
                   onChange={handleChange}
                   type='text'
@@ -78,7 +80,7 @@ const Partners = () => {
                   required
                   id='phone'
                   name='phone'
-                  placeholder="Телефон *"
+                  placeholder={t("Partners_input1")}
                   value={request.phone}
                   onChange={handleChange}
                   type='tel'
@@ -90,33 +92,33 @@ const Partners = () => {
                   required
                   id='email'
                   name='email'
-                  placeholder="Електронна пошта *"
+                  placeholder={t("Partners_input2")}
                   value={request.email}
                   onChange={handleChange}
                   type='email'
                   autoComplete='off'
                 />
-                <button type='submit' className={scss.button_submit}>Відправити форму</button>
+                <button type='submit' className={scss.button_submit}>{t("Partners_button_submit")}</button>
               </form>
             ) : 
             (<>
               {dispatchingStatus === 201 ? (
                 <div className={scss.request_container}>
-                    <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                    <span className={scss.request_text}>{t("Partners_request_text")}</span>
                 </div>
               ) : (
                 <div className={scss.request_container_fail} onClick={refresh}>
                     <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
-                    <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span>
+                    <span className={scss.request_text}>{t("Partners_request_text1")}</span>
                 </div>
               )}
               </>)}
-          <span className={scss.info}>Якщо ви хочете зв’язатись з нами іншим способом, напишіть нам на 
+          <span className={scss.info}>{t("Partners_info")} 
             <a className={scss.contacts_link} href="mailto:unityhorizon@gmail.com"> unityhorizon@gmail.com</a>
           </span>
       </div>
     </div>
-      </div>
+    </div>
     </>
   );
 };

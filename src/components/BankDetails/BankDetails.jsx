@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import scss from "./BankDetails.module.scss";
+import scss from "./BankDetails.module.scss"
+import { useTranslation } from 'react-i18next';
 
 const bankDetailsInfo = {
     "UAH": {
@@ -35,6 +36,7 @@ const bankDetailsInfo = {
 };
 
 const BankDetails = () => {
+  const { t } = useTranslation();
   const [currency, setCurrency] = useState("UAH");
   const [details, setDetails] = useState({
     "IBAN": "UA00 0000 0000 0000 0000 0000 0000 0",
@@ -49,7 +51,7 @@ const BankDetails = () => {
 
   return (
     <div className={scss.container}>
-        <span className={scss.title}>Для оплати за реквізитами:</span>
+        <span className={scss.title}></span>
         <div className={scss.input_container}>
             <label className={scss.input_option} htmlFor="UAH"> 
                 <input
@@ -129,7 +131,7 @@ const BankDetails = () => {
             {currency === "UAH" ? (
                 <>
                 <p className={scss.details_name_IBAN}>IBAN {details.IBAN}</p>
-                <p className={scss.details_name_VAT}>ЄРДПОУ {details.VAT}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_details_name_VAT")} {details.VAT}</p>
                 </>
             ) : (
                 <>
@@ -140,14 +142,14 @@ const BankDetails = () => {
             )}
         </div>
         <div className={scss.name_container}>
-            <span className={scss.name_company}>Найменування українською мовою (для переказів всередині країни) — БФ «МІЖНАРОДНИЙ БЛАГОДІЙНИЙ ФОНД ГОРИЗОНТ ЄДНОСТІ»</span>
+            <span className={scss.name_company}>{t("BankDetails_name_company")} — БФ «МІЖНАРОДНИЙ БЛАГОДІЙНИЙ ФОНД ГОРИЗОНТ ЄДНОСТІ»</span>
             <span className={scss.name_company_attribute}>Name of Company for transfers from abroad – CHARITABLE FOUNDATION «INTERNATIONAL CHARITABLE FOUNDATION UNITY HORIZON»</span>
             <span className={scss.name_company_attribute}>
                 Bank of Beneficiary (for everything) 
                 <p className={scss.name_company_bank}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
             </span>
         </div>
-        <span className={scss.name_text}>ДЯКУЄМО КОЖНОМУ НЕБАЙДУЖОМУ!</span>
+        <span className={scss.name_text}>{t("BankDetails_name_text")}</span>
     </div>
   );
 };

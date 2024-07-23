@@ -7,6 +7,7 @@ import { LoaderContainer, loader } from "react-global-loader";
 import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { motion } from 'framer-motion';
+import i18next from 'i18next';
 
 const OneNewsPage = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const OneNewsPage = () => {
   const newsId = useParams();
   const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(false);
+  const [language, setLanguage] = useState(i18next.language);
 
   useEffect(() => {
     loader.show();
@@ -41,6 +43,12 @@ const OneNewsPage = () => {
 // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    setLanguage(i18next.language);
+    // eslint-disable-next-line 
+  },[i18next.language])
+  
+
   return (
     <>
       <LoaderContainer>
@@ -58,11 +66,11 @@ const OneNewsPage = () => {
             exit={{opacity: 0}}>
                 {Object.keys(request).length !== 0 && ( 
                   <div className ={scss.container}>
-                      <h1 className={scss.title}>{request.title_UKR}</h1>
+                      <h1 className={scss.title}>{language === "uk" ? (request.title_UKR) : (request.title_ENG)}</h1>
                       <span className={scss.date}>{request.date.split(",")[0]}</span>
                       <div className={scss.wrapper}>
                           <img src={request.image} alt="news" className={scss.photo}/>
-                          <span className={scss.text}>{request.text_UKR}</span>
+                          <span className={scss.text}>{language === "uk" ? (request.text_UKR) : (request.text_ENG)}</span>
                       </div>
                   </div>
               )}

@@ -5,8 +5,10 @@ import {newRequestFeedback} from '../../redux/feedback/feedback-operations';
 import iconfail from '../../images/icon_fail_blue.svg';
 import GlobalLoader from '../GlobalLoader/GlobalLoader';
 import { LoaderContainer, loader } from "react-global-loader";
+import { useTranslation } from 'react-i18next';
 
 const ContactForm = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const [dispatchingStatus, setDispatchingStatus] = useState(null);
 
@@ -58,12 +60,12 @@ const ContactForm = () => {
             <GlobalLoader/>
         </LoaderContainer>
         <form className={scss.form} onSubmit={submitForm}>
-            <span className={scss.form_title}>Зв’яжіться з нами</span>
+            <span className={scss.form_title}>{t("ContactForm_form_title")}</span>
             <input 
                 className={scss.input}
                 required
                 id='name'
-                placeholder="Ваше ім'я *"
+                placeholder={t("ContactForm_input")}
                 name='name'
                 minLength="3"
                 value={request.name}
@@ -75,7 +77,7 @@ const ContactForm = () => {
                 className={scss.input}
                 required
                 id='phone'
-                placeholder="Телефон *"
+                placeholder={t("ContactForm_input1")}
                 name='phone'
                 value={request.phone}
                 onChange={handleChange}
@@ -86,7 +88,7 @@ const ContactForm = () => {
             <input 
                 className={scss.input}
                 id='email'
-                placeholder="Електронна пошта *"
+                placeholder={t("ContactForm_input2")}
                 name='email'
                 value={request.email}
                 onChange={handleChange}
@@ -96,7 +98,7 @@ const ContactForm = () => {
             <textarea
                 id='comments'
                 type='text'
-                placeholder='Текст повідомлення...'
+                placeholder={t("ContactForm_textarea")}
                 className={scss.textarea}
                 name='comments'
                 value={request.comments}
@@ -104,14 +106,14 @@ const ContactForm = () => {
                 autoComplete='off'
             ></textarea>
             {dispatchingStatus === null ? 
-                (<button type='submit' className={scss.button_submit}>Відправити</button>) :
+                (<button type='submit' className={scss.button_submit}>{t("ContactForm_button_submit")}</button>) :
                 (<>
                     {dispatchingStatus === 201 ?
-                    (<p className={scss.succesfull_request}>Дякуємо ! Вашу заявку успішно відправлено</p>) 
+                    (<p className={scss.succesfull_request}>{t("ContactForm_succesfull_request")}</p>) 
                     :
                     (<div className={scss.error_message}>
                         <img src={iconfail} alt="icon_fail" className={scss.icon_fail}/>
-                        <span>Помилка ! Спробуйте ще раз</span>
+                        <span>{t("ContactForm_error_message")}</span>
                     </div>)}
                 </>)
             }

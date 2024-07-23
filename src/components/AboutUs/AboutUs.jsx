@@ -2,8 +2,10 @@ import React from 'react';
 import scss from './AboutUs.module.scss';
 import { NavLink } from 'react-router-dom';
 import union from '../../images/Union_yellow.png';
+import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
+  const { t } = useTranslation();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -16,20 +18,20 @@ const AboutUs = () => {
   return (
     <div className={scss.container}>
         <div className={scss.description}>
-          <h1 className={scss.title}>Про фонд</h1>
+          <h1 className={scss.title}>{t("AboutUs_title")}</h1>
           <div className={scss.paragraphs}>
             <img src={union} alt="union" className={scss.union}/>
-            <span className={scss.text}>БФ Unity Horizon - це неприбуткова організація, заснована з метою подолання складних викликів, з якими стикаються військові та цивільні в умовах війни. Від допомоги у цей важкий час до створення можливостей для зростання і розвитку - ми присвячені тому, щоб допомагати людям будувати краще майбутнє.</span>
-            <span className={scss.text}>Наша команда здійснює широкий спектр благодійних програм, спрямованих на різноманітні виклики війни: допомога військовим, людям, які постраждали від війни, підтримка освітніх проектів та різноманітних ініціатив, спрямованих на розвиток нашого суспільства.</span>
-            <span className={scss.text}>Об'єднавши відданих та пристрасних волонтерів - ми  працюємо на кожному рівні, щоб допомогти захистити державність то свободу України</span>
+            <span className={scss.text}>{t("AboutUs_text")}</span>
+            <span className={scss.text}>{t("AboutUs_text1")}</span>
+            <span className={scss.text}>{t("AboutUs_text2")}</span>
           </div>
         </div>
         <div className={scss.links_container}>
           <NavLink to="/offer" className={scss.support_link} onClick={scrollToTop}>
-            Підтримати
+            {t("AboutUs_support_link")}
           </NavLink>
           <NavLink to="/about" className={scss.read_link} onClick={scrollToTop}>
-            Читати про фонд
+            {t("AboutUs_read_link")}
           </NavLink>
         </div>
     </div>

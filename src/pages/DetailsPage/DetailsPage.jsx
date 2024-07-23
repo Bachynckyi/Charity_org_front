@@ -2,8 +2,10 @@ import React  from 'react';
 import scss from "./DetailsPage.module.scss";
 import BankDetails from 'components/BankDetails/BankDetails';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const DetailsPage = () => {
+  const { t } = useTranslation();
 
   return (
     <motion.div
@@ -13,7 +15,7 @@ const DetailsPage = () => {
     exit={{opacity: 0}}>
       <div className={scss.container}>
           <div className={scss.title_container}>
-            <span className={scss.title}>Реквізити</span>
+            <span className={scss.title}>{t("DetailsPage_title")}</span>
           </div>
           <div className={scss.bank_details_container}>
             <BankDetails/>
