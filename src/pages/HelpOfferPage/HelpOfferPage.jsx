@@ -7,11 +7,13 @@ import OfferPartner from 'components/OfferPartner/OfferPartner';
 import { useDispatch } from 'react-redux';
 import { getMonoLink } from '../../redux/data/data-operations';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const HelpOfferPage = () => {
     const [typeHelp, setTypeHelp] = useState("payment");
     const [monoLink, SetMonoLink] = useState("");
     const dispatch = useDispatch();
+    const { t } = useTranslation();
 
     useEffect(() => {
         dispatch(getMonoLink())
@@ -30,10 +32,10 @@ const HelpOfferPage = () => {
         exit={{opacity: 0}}>
             <div className={scss.container}>
                 <div className={scss.title_container}>
-                    <h1 className={scss.title}>Надати допомогу</h1>
+                    <h1 className={scss.title}>{t("HelpOfferPage_title")}</h1>
                 </div>
                 <div className={scss.wrapper}>
-                    <span className={scss.form_title}>Оберіть вид допомоги</span>
+                    <span className={scss.form_title}>{t("HelpOfferPage_form_title")}</span>
                     <div className={scss.form_selector}>
                             <label className={scss.input_option} htmlFor="payment"> 
                             <input
@@ -46,7 +48,7 @@ const HelpOfferPage = () => {
                                 onChange={onChange}
                             />
                             <span className={scss.custom_button}></span>
-                            <span className={scss.input_name}>Здійснити грошову допомогу</span>
+                            <span className={scss.input_name}>{t("HelpOfferPage_input_name")}</span>
                             </label>
                             <label className={scss.input_option} htmlFor="becomePartner"> 
                                 <input
@@ -58,7 +60,7 @@ const HelpOfferPage = () => {
                                     onChange={onChange}
                                 />
                                 <span className={scss.custom_button}></span>
-                                <span className={scss.input_name}>Запропонувати партнерство</span>
+                                <span className={scss.input_name}>{t("HelpOfferPage_input_name1")}</span>
                             </label>
                             <label className={scss.input_option} htmlFor="otherHelp"> 
                                 <input
@@ -70,10 +72,10 @@ const HelpOfferPage = () => {
                                     onChange={onChange}
                                 />
                                 <span className={scss.custom_button}></span>
-                                <span className={scss.input_name}>Запропонувати іншу допомогу</span>
+                                <span className={scss.input_name}>{t("HelpOfferPage_input_name2")}</span>
                             </label>
                     </div>
-                    {monoLink.length !== 0 && (<Link className={scss.link_mono} to={monoLink} target='_blank'>МОНОБАНКА</Link>)}
+                    {monoLink.length !== 0 && (<Link className={scss.link_mono} to={monoLink} target='_blank'>{t("HelpOfferPage_link_mono")}</Link>)}
                     {typeHelp === "payment" && (<BankDetails/>)}
                     {typeHelp === "becomePartner" && (<OfferPartner/>)}
                     {typeHelp === "otherHelp" && (<ContactForm/>)}

@@ -116,7 +116,47 @@ export const uk = {
     "Header_navigation_item4": "ДОКУМЕНТИ",
     "Header_navigation_item5": "РЕКВІЗИТИ",
 
-    
+    // HelpOfferPage
+    "HelpOfferPage_title": "Надати допомогу",
+    "HelpOfferPage_form_title": "Оберіть вид допомоги",
+    "HelpOfferPage_link_mono": "МОНОБАНКА",
+    "HelpOfferPage_input_name": "Здійснити грошову допомогу",
+    "HelpOfferPage_input_name1": "Запропонувати партнерство",
+    "HelpOfferPage_input_name2": "Запропонувати іншу допомогу",
+
+    //HelpOffer
+    "HelpOffer_form_input_name": "Назва організіції",
+    "HelpOffer_form_input": "Введіть назву організації, яка запрошує допомогу",
+    "HelpOffer_form_input_name1": "Контактна особа",
+    "HelpOffer_form_input1": "Введіть ПІБ особи, яка запрошує допомогу/уповноважена запросити допомогу",
+    "HelpOffer_form_input_name2": "Електрона пошта",
+    "HelpOffer_form_input2": "Введіть електрону пошту для подальшого зв'язку",
+    "HelpOffer_form_input_name3": "Номер телефону",
+    "HelpOffer_form_input3": "Введіть номер телефону для подальшого зв'язку",
+    "HelpOffer_form_input_name4": "Населений пункт",
+    "HelpOffer_form_input4": "Введіть назву міста з якого відбувається запит на допомогу або актуальне місцезнаходження",
+    "HelpOffer_form_input_name5": "Опис проблеми",
+    "HelpOffer_form_input5": "Опишіть проблему, з метою подолання якої ви звернулися до фонду",
+    "HelpOffer_form_input_name6": "Необхідна допомога",
+    "HelpOffer_form_input6": "Опишіть, що вам необхідно для подолання проблеми",
+    "HelpOffer_form_checkbox_text": "Я даю згоду на обробку моїх персональних данних",
+    "HelpOffer_button_submit": "Відправити форму",
+    "HelpOffer_request_text": "Дякуємо ! Вашу заявку успішно відправлено",
+    "HelpOffer_request_text1": "Помилка ! Спробуйте ще раз",
+
+    // HelpRequest
+    "HelpRequest_title": "Запросити допомогу",
+    "HelpRequest_form_title": "Оберіть ким ви є",
+    "HelpRequest_input_name": "Фізична особа",
+    "HelpRequest_input_name1": "Організація",
+
+    // Uploader
+    "Uploader_failure": "Файл з таким ім'ям вже доданий",
+    "Uploader_failure1": "Розмір файлу перевищує 5 МБ",
+    "Uploader_button_input_file": "Завантажити файл",
+    "Uploader_text": "Допустимі формати файлів:",
+    "Uploader_text1": "Максимальний розмір файлу:",
+    "Uploader_text2": "Максимальна кількість файлів до завантаження:",
 
 
 

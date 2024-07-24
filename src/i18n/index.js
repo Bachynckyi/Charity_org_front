@@ -11,7 +11,10 @@ const resources = {
   },
   [LOCALS.UK]: {
     translation: uk
-  }
+  },
+  [LOCALS.RU]: {
+    translation: uk
+  },
 };
 
 i18n
@@ -20,7 +23,7 @@ i18n
   .init({
     resources,
     fallbackLng: LOCALS.EN,
-    lng: "uk",
+    // lng: "uk",
     interpolation: {
       escapeValue: false
     },

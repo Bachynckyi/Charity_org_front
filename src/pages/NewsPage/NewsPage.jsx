@@ -29,7 +29,7 @@ const NewsPage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 1200);
+        }, 500);
       })
   }, [dispatch, skip]);
 

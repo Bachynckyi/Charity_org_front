@@ -29,7 +29,7 @@ const OneNewsPage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 1000);
+        }, 500);
         }
         else {
           setRequest(response.payload);

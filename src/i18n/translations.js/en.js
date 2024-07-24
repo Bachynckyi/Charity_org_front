@@ -117,7 +117,47 @@ export const en = {
     "Header_navigation_item4": "DOCUMENTS",
     "Header_navigation_item5": "REQUISITES",
 
+    // HelpOfferPage
+    "HelpOfferPage_title": "To help",
+    "HelpOfferPage_form_title": "Choose the type of help",
+    "HelpOfferPage_link_mono": "MONOBANK",
+    "HelpOfferPage_input_name": "Financial aid",
+    "HelpOfferPage_input_name1": "Propose partnership",
+    "HelpOfferPage_input_name2": "Offer different type of help",
 
+    //HelpOffer
+    "HelpOffer_form_input_name": "Name of the organization",
+    "HelpOffer_form_input": "Enter the name of the organization that requires help",
+    "HelpOffer_form_input_name1": "Contact person",
+    "HelpOffer_form_input1": "Enter the full name of a person, who is requesting help/is authorized to request help on one’s behalf",
+    "HelpOffer_form_input_name2": "E-mail address",
+    "HelpOffer_form_input2": "Enter e-mail address for further contact",
+    "HelpOffer_form_input_name3": "Phone number",
+    "HelpOffer_form_input3": "Enter phone number for further contact",
+    "HelpOffer_form_input_name4": "Administrative unit",
+    "HelpOffer_form_input4": "Enter the name of a settlement from which the request is made or enter your current location",
+    "HelpOffer_form_input_name5": "Problem description",
+    "HelpOffer_form_input5": "Describe the problem for which the request is made",
+    "HelpOffer_form_input_name6": "Necessary help",
+    "HelpOffer_form_input6": "Enter the name of a settlement from which the request is made or enter your current location",
+    "HelpOffer_form_checkbox_text": "I consent to the processing of my personal data",
+    "HelpOffer_button_submit": "Submit form",
+    "HelpOffer_request_text": "Thank you! Your request has been successfully sent",
+    "HelpOffer_request_text1": "Error! Try again",
+
+    // HelpRquest
+    "HelpRequest_title": "Ask for help",
+    "HelpRequest_form_title": "Choose your legal status",
+    "HelpRequest_input_name": "Private person",
+    "HelpRequest_input_name1": "Legal entity",
+
+    // Uploader
+    "Uploader_failure": "The file with that name has already been added",
+    "Uploader_failure1": "File size exceeds 5 MB",
+    "Uploader_button_input_file": "Upload files",
+    "Uploader_text": "Accepted file formats: ",
+    "Uploader_text1": "Maximum file size: ",
+    "Uploader_text2": "Maximum number of files for upload: ",
 
 
 

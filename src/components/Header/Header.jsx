@@ -10,7 +10,9 @@ import { MdClose } from "react-icons/md";
 import i18next from 'i18next';
 import { LOCALS } from 'i18n/constants';
 import { useTranslation } from 'react-i18next';
-import "../../i18n"
+import "../../i18n";
+import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
+import { LoaderContainer, loader } from "react-global-loader";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -63,7 +65,18 @@ const Header = () => {
     setOpenMenu(false);
   };
 
+  const changeLanguage = () => {
+    loader.show();
+    setTimeout(() => {
+      loader.hide();
+    }, 1000);
+  };
+
   return (
+    <>
+    <LoaderContainer backgroundColor="#fff">
+      <GlobalLoader/>
+    </LoaderContainer>
     <div className={scss.container}>
       <div className={scss.background_container_header}>
         <div className={scss.container_header}>
@@ -112,16 +125,18 @@ const Header = () => {
               <div className={scss.language_container}>
                     <button 
                       type='button' 
-                      className={i18next.language=== LOCALS.UK ? (scss.language_item_current) : (scss.language_item)} 
+                      className={i18next.language === LOCALS.UK || i18next.language === "ru" ? (scss.language_item_current) : (scss.language_item)} 
                       onClick={() => {
-                        i18next.changeLanguage(LOCALS.UK)
+                        changeLanguage();
+                        i18next.changeLanguage(LOCALS.UK);
                       }}
                     >UA</button>
                     <button 
                       type='button' 
-                      className={i18next.language === LOCALS.EN ? (scss.language_item_current) : (scss.language_item)} 
+                      className={i18next.language !== LOCALS.UK && i18next.language !== "ru" ? (scss.language_item_current) : (scss.language_item)} 
                       onClick={() => {
-                        i18next.changeLanguage(LOCALS.EN)
+                        changeLanguage();
+                        i18next.changeLanguage(LOCALS.EN);
                       }}
                     >EN</button>
               </div>
@@ -145,6 +160,7 @@ const Header = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

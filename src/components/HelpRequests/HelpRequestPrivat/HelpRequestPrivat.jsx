@@ -8,6 +8,7 @@ import iconfail from '../../../images/icon_fail_blue.svg';
 import { Link } from 'react-router-dom';
 import GlobalLoader from '../../GlobalLoader/GlobalLoader';
 import { LoaderContainer, loader } from "react-global-loader";
+import { useTranslation } from 'react-i18next';
 
 const initialState = {
     name: "",
@@ -20,6 +21,7 @@ const initialState = {
 };
 
 const HelpRequestIndividual = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const [data, setData] = useState({...initialState});
     const [files, setFiles] = useState([]);
@@ -94,12 +96,12 @@ const HelpRequestIndividual = () => {
             <form className={scss.form_container} onSubmit={onSubmitForm}>
                 <div className={scss.form_individual}>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Контактна особа</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name1")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='name'
-                            placeholder="Введіть ПІБ особи, яка запрошує допомогу/уповноважена запросити допомогу"
+                            placeholder={t("HelpOffer_form_input1")}
                             name='name'
                             minLength="3"
                             type='text'
@@ -109,12 +111,12 @@ const HelpRequestIndividual = () => {
                         />
                     </label>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Електрона пошта</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name2")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='email'
-                            placeholder="Введіть електрону пошту для подальшого зв'язку"
+                            placeholder={t("HelpOffer_form_input2")}
                             name='email'
                             type='email'
                             autoComplete='off'
@@ -123,12 +125,12 @@ const HelpRequestIndividual = () => {
                         />
                     </label>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Номер телефону</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name3")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='phone'
-                            placeholder="Введіть номер телефону для подальшого зв'язку"
+                            placeholder={t("HelpOffer_form_input3")}
                             name='phone'
                             minLength="7"
                             type='tel'
@@ -138,12 +140,12 @@ const HelpRequestIndividual = () => {
                         />
                     </label>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Населений пункт</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name4")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='location'
-                            placeholder="Введіть назву міста з якого відбувається запит на допомогу або актуальне місцезнаходження"
+                            placeholder={t("HelpOffer_form_input4")}
                             name='location'
                             minLength="2"
                             type='text'
@@ -153,12 +155,12 @@ const HelpRequestIndividual = () => {
                         />
                     </label>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Опис проблеми</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name5")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='reason'
-                            placeholder="Опишіть проблему, з метою подолання якої ви звернулися до фонду"
+                            placeholder={t("HelpOffer_form_input5")}
                             name='reason'
                             minLength="3"
                             type='text'
@@ -168,12 +170,12 @@ const HelpRequestIndividual = () => {
                         />
                     </label>
                     <label className={scss.form_label}>
-                        <span className={scss.form_input_name}>Необхідна допомога</span>
+                        <span className={scss.form_input_name}>{t("HelpOffer_form_input_name6")}</span>
                         <input 
                             className={scss.form_input}
                             required
                             id='help'
-                            placeholder="Опишіть, що вам необхідно для подолання проблеми"
+                            placeholder={t("HelpOffer_form_input6")}
                             name='help'
                             minLength="3"
                             type='text'
@@ -201,20 +203,20 @@ const HelpRequestIndividual = () => {
                         />
                         <span className={scss.form_input_checkbox_custom}></span>
                     </label>
-                    <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>Я даю згоду на обробку моїх персональних данних</Link>
+                    <Link className={scss.form_checkbox_text} to="/privacy" onClick={scrollToTop}>{t("HelpOffer_form_checkbox_text")}</Link>
                 </div>
                     {dispatchingStatus === null ? 
-                        (<button type='submit' className={scss.button_submit}>Відправити форму</button>)
+                        (<button type='submit' className={scss.button_submit}>{t("HelpOffer_button_submit")}</button>)
                     :
                     (<>
                         {dispatchingStatus === 201 ? 
                             (<div className={scss.request_container}>
-                                <span className={scss.request_text}>Дякуємо ! Вашу заявку успішно відправлено</span>
+                                <span className={scss.request_text}>{t("HelpOffer_request_text")}</span>
                             </div>) 
                         : (
                             <div className={scss.request_container_fail}>
                                 <img src={iconfail} alt="icon-fail" className={scss.icon_fail}/>
-                                <span className={scss.request_text}>Помилка ! Спробуйте ще раз</span>
+                                <span className={scss.request_text}>{t("HelpOffer_request_text1")}</span>
                             </div>)}
                     </>)}
             </form>
