@@ -11,13 +11,13 @@ import i18next from 'i18next';
 import { LOCALS } from 'i18n/constants';
 import { useTranslation } from 'react-i18next';
 import "../../i18n";
-import GlobalLoader from '../../components/GlobalLoader/GlobalLoader';
-import { LoaderContainer, loader } from "react-global-loader";
+import { ThreeDots } from 'react-loader-spinner';
 
 const Header = () => {
   const { t } = useTranslation();
   const [isOpenMenu, setOpenMenu] = useState(false);
-  const menuRef = useRef(null); 
+  const menuRef = useRef(null);
+  const [loading, setLoading ] = useState(false);
 
   const useClickOutside = (ref, callback) => {
     const handleClick = (e) => {
@@ -66,17 +66,26 @@ const Header = () => {
   };
 
   const changeLanguage = () => {
-    loader.show();
+    setLoading(true);
     setTimeout(() => {
-      loader.hide();
+      setLoading(false);
     }, 1000);
   };
 
   return (
     <>
-    <LoaderContainer backgroundColor="#fff">
-      <GlobalLoader/>
-    </LoaderContainer>
+    {loading === true && (
+      <div className={scss.loader_container}>
+        <ThreeDots
+        height="110" 
+        width="110" 
+        radius="9"
+        color="#FC0" 
+        ariaLabel="three-dots-loading"
+        visible={true}
+        />
+      </div>
+    )}
     <div className={scss.container}>
       <div className={scss.background_container_header}>
         <div className={scss.container_header}>

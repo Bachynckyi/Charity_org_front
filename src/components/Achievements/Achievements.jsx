@@ -13,10 +13,17 @@ const Achievements = ({achievements}) => {
     // eslint-disable-next-line 
   },[i18next.language])
 
-  const achievementItem = achievements.map((item) => (
+  const achievementItemUKR = achievements.map((item) => (
     <li className={scss.achievement_item} key={item._id}>
       <span className={scss.achievement_box}>{item.text}</span>
-      <span className={scss.achievement_text}>{language === "uk" ? (item.titleUKR) : (item.titleENG)}</span>
+      <span className={scss.achievement_text}>{item.titleUKR}</span>
+    </li>
+  ));
+
+  const achievementItemENG = achievements.map((item) => (
+    <li className={scss.achievement_item} key={item._id}>
+      <span className={scss.achievement_box}>{item.text}</span>
+      <span className={scss.achievement_text}>{item.titleENG}</span>
     </li>
   ));
 
@@ -28,7 +35,7 @@ const Achievements = ({achievements}) => {
           <img src={union} alt="union" className={scss.union}/>
           <span className={scss.title}>{t("Achievements_title")}</span>
           <ul className={scss.achievements_list}>
-              {achievementItem}
+              {language === "uk" || language === "ru" ? (achievementItemUKR) : (achievementItemENG)}
           </ul>   
         </div>
       </div>

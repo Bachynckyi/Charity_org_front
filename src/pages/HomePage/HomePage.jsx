@@ -39,7 +39,7 @@ const HomePage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 500);
+        }, 800);
       });
       // eslint-disable-next-line
   }, []);

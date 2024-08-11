@@ -156,8 +156,8 @@ export const en = {
     "Uploader_failure1": "File size exceeds 5 MB",
     "Uploader_button_input_file": "Upload files",
     "Uploader_text": "Accepted file formats: ",
-    "Uploader_text1": "Maximum file size: ",
-    "Uploader_text2": "Maximum number of files for upload: ",
+    "Uploader_text1": "Maximum file size: 5 MB",
+    "Uploader_text2": "Maximum number of files for upload: 10 pcs",
 
 
 

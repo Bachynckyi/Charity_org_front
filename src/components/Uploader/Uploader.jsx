@@ -37,8 +37,8 @@ const Uploader = ({files, setFiles}) => {
             />
             <div className={scss.text_container}>
                 <p className={scss.text}>{t("Uploader_text")} PNG, JPEG, JPG, DOC, PDF, DOCX, XLSX, XLS</p>
-                <p className={scss.text}>{t("Uploader_text1")} 5 МБ</p>
-                <p className={scss.text}>{t("Uploader_text2")} 10 шт</p>
+                <p className={scss.text}>{t("Uploader_text1")}</p>
+                <p className={scss.text}>{t("Uploader_text2")}</p>
             </div>
         </div>
     );

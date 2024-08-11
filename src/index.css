@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+
 @font-face {
   font-family: 'OpenSans_Condensed-Bold';
   src: url(./fonts/OpenSans_Condensed-Bold.woff2) format('woff2');

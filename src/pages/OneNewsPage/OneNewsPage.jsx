@@ -29,7 +29,7 @@ const OneNewsPage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 500);
+        }, 800);
         }
         else {
           setRequest(response.payload);
@@ -37,18 +37,18 @@ const OneNewsPage = () => {
             setLoading(false);
             document.body.style.overflowY = 'scroll';
             loader.hide();
-          }, 1000);
+          }, 800);
         }
         });
 // eslint-disable-next-line
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
+    console.log(language)
     setLanguage(i18next.language);
     // eslint-disable-next-line 
   },[i18next.language])
   
-
   return (
     <>
       <LoaderContainer>

@@ -29,11 +29,12 @@ const NewsPage = () => {
           setLoading(false);
           document.body.style.overflowY = 'scroll';
           loader.hide();
-        }, 500);
+        }, 800);
       })
   }, [dispatch, skip]);
 
   useEffect(() => {
+    console.log(language)
     setLanguage(i18next.language);
     // eslint-disable-next-line 
   },[i18next.language])

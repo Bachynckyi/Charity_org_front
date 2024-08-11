@@ -6,13 +6,13 @@ import { uk } from "./translations.js/uk";
 import { en } from "./translations.js/en";
 
 const resources = {
-  [LOCALS.EN]: {
+  "en": {
     translation: en
   },
-  [LOCALS.UK]: {
+  "uk": {
     translation: uk
   },
-  [LOCALS.RU]: {
+  "ru": {
     translation: uk
   },
 };
@@ -22,8 +22,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    fallbackLng: LOCALS.EN,
-    // lng: "uk",
+    fallbackLng: LOCALS.UK,
     interpolation: {
       escapeValue: false
     },

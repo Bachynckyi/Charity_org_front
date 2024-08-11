@@ -88,7 +88,7 @@ const HelpRequestOrganization = () => {
           left: 0,
           behavior: "smooth",
         });
-      };
+    };
 
     return (
         <>
