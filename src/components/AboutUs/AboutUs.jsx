@@ -1,7 +1,6 @@
 import React from 'react';
 import scss from './AboutUs.module.scss';
 import { NavLink } from 'react-router-dom';
-import union from '../../images/Union_yellow.png';
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
@@ -20,7 +19,7 @@ const AboutUs = () => {
         <div className={scss.description}>
           <h1 className={scss.title}>{t("AboutUs_title")}</h1>
           <div className={scss.paragraphs}>
-            <img src={union} alt="union" className={scss.union}/>
+            <span className={scss.union}></span>
             <span className={scss.text}>{t("AboutUs_text")}</span>
             <span className={scss.text}>{t("AboutUs_text1")}</span>
             <span className={scss.text}>{t("AboutUs_text2")}</span>

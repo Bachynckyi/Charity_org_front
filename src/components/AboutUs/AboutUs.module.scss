@@ -165,7 +165,9 @@
     right: -25px;
     z-index: 2;
     user-select: none;
-
+    background-image: url("../../images/Union_yellow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
     
     @media screen and (min-width: 1024px) {
         display: flex;

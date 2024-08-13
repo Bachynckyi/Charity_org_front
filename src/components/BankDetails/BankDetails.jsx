@@ -4,34 +4,24 @@ import { useTranslation } from 'react-i18next';
 
 const bankDetailsInfo = {
     "UAH": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 0",
-        "VAT": " 00000000",
+        "IBAN": "UA 36 325365 0000000260080054194",
+        "VAT": " 45502942",
     },
 
     "USD": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 1",
+        "IBAN": "UA 54 325365 0000000260050054195",
         "account": "000-0000-001",
         "code": " xxxxxxxx1",
     },
     "EUR": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 2",
+        "IBAN": "UA 72 325365 0000000260020054196",
         "account": "000-0000-002",
         "code": " xxxxxxxx2",
     },
-    "GBP": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 3",
-        "account": "000-0000-003",
-        "code": " xxxxxxxx3",
-    },
     "PLN": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 4",
+        "IBAN": "UA 55 325365 0000000260060054198",
         "account": "000-0000-004",
         "code": " xxxxxxxx4",
-    },
-    "CAD": {
-        "IBAN": "UA00 0000 0000 0000 0000 0000 0000 5",
-        "account": "000-0000-005",
-        "code": " xxxxxxxx6",
     },
 };
 
@@ -90,18 +80,6 @@ const BankDetails = () => {
                 <span className={scss.custom_button}></span>
                 <span className={scss.input_name}>EUR</span>
             </label>
-            <label className={scss.input_option} htmlFor="GBP"> 
-                <input
-                    className={scss.radio_button}
-                    type="radio"
-                    id="GBP"
-                    name="currency"
-                    value="GBP"
-                    onChange={onChange}
-                />
-                <span className={scss.custom_button}></span>
-                <span className={scss.input_name}>GBP</span>
-            </label>
             <label className={scss.input_option} htmlFor="PLN"> 
                 <input
                     className={scss.radio_button}
@@ -113,18 +91,6 @@ const BankDetails = () => {
                 />
                 <span className={scss.custom_button}></span>
                 <span className={scss.input_name}>PLN</span>
-            </label>
-            <label className={scss.input_option} htmlFor="CAD"> 
-                <input
-                    className={scss.radio_button}
-                    type="radio"
-                    id="CAD"
-                    name="currency"
-                    value="CAD"
-                    onChange={onChange}
-                />
-                <span className={scss.custom_button}></span>
-                <span className={scss.input_name}>CAD</span>
             </label>
         </div>
         <div className={scss.details_wrapper}>
@@ -142,12 +108,12 @@ const BankDetails = () => {
             )}
         </div>
         <div className={scss.name_container}>
-            <span className={scss.name_company}>{t("BankDetails_name_company")} — БФ «МІЖНАРОДНИЙ БЛАГОДІЙНИЙ ФОНД ГОРИЗОНТ ЄДНОСТІ»</span>
-            <span className={scss.name_company_attribute}>Name of Company for transfers from abroad – CHARITABLE FOUNDATION «INTERNATIONAL CHARITABLE FOUNDATION UNITY HORIZON»</span>
-            <span className={scss.name_company_attribute}>
+            <span className={scss.name_company}>{t("BankDetails_name_company")} — БО «МБФ "ГОРИЗОНТ ЄДНОСТІ"»</span>
+            <span className={scss.name_company_attribute}>The Recipient – BO «MBF „HORYZONT YEDNOSTI“»</span>
+            {/* <span className={scss.name_company_attribute}>
                 Bank of Beneficiary (for everything) 
                 <p className={scss.name_company_bank}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            </span>
+            </span> */}
         </div>
         <span className={scss.name_text}>{t("BankDetails_name_text")}</span>
     </div>

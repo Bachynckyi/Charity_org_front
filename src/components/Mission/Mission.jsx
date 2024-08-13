@@ -1,8 +1,6 @@
 import React from 'react';
 import scss from './Mission.module.scss';
 import photo_team from '../../images/Photo_team.jpg';
-import union from '../../images/Union_yellow.png';
-import ellipse_1 from '../../images/ellipse_1.png';
 import { useTranslation } from 'react-i18next';
 
 const Mission = () => {
@@ -18,12 +16,13 @@ const Mission = () => {
           </div>
           <div className={scss.photo_container}>
               <img src={photo_team} alt="photo_team" className={scss.photo}/>
-              <img src={union} alt="union" className={scss.union}/>
-              <img src={union} alt="union_tranform" className={scss.union_tranform}/>
+              <span className={scss.union}></span>
+              <span className={scss.union_tranform}></span>
           </div>
         </div>
       </div>
-      <img src={ellipse_1} alt="ellipse_1" className={scss.ellipse_1}/>
+      <span className={scss.ellipse_1}></span>
+      {/* <img src={ellipse_1} alt="ellipse_1" className={scss.ellipse_1}/> */}
     </div>
 
   );

@@ -34,7 +34,6 @@ const NewsPage = () => {
   }, [dispatch, skip]);
 
   useEffect(() => {
-    console.log(language)
     setLanguage(i18next.language);
     // eslint-disable-next-line 
   },[i18next.language])
@@ -43,7 +42,7 @@ const NewsPage = () => {
     <NavLink to={`/news/${item._id}`} key={item._id} className={scss.news_item}>
       <img src={item.image} alt="news" className={scss.photo}/>
       <div className={scss.description_container}>
-            <span className={scss.description}>{language === "uk" ? (item.title_UKR) : (item.title_ENG)}</span>
+            <span className={scss.description}>{language === "uk" || language === "ru" ? (item.title_UKR) : (item.title_ENG)}</span>
             <div className={scss.date_container}>
                 <span className={scss.date}>{item.date.split(",")[0]}</span>
                   <img src={arrow_link} alt='arrow_link' className={scss.arrow_image}/>

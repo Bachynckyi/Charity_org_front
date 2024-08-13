@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { LOCALS } from "./constants";
 import { uk } from "./translations.js/uk";
 import { en } from "./translations.js/en";
 
@@ -22,7 +21,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    fallbackLng: LOCALS.UK,
+    fallbackLng: "en",
     interpolation: {
       escapeValue: false
     },

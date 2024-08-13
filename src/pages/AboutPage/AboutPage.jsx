@@ -2,14 +2,10 @@ import React from 'react';
 import scss from './AboutPage.module.scss';
 import Partners from 'components/Partners/Partners';
 import photo_team from '../../images/Photo_team.jpg';
-import union_blue from '../../images/Union_blue.png';
-import union_yellow from '../../images/Union_yellow.png'
-import ellipse from '../../images/ellipse_2.png';
 import phone from '../../images/phone.svg';
 import handshake from '../../images/handshake.svg';
 import star from '../../images/star.svg';
 import person_add from '../../images/person_add.svg';
-import stamp from '../../images/stamp_image.png';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -79,10 +75,10 @@ const AboutPage = () => {
             <div className={scss.memories_container}>
               <div className={scss.memories_container_photo}>
                 <img src={photo_team} alt='photo_team' className={scss.photo_team}/>
-                <img src={union_blue} alt='union_blue' className={scss.union_blue_bottom}/>
-                <img src={union_blue} alt='union_blue' className={scss.union_blue_top}/>
-                <img src={union_yellow} alt='union_yellow' className={scss.union_yellow_bottom}/>
-                <img src={union_yellow} alt='union_yellow' className={scss.union_yellow_top}/>
+                <span className={scss.union_blue_bottom}></span>
+                <span className={scss.union_blue_top}></span>
+                <span className={scss.union_yellow_bottom}></span>
+                <span className={scss.union_yellow_top}></span>
               </div>
               <div className={scss.memories_container_text}>
                   <p className={scss.memories_text_result}>{t("AboutPage_memories_text_result")}</p>
@@ -95,8 +91,8 @@ const AboutPage = () => {
             </div>
             <Partners/>
           </div>
-          <img src={stamp} alt="stamp" className={scss.image_stamp}/>
-          <img src={ellipse} alt="ellipse" className={scss.image_ellipse}/>
+          <span className={scss.image_stamp}></span>
+          <span className={scss.image_ellipse}></span>
       </div>
     </motion.div>
   )

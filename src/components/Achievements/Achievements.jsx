@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import scss from './Achievements.module.scss';
-import union from '../../images/Union_yellow.png';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
@@ -32,7 +31,7 @@ const Achievements = ({achievements}) => {
       {Object.keys(achievements).length !== 0 && (
         <div className={scss.background_container}>
         <div className={scss.container}>
-          <img src={union} alt="union" className={scss.union}/>
+          <span className={scss.union}></span>
           <span className={scss.title}>{t("Achievements_title")}</span>
           <ul className={scss.achievements_list}>
               {language === "uk" || language === "ru" ? (achievementItemUKR) : (achievementItemENG)}

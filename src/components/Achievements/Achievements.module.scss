@@ -7,7 +7,6 @@
     align-items: center;
 };
 
-
 .container {
     position: relative;
     width: 100vw;
@@ -123,6 +122,9 @@
     height: 80px;
     top: -65px;
     left: 132px;
+    background-image: url("../../images/Union_yellow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 
     @media screen and (min-width: 1024px) {
         display: flex;
