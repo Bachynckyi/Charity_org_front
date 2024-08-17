@@ -5,38 +5,40 @@ import { useTranslation } from 'react-i18next';
 const bankDetailsInfo = {
     "UAH": {
         "IBAN": "UA 36 325365 0000000260080054194",
-        "VAT": " 45502942",
+        "VAT": "45502942",
     },
 
     "USD": {
         "IBAN": "UA 54 325365 0000000260050054195",
-        "account": "000-0000-001",
-        "code": " xxxxxxxx1",
+        "account1": "BANK OF NEW YORK MELLON, New York, USA",
+        "SWIFTcode1": "IRVTUS3N",
+        "account2": "RAIFFEISEN BANK INTERNATIONAL AG, VIENNA, AUSTRIA",
+        "SWIFTcode2": "RZBAATWW",
     },
     "EUR": {
         "IBAN": "UA 72 325365 0000000260020054196",
-        "account": "000-0000-002",
-        "code": " xxxxxxxx2",
+        "account1": "KBC BANK NV, Brussels, Belgium",
+        "SWIFTcode1": "KREDBEBB",
+        "account2": "COMMERZBANK AG, Frankfurt, Germany",
+        "SWIFTcode2": "COBADEFF",
+        "account3": "UNICREDIT SPA, Milano, Italy",
+        "SWIFTcode3": "UNCRITMM",
+        "account4": "RAIFFEISEN BANK INTERNATIONAL AG, Vienna, Austria",
+        "SWIFTcode4": "RZBAATWW",
     },
     "PLN": {
         "IBAN": "UA 55 325365 0000000260060054198",
-        "account": "000-0000-004",
-        "code": " xxxxxxxx4",
+        "account1": "POWSZECHNA KASA OSZCZEDNOSCI BANK POLSKI SA, WARSZAWA, POLAND ",
+        "SWIFTcode1": "BPKOPLPW",
     },
 };
 
 const BankDetails = () => {
   const { t } = useTranslation();
   const [currency, setCurrency] = useState("UAH");
-  const [details, setDetails] = useState({
-    "IBAN": "UA00 0000 0000 0000 0000 0000 0000 0",
-    "VAT": " 00000000",
-  });
 
   const onChange = (event) => {
-    setCurrency(event.target.value)
-    const currentBankDetails = bankDetailsInfo[event.target.value]
-    setDetails(currentBankDetails)
+    setCurrency(event.target.value);
   };
 
   return (
@@ -96,24 +98,39 @@ const BankDetails = () => {
         <div className={scss.details_wrapper}>
             {currency === "UAH" ? (
                 <>
-                <p className={scss.details_name_IBAN}>IBAN {details.IBAN}</p>
-                <p className={scss.details_name_VAT}>{t("BankDetails_details_name_VAT")} {details.VAT}</p>
+                <p className={scss.details_name_IBAN}>IBAN: {bankDetailsInfo[currency].IBAN}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_details_name_VAT")}: {bankDetailsInfo[currency].VAT}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_purpose")} Поповнення рахунку № UA 36 325365 0000000260080054194, БО "МБФ "Горизонт Єдності", 45502942</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_recipient")} БО "МБФ "Горизонт Єдності"</p>
                 </>
             ) : (
                 <>
-                <p className={scss.details_name_IBAN}>IBAN {details.IBAN}</p>
-                <p className={scss.details_name_account}>Correspondent Account {details.account}</p>
-                <p className={scss.details_name_code}>SWIFTcode: {details.code}</p>
+                <p className={scss.details_name_IBAN}>IBAN: {bankDetailsInfo[currency].IBAN}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")}</p>
+                <p className={scss.details_name_code}>SWIFT: WUCBUA2X</p>
+                <p className={scss.details_name_account}>{t("BankDetails_bank_intermediary")} {bankDetailsInfo[currency].account1}</p>
+                <p className={scss.details_name_account}>SWIFT: {bankDetailsInfo[currency].SWIFTcode1}</p>
+                {bankDetailsInfo[currency].account2 && (
+                    <>
+                        <p className={scss.details_name_account}>{t("BankDetails_bank_intermediary")} {bankDetailsInfo[currency].account2}</p>
+                        <p className={scss.details_name_account}>SWIFT: {bankDetailsInfo[currency].SWIFTcode2}</p>
+                    </>
+                )}
+                {bankDetailsInfo[currency].account3 && (
+                    <>
+                        <p className={scss.details_name_account}>{t("BankDetails_bank_intermediary")} {bankDetailsInfo[currency].account3}</p>
+                        <p className={scss.details_name_account}>SWIFT: {bankDetailsInfo[currency].SWIFTcode3}</p>
+                    </>
+                )}
+                {bankDetailsInfo[currency].account4 && (
+                    <>
+                        <p className={scss.details_name_account}>{t("BankDetails_bank_intermediary")} {bankDetailsInfo[currency].account4}</p>
+                        <p className={scss.details_name_account}>SWIFT: {bankDetailsInfo[currency].SWIFTcode4}</p>
+                    </>
+                )}
                 </>
             )}
-        </div>
-        <div className={scss.name_container}>
-            <span className={scss.name_company}>{t("BankDetails_name_company")} — БО «МБФ "ГОРИЗОНТ ЄДНОСТІ"»</span>
-            <span className={scss.name_company_attribute}>The Recipient – BO «MBF „HORYZONT YEDNOSTI“»</span>
-            {/* <span className={scss.name_company_attribute}>
-                Bank of Beneficiary (for everything) 
-                <p className={scss.name_company_bank}>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            </span> */}
         </div>
         <span className={scss.name_text}>{t("BankDetails_name_text")}</span>
     </div>

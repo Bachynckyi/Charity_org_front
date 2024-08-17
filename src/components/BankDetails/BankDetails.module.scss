@@ -111,7 +111,7 @@
 };
 
 .details_wrapper {
-    height: 160px;
+    height: 430px;
     position: relative;
 
     &::after {
@@ -120,17 +120,16 @@
         background-color: #FC0;
         width: 100%;
         height: 2px;
-        bottom: 0px;
+        bottom: -20px;
         left: 0px;
     };
 
     @media screen and (min-width: 390px) {
-        height: 180px;
+        height: 490px;
     };
 
     @media screen and (min-width: 768px) {
-        width: 487px;
-        height: 186px;
+        height: 510px;
     };
 };
 
@@ -174,82 +173,6 @@
     };
 };
 
-.name_container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-};
-
-.name_company {
-    margin-top: 40px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    @media screen and (min-width: 768px) {
-        margin-top: 22px;
-        font-size: 24px;
-    };
-
-    @media screen and (min-width: 1024px) {
-        width: 717px;
-    };
-};
-
-.name_company_attribute {
-    margin-top: 20px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    @media screen and (min-width: 768px) {
-        font-size: 24px;
-    };
-
-    @media screen and (min-width: 1024px) {
-        width: 717px;
-    };
-};
-
-.name_company_bank {
-    margin: 0px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    @media screen and (min-width: 390px) {
-        font-size: 16px;
-    };
-
-    @media screen and (min-width: 768px) {
-        font-size: 24px;
-    };
-}
-
-.name_text {
-    margin-top: 20px;
-    color: #000;
-    font-family: "OpenSans_Condensed-Regular";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    @media screen and (min-width: 768px) {
-        margin-top: 40px;
-        font-size: 24px;
-    };
-};
-
 .details_name_account {
     margin-top: 10px;
     margin-bottom: 0px;
@@ -285,6 +208,21 @@
     };
 
     @media screen and (min-width: 768px) {
+        font-size: 24px;
+    };
+};
+
+.name_text {
+    margin-top: 40px;
+    color: #000;
+    font-family: "OpenSans_Condensed-Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 40px;
         font-size: 24px;
     };
 };
