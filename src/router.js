@@ -25,8 +25,8 @@ const OneNewsPage = lazy(() => import('./pages/OneNewsPage/OneNewsPage'));
 const EditNewsList = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNewsList'));
 const EditNews = lazy(() => import('./pages/AdminPages/EditNewsPage/EditNews'));
 
-const UserRoutes = () => {
-  const location = useLocation();
+const UserRoutes = ({A}) => {
+  const location = useLocation();;
 
   return (
     <>
@@ -44,7 +44,7 @@ const UserRoutes = () => {
             <Route path='/request' element={<HelpRequestPage/>}/>
             <Route path='/offer' element={<HelpOfferPage/>}/>
             <Route path='/privacy' element={<PrivacyPage/>}/>
-            <Route path='/login' element={<LoginPage/>}/>
+            <Route path='/admlogin' element={<LoginPage/>}/>
             <Route path="*" element={<NotFoundPage/>}/>
             <Route element={<PrivateRoute/>}>
               <Route path="/admin/panel" element={<PanelPage/>}/>
