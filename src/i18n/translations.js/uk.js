@@ -68,7 +68,7 @@ export const uk = {
     "BankDetails_title": "Для оплати за реквізитами:",
     "BankDetails_details_name_VAT": "ЄРДПОУ",
     "BankDetails_name_text": "ДЯКУЄМО КОЖНОМУ НЕБАЙДУЖОМУ!",
-    "BankDetails_bank_name": 'Найменування банку:  АТ "КРЕДОБАНК"',
+    "BankDetails_bank_name": 'Найменування банку: ',
     "BankDetails_bank_purpose": "Призначення платежу:",
     "BankDetails_bank_recipient": "Отримувач:",
     "BankDetails_bank_intermediary": "Банк-посередник:",

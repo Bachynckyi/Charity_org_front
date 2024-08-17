@@ -100,14 +100,14 @@ const BankDetails = () => {
                 <>
                 <p className={scss.details_name_IBAN}>IBAN: {bankDetailsInfo[currency].IBAN}</p>
                 <p className={scss.details_name_VAT}>{t("BankDetails_details_name_VAT")}: {bankDetailsInfo[currency].VAT}</p>
-                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")} АТ "КРЕДОБАНК"</p>
                 <p className={scss.details_name_VAT}>{t("BankDetails_bank_purpose")} Поповнення рахунку № UA 36 325365 0000000260080054194, БО "МБФ "Горизонт Єдності", 45502942</p>
                 <p className={scss.details_name_VAT}>{t("BankDetails_bank_recipient")} БО "МБФ "Горизонт Єдності"</p>
                 </>
             ) : (
                 <>
                 <p className={scss.details_name_IBAN}>IBAN: {bankDetailsInfo[currency].IBAN}</p>
-                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")}</p>
+                <p className={scss.details_name_VAT}>{t("BankDetails_bank_name")} JSC KREDOBANK Lviv, Ukraine</p>
                 <p className={scss.details_name_code}>SWIFT: WUCBUA2X</p>
                 <p className={scss.details_name_account}>{t("BankDetails_bank_intermediary")} {bankDetailsInfo[currency].account1}</p>
                 <p className={scss.details_name_account}>SWIFT: {bankDetailsInfo[currency].SWIFTcode1}</p>

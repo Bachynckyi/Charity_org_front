@@ -111,7 +111,7 @@
 };
 
 .details_wrapper {
-    height: 430px;
+    height: 470px;
     position: relative;
 
     &::after {
@@ -125,7 +125,7 @@
     };
 
     @media screen and (min-width: 390px) {
-        height: 490px;
+        height: 550px;
     };
 
     @media screen and (min-width: 768px) {

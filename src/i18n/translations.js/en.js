@@ -67,7 +67,7 @@ export const en = {
     // BankDetails
     "BankDetails_details_name_VAT": "EDRPOU/USREOU",
     "BankDetails_name_text": "THANK YOU TO ALL THE INDIFFERENT!",
-    "BankDetails_bank_name": "The bank name: JSC KREDOBANK Lviv, Ukraine",
+    "BankDetails_bank_name": "The bank name: ",
     "BankDetails_bank_purpose": "Purpose of payment:",
     "BankDetails_bank_recipient": "The Recipient:",
     "BankDetails_bank_intermediary": "The Intermediary:",
